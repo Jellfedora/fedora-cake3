@@ -28,6 +28,7 @@ $cakeDescription = 'Valhalla';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('style.css') ?>
+    <?= $this->Html->css('fedora.css') ?>
     <?= $this->Html->css ('font-awesome-4.7.0/css/font-awesome.min'); ?>
 
     <?= $this->fetch('meta') ?>
@@ -55,6 +56,9 @@ $cakeDescription = 'Valhalla';
         ['confirm' => 'Etes vous sur de vouloir vous déconnecter?']
     );
 
+    if ($connected) {
+
+
     ?>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -81,6 +85,9 @@ $cakeDescription = 'Valhalla';
             </ul>
         </div>
     </nav>
+    <?php
+    }
+    ?>
 
     <?= $this->Flash->render() ?>
     <div class="container clearfix">

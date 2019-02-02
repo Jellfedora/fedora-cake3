@@ -60,14 +60,18 @@ class AppController extends Controller
             'unauthorizedRedirect' => $this->referer()
         ]);
 
-    // Permet à l'action "display" de notre PagesController de continuer
-    // à fonctionner. Autorise également les actions "read-only".
-        $this->Auth->allow(['display', 'view', 'index']);
+            // Permet à l'action "display" de notre PagesController de continuer
+            // à fonctionner. Autorise également les actions "read-only".
+            $connected = $this->request->session()->read('Auth.User.email');
+
+            if ($connected) {
+                $this->Auth->allow(['display', 'view', 'index']);
+            }
     }
 
     public function isAuthorized($user)
     {
     // Par défaut, on refuse l'accès.
-        return false;
+        return true;
     }
 }

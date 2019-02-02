@@ -11,6 +11,7 @@ class ArticlesController extends AppController
 
     public function initialize()
     {
+
         parent::initialize();
 
         $this->loadComponent('Paginator');
@@ -19,6 +20,10 @@ class ArticlesController extends AppController
 
     public function index()
     {
+        // if ($user) {
+        //     echo ('yo');
+        //     die;
+        // }
         $articles = $this->Paginator->paginate($this->Articles->find());
         $this->set(compact('articles'));
     }
@@ -101,7 +106,7 @@ class ArticlesController extends AppController
         $action = $this->request->getParam('action');
     // Les actions 'add' et 'tags' sont toujours autorisés pour les utilisateur
     // authentifiés sur l'application
-        if (in_array($action, ['add', 'tags'])) {
+        if (in_array($action, ['add','edit','delete','tags'])) {
             return true;
         }
 
