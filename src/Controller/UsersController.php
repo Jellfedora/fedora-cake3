@@ -120,7 +120,8 @@ class UsersController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->Auth->allow(['logout']);
+        //commentez ci dessous pour ajouter user
+         $this->Auth->allow(['logout']);
     }
 
     public function logout()
