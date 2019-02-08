@@ -28,21 +28,23 @@ $cakeDescription = 'Valhalla';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('style.css') ?>
-    <?= $this->Html->css('fedora.css') ?>
-    <?= $this->Html->css ('font-awesome-4.7.0/css/font-awesome.min'); ?>
+    <?= $this->Html->css ('font-awesome-4.7.0/css/font-awesome.min.css'); ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
+    <?= $this->Html->css('fedora.css') ?>
     <?= $this->Html->script('app') ?>
     <?= $this->Html->script('jquery-3.3.1.min') ?>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Récupére l'utilisateur connecté -->
-    <?php $connected = $this->request->session()->read('Auth.User.email');
+    <?php
+    $connected = $this->request->getSession()->read('Auth.User.username');
+    $avatar = $this->request->getSession()->read('Auth.User.avatar');
     $connexion = $this->Html->link(
         'Connexion',
         ['controller' => 'Users', 'action' => 'login'],
@@ -76,7 +78,7 @@ $cakeDescription = 'Valhalla';
                         ); ?>
                 </li>
                 <?php
-                if (!$this->request->session()->read('Auth')) {
+                if (!$this->request->getSession()->read('Auth')) {
                     echo ('<li class ="nav-item active">' . $connexion .'</li>');
                 }else {
                     echo ('<li class ="nav-item">' . $deconnexion . '</li>');
@@ -90,14 +92,16 @@ $cakeDescription = 'Valhalla';
     ?>
 
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <div class="text-dark text-center mt-1">
-        <?php
-        if ($this->request->session()->read('Auth')) {
-            echo 'Bienvenue ' . $connected;
-        }
-        ?>
+    <div class="text-light text-center bg-dark p-2">
+            <?php
+            if ($this->request->getSession()->read('Auth')) {
+                echo '<img class="avatar" src="'.$avatar.'" alt=""> <br>';
+                echo 'Bienvenue ' . $connected;
+            }
+            ?>
+
         </div>
+    <div class="container-fluid bg-light text-center">
         <?= $this->Flash->render() ?>
         <?= $this->fetch('content') ?>
     </div>

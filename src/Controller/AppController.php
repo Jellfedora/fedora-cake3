@@ -17,6 +17,9 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 
+use Cake\Core\Configure;
+
+Configure::write('DebugKit.forceEnable', true);
 /**
  * Application Controller
  *
@@ -62,7 +65,7 @@ class AppController extends Controller
 
             // Permet à l'action "display" de notre PagesController de continuer
             // à fonctionner. Autorise également les actions "read-only".
-            $connected = $this->request->session()->read('Auth.User.email');
+            $connected = $this->request->getSession()->read('Auth.User.email');
 
             if ($connected) {
                 $this->Auth->allow(['display', 'view', 'index']);

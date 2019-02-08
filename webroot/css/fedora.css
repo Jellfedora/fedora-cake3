@@ -1,3 +1,12 @@
 body {
-    background-image: url('http://www.ipersat.net/wp-content/uploads/2016/01/fond-ecran-space-65.jpg');
+    background-image: url('https://www.passion-radio.org/images-blog/fond-ecran-radio-amateur.jpg');
+}
+
+a {
+    color:black;
+}
+
+.avatar {
+    height: 5em;
+    width: 5em;
 }
