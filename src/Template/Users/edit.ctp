@@ -8,23 +8,26 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                __('Supprimer mon compte et toutes mes données définitivement'),
                 ['action' => 'delete', $user->id],
                 ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Articles'), ['controller' => 'Articles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Article'), ['controller' => 'Articles', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Liste de mes articles'), ['controller' => 'Articles', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Ecrire un nouvel article'), ['controller' => 'Articles', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Liste de mes recettes'), ['controller' => 'Recettes', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Ecrire une nouvelle recette'), ['controller' => 'Recettes', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="users form large-9 medium-8 columns content">
+<div class=" container-fluide text-center bg-light p-2 mt-1">
     <?= $this->Form->create($user) ?>
     <fieldset>
-        <legend><?= __('Edit User') ?></legend>
+        <legend><?= __('Modifier mes informations') ?></legend>
         <?php
             echo $this->Form->control('email');
             echo $this->Form->control('password');
+            echo $this->Form->control('username');
+            echo $this->Form->control('avatar');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -2,7 +2,6 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
 /**
  * Users Controller
  *
@@ -76,11 +75,10 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('Vos données ont bien été modifiés'));
+                return $this->redirect($this->referer());
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('Oups un probléme est arrivé'));
         }
         $this->set(compact('user'));
     }
@@ -111,7 +109,7 @@ class UsersController extends AppController
             $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl(array('controller'=>'Articles', 'action'=> 'index')));
+                return $this->redirect($this->Auth->redirectUrl(array('controller'=>'Pages', 'action'=> 'home')));
             }
             $this->Flash->error('Votre adresse mail ou votre mot de passe est incorrect.');
         }

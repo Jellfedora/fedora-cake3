@@ -18,8 +18,11 @@ use Cake\Controller\Controller;
 use Cake\Event\Event;
 
 use Cake\Core\Configure;
+use Cake\Cache\CacheEngine;
 
-Configure::write('DebugKit.forceEnable', true);
+//Affiche le debugkit
+//Configure::write('DebugKit.forceEnable', false);
+
 /**
  * Application Controller
  *

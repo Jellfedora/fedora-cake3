@@ -1,5 +1,7 @@
 body {
     background-image: url('https://www.passion-radio.org/images-blog/fond-ecran-radio-amateur.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 a {
@@ -9,4 +11,42 @@ a {
 .avatar {
     height: 5em;
     width: 5em;
+    margin-bottom: 0.5em;
+}
+
+.recettes {
+}
+
+.form-inputs {
+    width: 20em;
+    margin: 1em auto;
+}
+
+
+.portraits {
+    margin:1em;
+    padding: 1em;
+    border: 4px solid black;
+}
+
+.border-active {
+    border: 4px solid green;
+}
+
+.fight-avatar {
+    height: 200px;
+    width: 200px;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .fight-avatar {
+        height: 100px;
+        width: 100px;
+    }
+
+    .portraits {
+        margin: 0em;
+        padding: 0em;
+    }
 }

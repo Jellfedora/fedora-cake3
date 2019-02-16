@@ -12,7 +12,6 @@ class Article extends Entity
         'id' => false,
         'slug' => false,
     ];
-
     protected function _getTagString()
     {
         if (isset($this->_properties['tag_string'])) {

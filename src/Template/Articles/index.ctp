@@ -1,5 +1,14 @@
 
-<p><?= $this->Html->link("Ajouter un article", ['action' => 'add']) ?></p>
+<p><?= $this->Html->link(
+        $this->Html->tag(
+            'i',
+            '',
+            array('class' => 'fa fa-plus-circle fa-2 btn btn-dark mt-2')
+        ),
+        array('action' => 'add'),
+        array('escape' => false)
+    );
+    ?></p>
 <table>
     <tr>
         <th class="text-center">Titre</th>
@@ -36,7 +45,7 @@
                     ),
                     array('action' => 'delete', $article->slug),
                     array('escape' => false),
-                    array('confirm' => 'Êtes-vous sûr ?')
+                    array(['confirm' => 'Êtes-vous sûr ?'])
                 );
             ?>
         </td>
