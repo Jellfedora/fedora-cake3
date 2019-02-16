@@ -3,14 +3,28 @@
         <img class="fight-avatar" src="<?= $soldierOne->avatar ?>" alt="">
         <h2 id="playerName"><?= $soldierOne->name ?></h2>
         <p>Point de vie: <span id="j1-hp"><?= $soldierOne->hp ?></span></p>
+        <span id="j1initiaux-hp" class="d-none"><?= $soldierOne->hp ?></span>
+        <div class="player-one-hp progress-bar green">
+            <div class="player-one-hp-bar player-hp-bar"></div>
+        </div>
         <p>Attaque: <span id="j1-power"><?= $soldierOne->attaque ?></span></p>
         <p>Potion: <span id="j1-potion"><?= $soldierOne->potion ?></span></p>
     </div>
-        <img id="fight-logo" class="d-none" src="../webroot/img/logo-fight.png" alt="">
+
+    <img id="fight-logo" class="d-none" src="../webroot/img/logo-fight.png" alt="">
+
     <div class="portraits" id="player-two-portrait">
         <img class="fight-avatar" src="<?= $soldierTwo->avatar ?>" alt="">
         <h2 id="bossName"><?= $soldierTwo->name ?></h2>
         <p>Point de vie: <span id="j2-hp"><?= $soldierTwo->hp ?></span></p>
+        <span id="j2initiaux-hp" class="d-none"><?= $soldierTwo->hp ?></span>
+
+
+        <div class="player-two-hp progress-bar green">
+            <div class="player-two-hp-bar player-hp-bar"></div>
+        </div>
+
+
         <p>Attaque: <span id="j2-power"><?= $soldierTwo->attaque ?></span></p>
     </div>
 
@@ -22,7 +36,7 @@
     <span id="message"></span>
 </div>
 <div class="container-fluide text-center mt-5 text-dark bg-light">
-    <!-- <input class="btn btn-dark" id="j2-attaque" type="button" value="Attaquer <?= $soldierOne->name ?>"> -->
+    <input class="btn btn-dark" id="j2-attaque" type="button" value="Attaquer <?= $soldierOne->name ?>">
     <input class="btn btn-dark" id="j1-attaque" type="button" value="Attaquer">
     <input class="btn btn-dark" id="j1-use-potion" type="button" value="Potion de soin">
 </div>
