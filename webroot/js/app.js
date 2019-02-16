@@ -67,6 +67,8 @@ var app = {
                 playerOneLife = playerOneLife + potionHp;
                 $('#j1-potion').text(playerPotion);
                 $('#j1-hp').text(playerOneLife);
+                // TODO ajouter la barre de vie qui doit remonter
+
             }
         }
 
@@ -99,8 +101,12 @@ var app = {
                 // Barre de vie du joueur2
                 var playerTwoPourcentage = ((100 * playerTwovieRestante) / playerTwoLifeActuelle);
                 var playerTwoHpBar = 200 * (playerTwoPourcentage / 100);
-
                 $('.player-two-hp-bar').css({ width: playerTwoHpBar + 'px' });
+
+                // Si la vie est en dessous de 10%
+                if (playerTwoHpBar <= 20) {
+                    $('.player-two-hp-bar').css("background", "red");
+                }
 
                 // Si le coup vaut zéro le personnage perd de la vie
                 if (j1Atq === 0) {
@@ -115,6 +121,7 @@ var app = {
                     $('#j2-hp').text('0');
                     console.log(bossName + ' is dead');
                     $("#player-battle")[0].pause();
+                    $("#low-life")[0].pause();
                     $("#player-victory")[0].play();
                     clearInterval(time);
                 }
@@ -142,6 +149,12 @@ var app = {
                 var playerOneHpBar = 200 * (playerOnePourcentage / 100);
                 $('.player-one-hp-bar').css({ width: playerOneHpBar + 'px' });
 
+                // Si la vie est en dessous de 10%
+                if (playerOneHpBar <= 20) {
+                    $('.player-one-hp-bar').css("background", "red");
+                    $("#low-life")[0].play();
+                }
+
                 // Si le coup vaut zéro le personnage perd de la vie
                 if (j2Atq === 0) {
                     playerTwoLife = playerTwoLife - 3;
@@ -153,7 +166,9 @@ var app = {
                     $('#j1-hp').text('0');
                     console.log(playerName + ' is dead');
                     $("#player-battle")[0].pause();
+                    $("#low-life")[0].pause();
                     $("#game-over")[0].play();
+
                     clearInterval(time);
                 }
                 else {
@@ -186,6 +201,10 @@ var app = {
             var playerTwoHpBar = 200 * (playerTwoPourcentage / 100);
 
             $('.player-two-hp-bar').css({ width: playerTwoHpBar + 'px' });
+            // Si la vie est en dessous de 10%
+            if (playerTwoHpBar <= 20) {
+                $('.player-two-hp-bar').css("background", "red");
+            }
         });
 
 
@@ -209,6 +228,11 @@ var app = {
             var playerOneHpBar = 200*(pourcentage/100);
 
             $('.player-one-hp-bar').css({ width: playerOneHpBar + 'px' });
+            // Si la vie est en dessous de 10%
+            if (playerOneHpBar <= 20) {
+                $('.player-one-hp-bar').css( "background", "red" );
+                $("#low-life")[0].play();
+            }
         });
     }
 }

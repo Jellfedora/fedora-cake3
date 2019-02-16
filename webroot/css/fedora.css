@@ -1,6 +1,7 @@
 body {
-    background-image: url('https://www.passion-radio.org/images-blog/fond-ecran-radio-amateur.jpg');
+    background-image: url(../img/last-story.jpg);
     background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -9,8 +10,8 @@ a {
 }
 
 .avatar {
-    height: 5em;
-    width: 5em;
+    height: 2em;
+    width: 2em;
     margin-bottom: 0.5em;
 }
 

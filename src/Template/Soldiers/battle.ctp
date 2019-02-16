@@ -1,5 +1,5 @@
-<div class="container-fluide text-light bg-dark text-center d-flex justify-content-around mt-5">
-    <div class="portraits" id="player-one-portrait">
+<div class="container-fluide text-light  text-center d-flex justify-content-around mt-5">
+    <div class="portraits bg-dark" id="player-one-portrait">
         <img class="fight-avatar" src="<?= $soldierOne->avatar ?>" alt="">
         <h2 id="playerName"><?= $soldierOne->name ?></h2>
         <p>Point de vie: <span id="j1-hp"><?= $soldierOne->hp ?></span></p>
@@ -13,7 +13,7 @@
 
     <img id="fight-logo" class="d-none" src="../webroot/img/logo-fight.png" alt="">
 
-    <div class="portraits" id="player-two-portrait">
+    <div class="portraits bg-dark" id="player-two-portrait">
         <img class="fight-avatar" src="<?= $soldierTwo->avatar ?>" alt="">
         <h2 id="bossName"><?= $soldierTwo->name ?></h2>
         <p>Point de vie: <span id="j2-hp"><?= $soldierTwo->hp ?></span></p>
@@ -35,7 +35,7 @@
 <div class="container-fluide text-center text-danger">
     <span id="message"></span>
 </div>
-<div class="container-fluide text-center mt-5 text-dark bg-light">
+<div class="container-fluide text-center mt-5">
     <input class="btn btn-dark" id="j2-attaque" type="button" value="Attaquer <?= $soldierOne->name ?>">
     <input class="btn btn-dark" id="j1-attaque" type="button" value="Attaquer">
     <input class="btn btn-dark" id="j1-use-potion" type="button" value="Potion de soin">
@@ -47,6 +47,8 @@
     <button class="btn btn-secondary" id="sound-player">Couper le son</button>
 </div>
 
+<!-- Lecteurs audio -->
 <audio class="d-none audio-player" src="../webroot/files/battle-boss-ff8.mp3" controls id="player-battle"></audio>
 <audio class="d-none audio-player" src="../webroot/files/victory.mp3" controls id="player-victory"></audio>
 <audio class="d-none audio-player" src="../webroot/files/game-over.mp3" controls id="game-over"></audio>
+<audio class="d-none audio-player" src="../webroot/files/low-life-pokemon.mp3" controls id="low-life"></audio>

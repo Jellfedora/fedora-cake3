@@ -113,7 +113,7 @@ $cakeDescription = 'Valhalla';
     ?>
 
     <?= $this->Flash->render() ?>
-    <div class="text-light text-center bg-dark p-2">
+    <div class="text-light text-center bg-dark p-2 d-flex justify-content-end">
             <?php
             if ($this->request->getSession()->read('Auth')) {
                 echo '<img class="avatar" src="'.$avatar.'" alt=""> <br>';
@@ -123,7 +123,7 @@ $cakeDescription = 'Valhalla';
             ?>
 
         </div>
-    <div class="container bg-light">
+    <div class="container ">
         <?= $this->Flash->render() ?>
         <?= $this->fetch('content') ?>
     </div>
