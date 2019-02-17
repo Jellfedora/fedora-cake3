@@ -90,18 +90,8 @@ $cakeDescription = 'Valhalla';
                         'Les Boss',
                         ['controller' => 'Soldiers', 'action' => 'index'],
                         array('class' => 'nav-link text-light')
-                    ); ?>
-                <?php
-            }else {
-                ?>
-                    <?= $this->Html->link(
-                    'Connexion',
-                    ['controller' => 'Users', 'action' => 'login'],
-                    array('class' => 'nav-link text-light')
-                ); ?>
-                <?php
-            }
-            ?>
+                    );
+                }?>
 
         </div>
         <div class="menu__title text-center">
