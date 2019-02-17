@@ -70,7 +70,7 @@ class AppController extends Controller
             // à fonctionner. Autorise également les actions "read-only".
             $connected = $this->request->getSession()->read('Auth.User.email');
 
-            if ($connected) {
+            if (!$connected) {
                 $this->Auth->allow(['display', 'view', 'index']);
             }
     }

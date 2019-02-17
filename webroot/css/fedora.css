@@ -9,14 +9,23 @@ a {
     color:black;
 }
 
+/* Page d'accueil */
+
+.home {
+    margin: auto;
+}
+
+.home__presentation img{
+    height: 30em;
+}
+
 .avatar {
     height: 2em;
     width: 2em;
     margin-bottom: 0.5em;
 }
 
-.recettes {
-}
+
 
 .form-inputs {
     width: 20em;

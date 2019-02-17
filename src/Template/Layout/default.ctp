@@ -65,13 +65,17 @@ $cakeDescription = 'Valhalla';
         array('class' => 'nav-link text-light')
     );
 
-    if ($connected) {
+
 
 
     ?>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <h1><a class="navbar-brand text-light" href="./home"><?= $cakeDescription ?></a></h1>
+        <h1><?= $this->Html->link(
+            $cakeDescription ,
+                ['controller' => 'Pages', 'action' => 'display'],
+                array('class' => 'nav-link text-light')
+            ); ?></h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -79,18 +83,18 @@ $cakeDescription = 'Valhalla';
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <?= $this->Html->link(
-                        'Articles',
+                        'News',
                         ['controller' => 'Articles', 'action' => 'index'],
                         array('class' => 'nav-link text-light')
                         ); ?>
                 </li>
-                <li class="nav-item">
-                    <?= $this->Html->link(
-                        'Recettes',
-                        ['controller' => 'Recettes', 'action' => 'index'],
-                        array('class' => 'nav-link text-light')
-                    ); ?>
-                </li>
+                <?php
+                if (!$this->request->getSession()->read('Auth')) {
+                    echo ('<li class ="nav-item active">' . $connexion .'</li>');
+                }else {
+                    echo ('<li class ="nav-item">' . $deconnexion . '</li>');
+                }
+                 if ($connected) { ?>
                 <li class="nav-item">
                     <?= $this->Html->link(
                         'Combattants',
@@ -98,19 +102,23 @@ $cakeDescription = 'Valhalla';
                         array('class' => 'nav-link text-light')
                     ); ?>
                 </li>
+                <li class="nav-item">
+                    <?= $this->Html->link(
+                        'Aréne',
+                        ['controller' => 'Soldiers', 'action' => 'battle'],
+                        array('class' => 'nav-link text-light')
+                    ); ?>
+                </li>
                 <?php
-                if (!$this->request->getSession()->read('Auth')) {
-                    echo ('<li class ="nav-item active">' . $connexion .'</li>');
-                }else {
-                    echo ('<li class ="nav-item">' . $deconnexion . '</li>');
-                }?>
+
+
+            }
+            ?>
 
             </ul>
         </div>
     </nav>
-    <?php
-    }
-    ?>
+
 
     <?= $this->Flash->render() ?>
     <div class="text-light text-center bg-dark p-2 d-flex justify-content-end">
