@@ -14,7 +14,13 @@
         </div>
 
 
-        <p><img class="player-bar__icons" src="../webroot/img/icon-sword.png" alt=""> <span id="j2-power"><?= $soldierTwo->attaque ?></span></p>
+        <p>
+            <?= $this->Html->image('icon-sword.png',
+                array('class'=> 'player-bar__icons'),
+                array('alt' => "Texte alternatif"));
+            ?>
+             <span id="j2-power"><?= $soldierTwo->attaque ?></span>
+        </p>
     </div>
 
 <!-- <p><?= $this->Html->link('Attaquer '. $soldierTwo->name, ['action' => 'battle']) ?></p> -->
@@ -31,9 +37,33 @@
         <img class="player-bar__avatar" src="<?= $soldierOne->avatar ?>" alt="">
     </div>
     <div class="player-bar__stats text-center">
-        <p><img class="player-bar__icons" src="../webroot/img/icon-level.png" alt="">  1</span></p>
-        <p><img class="player-bar__icons" src="../webroot/img/icon-sword.png" alt="">  <span id="j1-power"><?= $soldierOne->attaque ?></span></p>
-        <p><img class="player-bar__icons" src="../webroot/img/icon-potion.png" alt="">  <span id="j1-potion"><?= $soldierOne->potion ?></span></p>
+        <p>
+            <?= $this->Html->image(
+                'icon-level.png',
+                array('class' => 'player-bar__icons'),
+                array('alt' => "Texte alternatif")
+            );
+            ?>
+             <span>  1</span>
+        </p>
+        <p>
+            <?= $this->Html->image(
+                'icon-sword.png',
+                array('class' => 'player-bar__icons'),
+                array('alt' => "Texte alternatif")
+            );
+            ?>
+             <span id="j1-power"><?= $soldierOne->attaque ?></span>
+        </p>
+        <p>
+            <?= $this->Html->image(
+                'icon-potion.png',
+                array('class' => 'player-bar__icons'),
+                array('alt' => "Texte alternatif")
+            );
+            ?>
+             <span id="j1-potion"><?= $soldierOne->potion ?></span>
+        </p>
     </div>
     <div class="player-bar__skills text-center">
         <input class="player-bar__skills__button" id="j2-attaque" type="button" value="Attaquer <?= $soldierOne->name ?>">
