@@ -95,33 +95,36 @@ $cakeDescription = 'Valhalla';
                         array('class' => 'nav-link text-light')
                         ); ?>
                 </li>
-                <?php
-                if (!$this->request->getSession()->read('Auth')) {
-                    echo ('<li class ="nav-item active">' . $connexion .'</li>');
-                }else {
-                    echo ('<li class ="nav-item">' . $deconnexion . '</li>');
-                }
-                 if ($connected) { ?>
                 <li class="nav-item">
+                <?php
+
+                 if ($connected) { ?>
                     <?= $this->Html->link(
                         'Fiches personnages',
                         ['controller' => 'Soldiers', 'action' => 'index'],
                         array('class' => 'nav-link text-light')
                     ); ?>
                 </li>
-                <li class="nav-item">
+                <li>
                     <?= $this->Html->link(
-                        'Aréne',
-                        ['controller' => 'Soldiers', 'action' => 'battle'],
+                        'Deconnexion',
+                        ['controller' => 'Users', 'action' => 'logout'],
                         array('class' => 'nav-link text-light')
                     ); ?>
                 </li>
                 <?php
-
-
+            }else {
+                ?>
+                <li class="nav-item">
+                    <?= $this->Html->link(
+                    'Connexion',
+                    ['controller' => 'Users', 'action' => 'login'],
+                    array('class' => 'nav-link text-light')
+                ); ?>
+                </li>
+                <?php
             }
             ?>
-
             </ul>
         </div>
     </nav>
