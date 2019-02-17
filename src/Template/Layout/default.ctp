@@ -70,77 +70,71 @@ $cakeDescription = 'Valhalla';
 
     ?>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <h1><?= $this->Html->link(
-            $cakeDescription ,
-                ['controller' => 'Pages', 'action' => 'display'],
-                array('class' => 'nav-link text-light')
-            ); ?></h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
+    <div class="menu text-light">
+        <div class="menu__links">
                     <?= $this->Html->link(
                         'Accueil',
                         ['controller' => 'Pages', 'action' => 'display'],
                         array('class' => 'nav-link text-light')
                     ); ?>
-                </li>
-                <li class="nav-item">
+
                     <?= $this->Html->link(
                         'News',
                         ['controller' => 'Articles', 'action' => 'index'],
                         array('class' => 'nav-link text-light')
                         ); ?>
-                </li>
-                <li class="nav-item">
                 <?php
 
                  if ($connected) { ?>
                     <?= $this->Html->link(
-                        'Fiches personnages',
+                        'Les Boss',
                         ['controller' => 'Soldiers', 'action' => 'index'],
                         array('class' => 'nav-link text-light')
                     ); ?>
-                </li>
-                <li>
-                    <?= $this->Html->link(
-                        'Deconnexion',
-                        ['controller' => 'Users', 'action' => 'logout'],
-                        array('class' => 'nav-link text-light')
-                    ); ?>
-                </li>
                 <?php
             }else {
                 ?>
-                <li class="nav-item">
                     <?= $this->Html->link(
                     'Connexion',
                     ['controller' => 'Users', 'action' => 'login'],
                     array('class' => 'nav-link text-light')
                 ); ?>
-                </li>
                 <?php
             }
             ?>
-            </ul>
-        </div>
-    </nav>
-
-
-    <?= $this->Flash->render() ?>
-    <div class="text-light text-center bg-dark p-2 d-flex justify-content-end">
-            <?php
-            if ($this->request->getSession()->read('Auth')) {
-                echo '<img class="avatar" src="'.$avatar.'" alt=""> <br>';
-                echo $edit_user;
-
-            }
-            ?>
 
         </div>
+        <div class="menu__title text-center">
+            <h1><?= $this->Html->link(
+                    $this->Html->image('logo-valhalla.png', array('alt' => "Logo Valhalla")),
+                    array('controller' => 'Pages', 'action' => "display"),
+                    array('escape' => false)
+                );
+                ?>
+            </h1>
+        </div>
+        <div class="menu__user d-flex justify-content-end">
+                <?php
+                if ($connected) {
+                    //echo '<img class="avatar" src="' . $avatar . '" alt="">';
+                    echo $edit_user;
+                    echo $this->Html->link ('Deconnexion',
+                        ['controller' => 'Users', 'action' => 'logout'],
+                        array ('class' => 'nav-link text-light'));
+                }else {
+                    echo $this->Html->link(
+                        'Connexion',
+                        ['controller' => 'Users', 'action' => 'login'],
+                        array('class' => 'nav-link text-light')
+                    );
+                }
+                ?>
+
+        </div>
+    </div>
+
+
+
     <div class=" ">
         <?= $this->Flash->render() ?>
         <?= $this->fetch('content') ?>

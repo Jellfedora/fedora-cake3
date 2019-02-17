@@ -3,9 +3,9 @@
     <!-- <img id="fight-logo" class="d-none" src="../webroot/img/logo-fight.png" alt=""> -->
 
     <div class="portraits bg-dark" id="player-two-portrait">
-        <img class="fight-avatar" src="<?= $soldierTwo->avatar ?>" alt="">
         <h2 id="bossName"><?= $soldierTwo->name ?></h2>
-        <p>Point de vie: <span id="j2-hp"><?= $soldierTwo->hp ?></span>/<span id="j2initiaux-hp"><?= $soldierTwo->hp ?></span></p>
+        <img class="fight-avatar mb-3" src="<?= $soldierTwo->avatar ?>" alt="">
+        <p><span id="j2-hp"><?= $soldierTwo->hp ?></span>/<span id="j2initiaux-hp"><?= $soldierTwo->hp ?></span></p>
 
 
 
@@ -44,7 +44,7 @@
                 array('alt' => "Texte alternatif")
             );
             ?>
-             <span>  1</span>
+            <span> 1</span>
         </p>
         <p>
             <?= $this->Html->image(
@@ -53,7 +53,7 @@
                 array('alt' => "Texte alternatif")
             );
             ?>
-             <span id="j1-power"><?= $soldierOne->attaque ?></span>
+            <span id="j1-power"><?= $soldierOne->attaque ?></span>
         </p>
         <p>
             <?= $this->Html->image(
@@ -62,7 +62,7 @@
                 array('alt' => "Texte alternatif")
             );
             ?>
-             <span id="j1-potion"><?= $soldierOne->potion ?></span>
+            <span id="j1-potion"><?= $soldierOne->potion ?></span>
         </p>
     </div>
     <div class="player-bar__skills text-center">
@@ -86,7 +86,7 @@
 
 
 <!-- Lecteurs audio -->
-<audio class="d-none audio-player" src="../webroot/files/battle-Two-steps-from-hell-victory.mp3" controls id="player-battle"></audio>
-<audio class="d-none audio-player" src="../webroot/files/victory.mp3" controls id="player-victory"></audio>
-<audio class="d-none audio-player" src="../webroot/files/game-over.mp3" controls id="game-over"></audio>
-<audio class="d-none audio-player" src="../webroot/files/low-life-pokemon.mp3" controls id="low-life"></audio>
+<audio class="d-none audio-player" src="../../webroot/files/battle-Two-steps-from-hell-victory.mp3" controls id="player-battle"></audio>
+<audio class="d-none audio-player" src="../../webroot/files/victory.mp3" controls id="player-victory"></audio>
+<audio class="d-none audio-player" src="../../webroot/files/game-over.mp3" controls id="game-over"></audio>
+<audio class="d-none audio-player" src="../../webroot/files/low-life-pokemon.mp3" controls id="low-life"></audio>

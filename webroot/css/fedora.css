@@ -1,12 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
 body {
     background-image: url(../img/art-nebula.png);
     /* background-size: cover; */
     background-repeat: no-repeat;
     background-position: center;
+    font-family: 'Press Start 2P',cursive;
+}
+
+h1 {
+    font-size: 1em;
+}
+
+h2 {
+    font-size: 0.9em;
 }
 
 a {
     color:black;
+    font-size: 0.7em;
+}
+
+/* Menu */
+
+.menu {
+    margin: 2em 10em;
+    margin-bottom: 3em;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #450000;
+    background-image: url(../img/akrino-nebula.jpg);
+    height: 4em;
+}
+
+.menu__links {
+    display: flex;
+    width: 30%;
+}
+
+.menu__links a {
+    margin: 1.2em;
+}
+
+.menu__links a:hover {
+    color: grey;
+}
+
+.menu__title {
+    flex: 1;
+}
+
+.menu__title img {
+    position: relative;
+    bottom: 2.5em;
+    height: 12em;
+}
+
+.menu__user {
+    width: 30%;
+    height: 100%;
+}
+
+.menu__user a {
+    margin: 1.2em;
 }
 
 /* Page d'accueil */
@@ -95,6 +151,7 @@ a {
     border: black solid 4px;
     display: flex;
     justify-content: space-between;
+    font-size: 0.7em;
 
 }
 .player-bar__avatar img{
