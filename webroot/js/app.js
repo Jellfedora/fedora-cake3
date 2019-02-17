@@ -15,9 +15,15 @@ var app = {
         var playerTwoLifeActuelle = parseInt($('#j2initiaux-hp').text());
 
 
+
         var playerOneLife = parseInt($('#j1-hp').text());
         var playerTwoLife = parseInt($('#j2-hp').text());
         //console.log(playerOneLife);
+
+        // Point de vie supérieur à 10%
+        var playerOne10Hp = playerOneLifeActuelle / 10;
+        var playerTwo10Hp = playerTwoLifeActuelle / 10;
+
 
 
 
@@ -69,12 +75,18 @@ var app = {
                 $('#j1-hp').text(playerOneLife);
                 // TODO ajouter la barre de vie qui doit remonter
 
+
             }
         }
 
         // Combat Automatique
 
             function joueur1Attaque() {
+                if (playerOneLife > playerOne10Hp) {
+                    console.log('hey');
+                    $('.player-one-hp-bar').css("background", "green");
+                }
+
                 // Point de vie restants
                 var playerOnedegat = playerOneLifeActuelle - playerOneLife;
                 var playerOnevieRestante = playerOneLifeActuelle - playerOnedegat;
@@ -82,7 +94,7 @@ var app = {
 
 
 
-                $('#player-one-portrait').addClass('border-active');
+                $('.player-bar').addClass('border-active');
                 $('#player-two-portrait').removeClass('border-active');
                 //console.log(playerName + ' attaque');
                 j1Atq = Math.round(Math.random() * (j1Power - 0) + 0);
@@ -131,8 +143,12 @@ var app = {
             }
 
             function joueur2Attaque() {
+                if (playerTwoLife > playerTwo10Hp) {
+                    console.log('hey');
+                    $('.player-two-hp-bar').css("background", "green");
+                }
 
-                $('#player-one-portrait').removeClass('border-active');
+                $('.player-bar').removeClass('border-active');
                 $('#player-two-portrait').addClass('border-active');
                 console.log(bossName + ' attaque');
                 j2Atq = Math.round(Math.random() * (j2Power - 0) + 0);
@@ -152,6 +168,7 @@ var app = {
                 // Si la vie est en dessous de 10%
                 if (playerOneHpBar <= 20) {
                     $('.player-one-hp-bar').css("background", "red");
+                    //$("#player-battle")[0].pause();
                     $("#low-life")[0].play();
                 }
 

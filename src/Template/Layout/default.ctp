@@ -123,7 +123,7 @@ $cakeDescription = 'Valhalla';
             ?>
 
         </div>
-    <div class="container ">
+    <div class=" ">
         <?= $this->Flash->render() ?>
         <?= $this->fetch('content') ?>
     </div>
