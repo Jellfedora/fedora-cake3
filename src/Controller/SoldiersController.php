@@ -27,14 +27,15 @@ class SoldiersController extends AppController
     {
 
         $soldierOne = $this->Soldiers->findBySlug('Jellfedora')->firstOrFail();
-        $soldierTwo = $this->Soldiers->findBySlug('Sephiroth')->firstOrFail();
+        //$soldierTwo = $this->Soldiers->findBySlug('Sephiroth')->firstOrFail();
+        $soldierTwo = $this->Soldiers->findBySlug('Scorpion')->firstOrFail();
 
 
-        $soldierOneHp = $soldierOne->hp;
-        $soldierOneAttaque = $soldierOne->attaque;
+        // $soldierOneHp = $soldierOne->hp;
+        // $soldierOneAttaque = $soldierOne->attaque;
 
-        $soldierTwoHp = $soldierTwo->hp;
-        $soldierTwoAttaque = $soldierTwo->attaque;
+        // $soldierTwoHp = $soldierTwo->hp;
+        // $soldierTwoAttaque = $soldierTwo->attaque;
 
 
         $this->set(compact('soldierOne'));

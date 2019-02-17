@@ -83,6 +83,13 @@ $cakeDescription = 'Valhalla';
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <?= $this->Html->link(
+                        'Accueil',
+                        ['controller' => 'Pages', 'action' => 'display'],
+                        array('class' => 'nav-link text-light')
+                    ); ?>
+                </li>
+                <li class="nav-item">
+                    <?= $this->Html->link(
                         'News',
                         ['controller' => 'Articles', 'action' => 'index'],
                         array('class' => 'nav-link text-light')
@@ -97,7 +104,7 @@ $cakeDescription = 'Valhalla';
                  if ($connected) { ?>
                 <li class="nav-item">
                     <?= $this->Html->link(
-                        'Combattants',
+                        'Fiches personnages',
                         ['controller' => 'Soldiers', 'action' => 'index'],
                         array('class' => 'nav-link text-light')
                     ); ?>
