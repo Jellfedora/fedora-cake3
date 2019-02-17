@@ -83,9 +83,16 @@ var app = {
 
             function joueur1Attaque() {
                 if (playerOneLife > playerOne10Hp) {
-                    console.log('hey');
                     $('.player-one-hp-bar').css("background", "green");
                 }
+
+                // Arrete le tremblement du portrait du joueur
+                $('.player-bar__avatar').removeClass('shake');
+                $('.player-bar__avatar').removeClass('shake-opacity');
+
+                //Ajoute le tremblement sur le portrait de l'ennemi
+                $('.fight-avatar').addClass('shake');
+                $('.fight-avatar').addClass('shake-constant');
 
                 // Point de vie restants
                 var playerOnedegat = playerOneLifeActuelle - playerOneLife;
@@ -99,6 +106,7 @@ var app = {
                 //console.log(playerName + ' attaque');
                 j1Atq = Math.round(Math.random() * (j1Power - 0) + 0);
                 playerTwoLife = playerTwoLife - j1Atq;
+
 
 
                 $('#j2-hp').text(playerTwoLife);
@@ -148,11 +156,19 @@ var app = {
                     $('.player-two-hp-bar').css("background", "green");
                 }
 
+                // Arrete le tremblement du portrait de l'ennemi
+                $('.fight-avatar').removeClass('shake');
+                // Ajoute le tremblement sur le portrait du joueur
+                $('.player-bar__avatar').addClass('shake');
+                $('.player-bar__avatar').addClass('shake-constant');
+                $('.player-bar__avatar').addClass('shake-opacity');
+
                 $('.player-bar').removeClass('border-active');
                 $('#player-two-portrait').addClass('border-active');
                 console.log(bossName + ' attaque');
                 j2Atq = Math.round(Math.random() * (j2Power - 0) + 0);
                 playerOneLife = playerOneLife - j2Atq;
+
                 $('#j1-hp').text(playerOneLife);
                 $('#message').text(bossName + ' donne un coup de Masamune sur '+ playerName +' et lui fait perdre '+ j2Atq + ' point de vie!');
 

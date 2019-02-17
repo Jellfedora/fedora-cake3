@@ -10,9 +10,7 @@ body {
 
 }
 
-h1 {
-    font-size: 1em;
-}
+
 
 h2 {
     font-size: 0.9em;
@@ -26,8 +24,8 @@ a {
 /* Menu */
 
 .menu {
-    margin: 2em 10em;
-    margin-bottom: 5.5em;
+    margin: 1.7em 10em;
+    margin-bottom: 3.3em;
     display: flex;
     justify-content: space-between;
     border: 2px solid #450000;
@@ -73,8 +71,13 @@ a {
     margin: auto;
 }
 
+.home h1 {
+    margin-bottom: 1em;
+}
+
 .home__presentation img{
     height: 30em;
+    border: 2px solid #450000;
 }
 
 .avatar {
@@ -160,7 +163,6 @@ a {
 }
 .player-bar__avatar img{
     height: 10em;
-    border-right: 4px solid black;
 }
 
 .player-bar__stats {

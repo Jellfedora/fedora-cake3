@@ -86,7 +86,7 @@
 
 
 <!-- Lecteurs audio -->
-<audio class="d-none audio-player" src="../../webroot/files/battle-Two-steps-from-hell-victory.mp3" controls id="player-battle"></audio>
+<audio class="d-none audio-player" src="../../webroot/files/battle-wontolla-are-you-with-us.mp3" controls id="player-battle"></audio>
 <audio class="d-none audio-player" src="../../webroot/files/victory.mp3" controls id="player-victory"></audio>
 <audio class="d-none audio-player" src="../../webroot/files/game-over.mp3" controls id="game-over"></audio>
 <audio class="d-none audio-player" src="../../webroot/files/low-life-pokemon.mp3" controls id="low-life"></audio>
