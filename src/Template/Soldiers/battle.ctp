@@ -5,7 +5,7 @@
     <div class="portraits bg-dark" id="player-two-portrait">
         <img class="fight-avatar" src="<?= $soldierTwo->avatar ?>" alt="">
         <h2 id="bossName"><?= $soldierTwo->name ?></h2>
-        <p>Point de vie: <span id="j2-hp"><?= $soldierTwo->hp ?>/<span id="j2initiaux-hp" class="d-none"><?= $soldierTwo->hp ?></span></span></p>
+        <p>Point de vie: <span id="j2-hp"><?= $soldierTwo->hp ?>/<span id="j2initiaux-hp"><?= $soldierTwo->hp ?></span></span></p>
 
 
 
@@ -31,13 +31,14 @@
         <img class="player-bar__avatar" src="<?= $soldierOne->avatar ?>" alt="">
     </div>
     <div class="player-bar__stats text-center">
+        <p><img class="player-bar__icons" src="../webroot/img/icon-level.png" alt="">  1</span></p>
         <p><img class="player-bar__icons" src="../webroot/img/icon-sword.png" alt="">  <span id="j1-power"><?= $soldierOne->attaque ?></span></p>
         <p><img class="player-bar__icons" src="../webroot/img/icon-potion.png" alt="">  <span id="j1-potion"><?= $soldierOne->potion ?></span></p>
     </div>
     <div class="player-bar__skills text-center">
-        <input class="btn btn-dark" id="j2-attaque" type="button" value="Attaquer <?= $soldierOne->name ?>">
-        <input class="btn btn-dark" id="j1-attaque" type="button" value="Attaquer">
-        <input class="btn btn-dark" id="j1-use-potion" type="button" value="Potion de soin">
+        <input class="player-bar__skills__button" id="j2-attaque" type="button" value="Attaquer <?= $soldierOne->name ?>">
+        <input class="player-bar__skills__button" id="j1-attaque" type="button" value="Attaquer">
+        <input class="player-bar__skills__button" id="j1-use-potion" type="button" value="Potion de soin">
     </div>
     <div class="player-bar__life text-center">
         <h2 id="playerName"><?= $soldierOne->name ?></h2>
@@ -47,9 +48,9 @@
         </div>
     </div>
     <div class="player-bar__menu text-center">
-        <button class="btn btn-secondary" id="reload-fight">Recommencer</button>
-        <button class="btn btn-secondary" id="auto">Combat auto</button>
-        <button class="btn btn-secondary" id="sound-player">Couper le son</button>
+        <input class="player-bar__menu__button" id="reload-fight" type="button" value="Recommencer">
+        <input class="player-bar__menu__button" id="auto" type="button" value="Combat Automatique">
+        <input class="player-bar__menu__button" id="sound-player" type="button" value="Couper la Musique">
     </div>
 </div>
 
