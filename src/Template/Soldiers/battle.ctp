@@ -5,7 +5,7 @@
     <div class="portraits bg-dark" id="player-two-portrait">
         <img class="fight-avatar" src="<?= $soldierTwo->avatar ?>" alt="">
         <h2 id="bossName"><?= $soldierTwo->name ?></h2>
-        <p>Point de vie: <span id="j2-hp"><?= $soldierTwo->hp ?>/<span id="j2initiaux-hp"><?= $soldierTwo->hp ?></span></span></p>
+        <p>Point de vie: <span id="j2-hp"><?= $soldierTwo->hp ?></span>/<span id="j2initiaux-hp"><?= $soldierTwo->hp ?></span></p>
 
 
 
@@ -14,7 +14,7 @@
         </div>
 
 
-        <p>Attaque: <span id="j2-power"><?= $soldierTwo->attaque ?></span></p>
+        <p><img class="player-bar__icons" src="../webroot/img/icon-sword.png" alt=""> <span id="j2-power"><?= $soldierTwo->attaque ?></span></p>
     </div>
 
 <!-- <p><?= $this->Html->link('Attaquer '. $soldierTwo->name, ['action' => 'battle']) ?></p> -->
