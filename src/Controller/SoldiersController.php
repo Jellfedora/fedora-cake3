@@ -23,23 +23,21 @@ class SoldiersController extends AppController
         $soldier = $this->Soldiers->findBySlug($slug)->firstOrFail();
         $this->set(compact('soldier'));
     }
-    public function battle()
+    public function battle($slug)
     {
-
+        // Ajout du joueur
         $soldierOne = $this->Soldiers->findBySlug('Jellfedora')->firstOrFail();
-        //$soldierTwo = $this->Soldiers->findBySlug('Sephiroth')->firstOrFail();
-        $soldierTwo = $this->Soldiers->findBySlug('Scorpion')->firstOrFail();
-
-
-        // $soldierOneHp = $soldierOne->hp;
-        // $soldierOneAttaque = $soldierOne->attaque;
-
-        // $soldierTwoHp = $soldierTwo->hp;
-        // $soldierTwoAttaque = $soldierTwo->attaque;
-
-
         $this->set(compact('soldierOne'));
+
+        // Ajout de l'ennemi
+        //$soldierTwo = $this->Soldiers->findBySlug('Sephiroth')->firstOrFail();
+        //$soldierTwo = $this->Soldiers->findBySlug('Scorpion')->firstOrFail();
+
+        // ajouter nom ennemi ex(http://localhost/Projets-web/fedora_cake3/soldiers/battle/Scorpion)
+        $soldierTwo = $this->Soldiers->findBySlug($slug)->firstOrFail();
         $this->set(compact('soldierTwo'));
+
+
 
 
     }

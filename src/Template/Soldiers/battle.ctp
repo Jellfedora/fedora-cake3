@@ -1,6 +1,6 @@
 <div class="container-fluide text-light  text-center d-flex justify-content-around mt-5">
 
-    <img id="fight-logo" class="d-none" src="../webroot/img/logo-fight.png" alt="">
+    <!-- <img id="fight-logo" class="d-none" src="../webroot/img/logo-fight.png" alt=""> -->
 
     <div class="portraits bg-dark" id="player-two-portrait">
         <img class="fight-avatar" src="<?= $soldierTwo->avatar ?>" alt="">
