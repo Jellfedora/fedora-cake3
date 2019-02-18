@@ -27,6 +27,8 @@ $cakeDescription = 'Valhalla';
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('style.css') ?>
+    <!-- Pour faire vibrer! -->
+    <?= $this->Html->css('csshake.css') ?>
     <?= $this->Html->css ('font-awesome-4.7.0/css/font-awesome.min.css'); ?>
 
     <?= $this->fetch('meta') ?>
@@ -60,7 +62,8 @@ $cakeDescription = 'Valhalla';
     );
 
     $edit_user = $this->Html->link(
-        $username,
+        //$username,
+        'Mon profil',
         ['controller' => 'Users', 'action' => 'edit', $user_id],
         array('class' => 'nav-link text-light')
     );
@@ -79,7 +82,7 @@ $cakeDescription = 'Valhalla';
                     ); ?>
 
                     <?= $this->Html->link(
-                        'News',
+                        'Actualités',
                         ['controller' => 'Articles', 'action' => 'index'],
                         array('class' => 'nav-link text-light')
                         ); ?>
@@ -87,7 +90,7 @@ $cakeDescription = 'Valhalla';
 
                  if ($connected) { ?>
                     <?= $this->Html->link(
-                        'Les Boss',
+                        'Bestiaire',
                         ['controller' => 'Soldiers', 'action' => 'index'],
                         array('class' => 'nav-link text-light')
                     );
@@ -95,13 +98,12 @@ $cakeDescription = 'Valhalla';
 
         </div>
         <div class="menu__title text-center">
-            <h1><?= $this->Html->link(
+            <?= $this->Html->link(
                     $this->Html->image('logo-valhalla.png', array('alt' => "Logo Valhalla")),
                     array('controller' => 'Pages', 'action' => "display"),
                     array('escape' => false)
                 );
-                ?>
-            </h1>
+            ?>
         </div>
         <div class="menu__user d-flex justify-content-end">
                 <?php
