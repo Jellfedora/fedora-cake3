@@ -64,21 +64,6 @@ var app = {
             $("#player-battle")[0].play();
         }
 
-        // Utilise une potion
-        $('#j1-use-potion').on('click', restoreLife);
-        function restoreLife() {
-            console.log(playerName + ' se soigne');
-            if (playerPotion > 0) {
-                playerPotion--;
-                playerOneLife = playerOneLife + potionHp;
-                $('#j1-potion').text(playerPotion);
-                $('#j1-hp').text(playerOneLife);
-                // TODO ajouter la barre de vie qui doit remonter
-
-
-            }
-        }
-
         // Combat Automatique
 
             function joueur1Attaque() {
@@ -300,6 +285,7 @@ var app = {
 
             // Re autorise le clic sur les boutons d'attaque/potion
             $('#j1-attaque').on('click', playerOneAttack);
+            $('#j1-use-potion').on('click', restoreLife);
         }
         //);
 
@@ -318,6 +304,42 @@ var app = {
             $('.player-bar__avatar').removeClass('shake-constant');
             // Remet la border en black
             $('.player-bar').css("border", "black 2px solid");
+        }
+
+        // Si le joueur 1 utilise une potion
+        $('#j1-use-potion').on('click', restoreLife);
+
+        function restoreLife() {
+            console.log(playerName + ' se soigne');
+            // Bloque le clic des boutons de joueur 1
+            $(".attack-input").off();
+
+
+            if (playerPotion > 0) {
+                playerPotion--;
+                playerOneLife = playerOneLife + potionHp;
+                $('#j1-potion').text(playerPotion);
+                // TODO Ajouter barre de vie
+                if (playerOneLife > 100) {
+                    $('#j1-hp').text(100);
+                    playerOneLife = 100;
+                } else {
+                    $('#j1-hp').text(playerOneLife);
+                }
+                // Calcul des points de vie restants
+                var playerOnedegat = playerOneLifeActuelle - playerOneLife;
+                var playerOnevieRestante = playerOneLifeActuelle - playerOnedegat;
+                // Barre de vie
+                var pourcentage = ((100 * playerOnevieRestante) / playerOneLifeActuelle);
+                var playerOneHpBar = 200 * (pourcentage / 100);
+                // Ajuste la longueur de barre hp du joueur 1
+                $('.player-one-hp-bar').css({
+                    width: playerOneHpBar + 'px'
+                });
+                // Relance l'action du joueur 2
+                setTimeout(playerTwoAttack, 2000);
+
+            }
         }
 
         // Si défaite
