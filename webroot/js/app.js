@@ -67,6 +67,10 @@ var app = {
         // Combat Automatique
 
             function joueur1Attaque() {
+                // Bloque le clic des boutons de joueur 1
+                $(".attack-input").off();
+                // Grise les boutons du joueurs
+                $(".attack-input").css("color", "grey");
                 if (playerOneLife > playerOne10Hp) {
                     $('.player-one-hp-bar').css("background", "green");
                 }
@@ -198,6 +202,9 @@ var app = {
             // Bloque le clic des boutons de joueur 1
             $(".attack-input").off();
 
+            // Grise les boutons du joueurs
+            $(".attack-input").css("color", "grey");
+
             // Calcul des degats
             // return Math.random() * (max - min) + min;
             j1Atq = Math.round(Math.random() * (j1Power - 0) + 0);
@@ -216,6 +223,7 @@ var app = {
 
             // Barre de vie du joueur2
             var playerTwoPourcentage = ((100 * playerTwovieRestante) / playerTwoLifeActuelle);
+            // 200 = 200px (la longueur de la barre de vie)
             var playerTwoHpBar = 200 * (playerTwoPourcentage / 100);
 
             // Affiche message de combat
@@ -263,6 +271,7 @@ var app = {
 
             // Barre de vie
             var pourcentage = ((100 * playerOnevieRestante) / playerOneLifeActuelle);
+            // 200 = 200px (la longueur de la barre de vie)
             var playerOneHpBar = 200*(pourcentage/100);
 
             // Affiche message de combat
@@ -283,9 +292,7 @@ var app = {
                 setTimeout(defeatPlayerOne, 2000);
             }
 
-            // Re autorise le clic sur les boutons d'attaque/potion
-            $('#j1-attaque').on('click', playerOneAttack);
-            $('#j1-use-potion').on('click', restoreLife);
+            setTimeout(unblockPlayerOne, 3000);
         }
         //);
 
@@ -313,6 +320,8 @@ var app = {
             console.log(playerName + ' se soigne');
             // Bloque le clic des boutons de joueur 1
             $(".attack-input").off();
+            // Grise les boutons du joueurs
+            $(".attack-input").css("color", "grey");
 
 
             if (playerPotion > 0) {
@@ -326,6 +335,8 @@ var app = {
                 } else {
                     $('#j1-hp').text(playerOneLife);
                 }
+                // Message de combat
+                $('#message').text(playerName + ' se soigne');
                 // Calcul des points de vie restants
                 var playerOnedegat = playerOneLifeActuelle - playerOneLife;
                 var playerOnevieRestante = playerOneLifeActuelle - playerOnedegat;
@@ -337,9 +348,18 @@ var app = {
                     width: playerOneHpBar + 'px'
                 });
                 // Relance l'action du joueur 2
-                setTimeout(playerTwoAttack, 2000);
+                setTimeout(playerTwoAttack, 3000);
 
             }
+        }
+
+        // Re donne la main au joueur
+        function unblockPlayerOne() {
+            // Re autorise le clic sur les boutons d'attaque/potion
+            $('#j1-attaque').on('click', playerOneAttack);
+            $('#j1-use-potion').on('click', restoreLife);
+            // Re blanchit les boutons du joueur
+            $(".attack-input").css("color", "white");
         }
 
         // Si défaite

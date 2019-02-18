@@ -69,6 +69,7 @@
         <!-- <input class="player-bar__skills__button attack-input" id="j2-attaque" type="button" value="Attaquer <?= $soldierOne->name ?>"> -->
         <input class="player-bar__skills__button attack-input" id="j1-attaque" type="button" value="Attaquer">
         <input class="player-bar__skills__button attack-input" id="j1-use-potion" type="button" value="Potion de soin">
+        <input class="player-bar__skills__button attack-input" id="j1-scan" type="button" value="Scan">
     </div>
     <div class="player-bar__life text-center">
         <h2 id="playerName"><?= $soldierOne->name ?></h2>
