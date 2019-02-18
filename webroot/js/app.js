@@ -111,7 +111,7 @@ var app = {
 
                 $('#j2-hp').text(playerTwoLife);
                 //console.log(j1Atq);
-                $('#message').text(playerName + ' donne un coup d\'épée à '+ bossName +',ce qui lui fait perdre '+ j1Atq + ' point de vie' );
+                $('#message').text(playerName + ' donne un coup d\'épée à '+ bossName +', ce qui lui fait perdre '+ j1Atq + ' point de vie' );
 
                 // Point de vie restants du joueur2
                 var playerTwodegat = playerTwoLifeActuelle - playerTwoLife;
@@ -170,7 +170,7 @@ var app = {
                 playerOneLife = playerOneLife - j2Atq;
 
                 $('#j1-hp').text(playerOneLife);
-                $('#message').text(bossName + ' donne un coup de Masamune sur '+ playerName +' et lui fait perdre '+ j2Atq + ' point de vie!');
+                $('#message').text(bossName + ' frappe '+ playerName +' et lui fait perdre '+ j2Atq + ' point de vie!');
 
                 // Point de vie restants du joueur1
                 var playerOnedegat = playerOneLifeActuelle - playerOneLife;
