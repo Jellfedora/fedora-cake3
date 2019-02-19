@@ -1,5 +1,9 @@
-<div class="container-fluide text-light  text-center d-flex justify-content-around mt-5">
-
+<div class="battle container-fluide text-light text-center ">
+    <div class="battle__menu text-center">
+        <span id="reload-fight"><i class="fa fa-refresh fa-2x" aria-hidden="true"></i></span>
+        <span id="auto"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></i></span>
+        <span id="sound-player"><i class="fa fa-volume-off fa-2x" aria-hidden="true"></i></span>
+    </div>
     <!-- <img id="fight-logo" class="d-none" src="../webroot/img/logo-fight.png" alt=""> -->
 
     <div class="portraits bg-dark" id="player-two-portrait">
@@ -24,9 +28,8 @@
     </div>
 
 <!-- <p><?= $this->Html->link('Attaquer '. $soldierTwo->name, ['action' => 'battle']) ?></p> -->
-
-
 </div>
+
 <div class="container-fluide text-center text-danger">
     <span id="message"></span>
 </div>
@@ -35,6 +38,13 @@
 <div class="player-bar text-center text-light">
     <div class="player-bar__avatar">
         <img class="player-bar__avatar" src="<?= $soldierOne->avatar ?>" alt="">
+    </div>
+    <div class="player-bar__life text-center">
+        <h2 id="playerName"><?= $soldierOne->name ?></h2>
+        <span id="j1-hp"><?= $soldierOne->hp ?></span>/<span id="j1initiaux-hp"><?= $soldierOne->hp ?></span>
+        <div class="player-one-hp progress-bar green">
+            <div class="player-one-hp-bar player-hp-bar"></div>
+        </div>
     </div>
     <div class="player-bar__stats text-center">
         <p>
@@ -65,26 +75,16 @@
             <span id="j1-potion"><?= $soldierOne->potion ?></span>
         </p>
     </div>
-    <div class="player-bar__skills text-center">
-        <!-- <input class="player-bar__skills__button attack-input" id="j2-attaque" type="button" value="Attaquer <?= $soldierOne->name ?>"> -->
-        <input class="player-bar__skills__button attack-input" id="j1-attaque" type="button" value="Attaquer">
-        <input class="player-bar__skills__button attack-input" id="j1-use-potion" type="button" value="Potion de soin">
-        <input class="player-bar__skills__button attack-input" id="j1-scan" type="button" value="Scan">
-    </div>
-    <div class="player-bar__life text-center">
-        <h2 id="playerName"><?= $soldierOne->name ?></h2>
-        <p>Point de vie: <span id="j1-hp"><?= $soldierOne->hp ?></span>/<span id="j1initiaux-hp"><?= $soldierOne->hp ?></span></p>
-        <div class="player-one-hp progress-bar green">
-            <div class="player-one-hp-bar player-hp-bar"></div>
-        </div>
-    </div>
-    <div class="player-bar__menu text-center">
-        <input class="player-bar__menu__button" id="reload-fight" type="button" value="Recommencer">
-        <input class="player-bar__menu__button" id="auto" type="button" value="Combat Automatique">
-        <input class="player-bar__menu__button" id="sound-player" type="button" value="Couper la Musique">
-    </div>
+
+
 </div>
 
+<div class="player-bar__skills text-center">
+    <!-- <input class="player-bar__skills__button attack-input" id="j2-attaque" type="button" value="Attaquer <?= $soldierOne->name ?>"> -->
+    <input class="player-bar__skills__button attack-input" id="j1-attaque" type="button" value="Attaque">
+    <input class="player-bar__skills__button attack-input" id="j1-use-potion" type="button" value="Soin">
+    <input class="player-bar__skills__button attack-input" id="j1-scan" type="button" value="Scan">
+</div>
 
 <!-- Lecteurs audio -->
 <audio class="d-none audio-player" src="../../webroot/files/battle-wontolla-are-you-with-us.mp3" controls id="player-battle"></audio>

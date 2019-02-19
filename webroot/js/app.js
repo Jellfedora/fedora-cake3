@@ -309,6 +309,7 @@ var app = {
         function StopPlayerOneDegatAnimation() {
             // Arrete la vibration de l'avatar
             $('.player-bar__avatar').removeClass('shake-constant');
+            $('.player-bar__avatar').removeClass('shake-opacity');
             // Remet la border en black
             $('.player-bar').css("border", "black 2px solid");
         }
@@ -396,6 +397,7 @@ var app = {
         function StopPlayerTwoDegatAnimation() {
             // Arette la vibration de l'avatar
             $('.fight-avatar').removeClass('shake-constant');
+            $('.fight-avatar').removeClass('shake-opacity');
             // Remet la border en black
             $('#player-two-portrait').css("border", "black 2px solid");
         }
