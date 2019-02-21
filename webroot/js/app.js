@@ -3,8 +3,8 @@ var app = {
         console.log('Jquery chargé!');
 
         // Nom des joueurs
-        var playerName = $("#playerName").text();
-        var bossName = $("#bossName").text();
+        var playerName = $("#playerOneName").text();
+        var playerTwoName = $("#playerTwoName").text();
 
         // Potion du joueur
         var playerPotion = parseInt($('#j1-potion').text());
@@ -28,7 +28,7 @@ var app = {
 
 
         // Barre de vie
-        var playerBarWidth = (200);
+        var playerBarWidth = (100);
 
 
 
@@ -64,6 +64,7 @@ var app = {
             $("#player-battle")[0].play();
         }
 
+        console.log('ici:  ' + j2Power);
         // Combat Automatique
 
             function joueur1Attaque() {
@@ -95,7 +96,7 @@ var app = {
 
                 $('#j2-hp').text(playerTwoLife);
                 //console.log(j1Atq);
-                $('#message').text(playerName + ' donne un coup d\'épée à '+ bossName +', ce qui lui fait perdre '+ j1Atq + ' point de vie' );
+                $('#message').text(playerName + ' donne un coup d\'épée à '+ playerTwoName +', ce qui lui fait perdre '+ j1Atq + ' point de vie' );
 
                 // Point de vie restants du joueur2
                 var playerTwodegat = playerTwoLifeActuelle - playerTwoLife;
@@ -123,7 +124,7 @@ var app = {
 
                 if (($('#j2-hp').text()) <= 0) {
                     $('#j2-hp').text('0');
-                    console.log(bossName + ' is dead');
+                    console.log(playerTwoName + ' is dead');
                     $("#player-battle")[0].pause();
                     $("#low-life")[0].pause();
                     $("#player-victory")[0].play();
@@ -144,7 +145,7 @@ var app = {
 
                 $('.player-bar').removeClass('border-active');
                 $('#player-two-portrait').addClass('border-active');
-                console.log(bossName + ' attaque');
+                console.log(playerTwoName + ' attaque');
                 j2Atq = Math.round(Math.random() * (j2Power - 0) + 0);
                 playerOneLife = playerOneLife - j2Atq;
 
@@ -152,7 +153,7 @@ var app = {
                 setTimeout(PlayerOneDegatAnimation, 200);
 
                 $('#j1-hp').text(playerOneLife);
-                $('#message').text(bossName + ' frappe '+ playerName +' et lui fait perdre '+ j2Atq + ' point de vie!');
+                $('#message').text(playerTwoName + ' frappe '+ playerName +' et lui fait perdre '+ j2Atq + ' point de vie!');
 
                 // Point de vie restants du joueur1
                 var playerOnedegat = playerOneLifeActuelle - playerOneLife;
@@ -174,7 +175,7 @@ var app = {
                 if (j2Atq === 0) {
                     playerTwoLife = playerTwoLife - 3;
                     $('#j2-hp').text(playerTwoLife);
-                    $('#message').text(bossName + ' se rate et perd 3 point de vie!');
+                    $('#message').text(playerTwoName + ' se rate et perd 3 point de vie!');
                 }
 
                 if (($('#j1-hp').text()) <= 0) {
@@ -224,13 +225,13 @@ var app = {
             // Barre de vie du joueur2
             var playerTwoPourcentage = ((100 * playerTwovieRestante) / playerTwoLifeActuelle);
             // 200 = 200px (la longueur de la barre de vie)
-            var playerTwoHpBar = 200 * (playerTwoPourcentage / 100);
+            var playerTwoHpBar = 100 * (playerTwoPourcentage / 100);
 
             // Affiche message de combat
-            $('#message').text(playerName + ' donne un coup d\'épée à ' + bossName + ', ce qui lui fait perdre ' + j1Atq + ' point de vie');
+            $('#message').text(playerName + ' donne un coup d\'épée à ' + playerTwoName + ', ce qui lui fait perdre ' + j1Atq + ' point de vie');
 
             // Ajuste la longueur de barre hp du joueur 2
-            $('.player-two-hp-bar').css({ width: playerTwoHpBar + 'px' });
+            $('.player-two-hp-bar').css({ width: playerTwoHpBar + '%' });
 
             // Si la vie est en dessous de 10%
             if (playerTwoHpBar <= 20) {
@@ -272,13 +273,13 @@ var app = {
             // Barre de vie
             var pourcentage = ((100 * playerOnevieRestante) / playerOneLifeActuelle);
             // 200 = 200px (la longueur de la barre de vie)
-            var playerOneHpBar = 200*(pourcentage/100);
+            var playerOneHpBar = 100*(pourcentage/100);
 
             // Affiche message de combat
-            $('#message').text(bossName + ' frappe ' + playerName + ' et lui fait perdre ' + j2Atq + ' point de vie!');
+            $('#message').text(playerTwoName + ' frappe ' + playerName + ' et lui fait perdre ' + j2Atq + ' point de vie!');
 
             // Ajuste la longueur de barre hp du joueur 1
-            $('.player-one-hp-bar').css({ width: playerOneHpBar + 'px' });
+            $('.player-one-hp-bar').css({ width: playerOneHpBar + '%' });
 
             // Si la vie est en dessous de 10%
             if (playerOneHpBar <= 20) {
@@ -292,26 +293,26 @@ var app = {
                 setTimeout(defeatPlayerOne, 2000);
             }
 
-            setTimeout(unblockPlayerOne, 3000);
+            setTimeout(unblockPlayerOne, 1500);
         }
         //);
 
         // Lorsque le joueur 1 prend des degats
         function PlayerOneDegatAnimation() {
             // Fait vibrer l'avatar
-            $('.player-bar__avatar').addClass('shake-constant');
-            $('.player-bar__avatar').addClass('shake-opacity');
+            $('#playerOneAvatar').addClass('shake-constant');
+            $('#playerOneAvatar').addClass('shake-opacity');
             // Colore la border en red
-            $('.player-bar').css("border","red 2px solid");
+            $('#playerOneAvatar').css("border","red 2px solid");
             setTimeout(StopPlayerOneDegatAnimation, 1000);
         }
         // Stop l'animation des degats du joueur 1
         function StopPlayerOneDegatAnimation() {
             // Arrete la vibration de l'avatar
-            $('.player-bar__avatar').removeClass('shake-constant');
-            $('.player-bar__avatar').removeClass('shake-opacity');
+            $('#playerOneAvatar').removeClass('shake-constant');
+            $('#playerOneAvatar').removeClass('shake-opacity');
             // Remet la border en black
-            $('.player-bar').css("border", "black 2px solid");
+            $('#playerOneAvatar').css("border", "none");
         }
 
         // Si le joueur 1 utilise une potion
@@ -343,10 +344,10 @@ var app = {
                 var playerOnevieRestante = playerOneLifeActuelle - playerOnedegat;
                 // Barre de vie
                 var pourcentage = ((100 * playerOnevieRestante) / playerOneLifeActuelle);
-                var playerOneHpBar = 200 * (pourcentage / 100);
+                var playerOneHpBar = 100 * (pourcentage / 100);
                 // Ajuste la longueur de barre hp du joueur 1
                 $('.player-one-hp-bar').css({
-                    width: playerOneHpBar + 'px'
+                    width: playerOneHpBar + '%'
                 });
                 // Relance l'action du joueur 2
                 setTimeout(playerTwoAttack, 3000);
@@ -359,8 +360,8 @@ var app = {
             // Re autorise le clic sur les boutons d'attaque/potion
             $('#j1-attaque').on('click', playerOneAttack);
             $('#j1-use-potion').on('click', restoreLife);
-            // Re blanchit les boutons du joueur
-            $(".attack-input").css("color", "white");
+            // Remet en noir les boutons du joueur
+            $(".attack-input").css("color", "black");
         }
 
         // Si défaite
@@ -386,20 +387,20 @@ var app = {
         // Lorsque le joueur 2 prend des degats
         function PlayerTwoDegatAnimation() {
             // Fait vibrer l'avatar
-            $('.fight-avatar').addClass('shake-constant');
-            $('.fight-avatar').addClass('shake-opacity');
+            $('#playerTwoAvatar').addClass('shake-constant');
+            $('#playerTwoAvatar').addClass('shake-opacity');
             // Colore la border en red
-            $('#player-two-portrait').css("border", "red 2px solid");
+            $('#playerTwoAvatar').css("border", "red 2px solid");
 
             setTimeout(StopPlayerTwoDegatAnimation, 1000);
         }
         // Stop l'animation des degats du joueur 2
         function StopPlayerTwoDegatAnimation() {
             // Arette la vibration de l'avatar
-            $('.fight-avatar').removeClass('shake-constant');
-            $('.fight-avatar').removeClass('shake-opacity');
+            $('#playerTwoAvatar').removeClass('shake-constant');
+            $('#playerTwoAvatar').removeClass('shake-opacity');
             // Remet la border en black
-            $('#player-two-portrait').css("border", "black 2px solid");
+            $('#playerTwoAvatar').css("border", "none");
         }
     }
 }

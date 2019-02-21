@@ -16,7 +16,7 @@
 $cakeDescription = 'Valhalla';
 ?>
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="App">
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,8 +41,11 @@ $cakeDescription = 'Valhalla';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    <?= $this->Html->script('controller/app.js') ?>
+    <?= $this->Html->script('controller/BattleCtrl.js') ?>
 </head>
-<body>
+<body ng-controller="appController">
+    <!-- <input type="button" value="Menu" ng-click="toggleShowMenu()"> -->
     <!-- Récupére l'utilisateur connecté -->
     <?php
     $connected = $this->request->getSession()->read('Auth.User');
@@ -73,7 +76,7 @@ $cakeDescription = 'Valhalla';
 
 
     ?>
-    <nav class="menu-xs navbar navbar-expand-lg navbar-light bg-dark">
+    <nav class="menu-xs navbar navbar-expand-lg navbar-light bg-dark" ng-if="showMenu">
         <a class="navbar-brand" href="#">Valhalla</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -83,13 +86,13 @@ $cakeDescription = 'Valhalla';
                 <?= $this->Html->link(
                     'Accueil',
                     ['controller' => 'Pages', 'action' => 'display'],
-                    array('class' => 'nav-item nav-link')
+                    array('class' => 'nav-item nav-link text-light')
                 ); ?>
 
                     <?= $this->Html->link(
                         'Actualités',
                         ['controller' => 'Articles', 'action' => 'index'],
-                        array('class' => 'nav-item nav-link')
+                        array('class' => 'nav-item nav-link text-light')
                     ); ?>
                 <?php
 
@@ -97,7 +100,7 @@ $cakeDescription = 'Valhalla';
                     <?= $this->Html->link(
                         'Bestiaire',
                         ['controller' => 'Soldiers', 'action' => 'index'],
-                        array('class' => 'nav-item nav-link')
+                        array('class' => 'nav-item nav-link text-light')
                     );
                 }
                 if ($connected) {
@@ -105,18 +108,18 @@ $cakeDescription = 'Valhalla';
                     $this->Html->link(
                         'Mon profil',
                         ['controller' => 'Users', 'action' => 'edit', $user_id],
-                        array('class' => 'nav-item nav-link ')
+                        array('class' => 'nav-item nav-link  text-light')
                     );
                     echo $this->Html->link(
                         'Deconnexion',
                         ['controller' => 'Users', 'action' => 'logout'],
-                        array('class' => 'nav-item nav-link')
+                        array('class' => 'nav-item nav-link text-light')
                     );
                 } else {
                     echo $this->Html->link(
                         'Connexion',
                         ['controller' => 'Users', 'action' => 'login'],
-                        array('class' => 'nav-item nav-link')
+                        array('class' => 'nav-item nav-link text-light')
                     );
                 }
                 ?>
@@ -124,7 +127,7 @@ $cakeDescription = 'Valhalla';
         </div>
     </nav>
 
-    <div class="menu-lg text-light">
+    <div class="menu-lg text-light" ng-if="showMenu">
         <div class="menu-lg__links">
                     <?= $this->Html->link(
                         'Accueil',
@@ -184,5 +187,6 @@ $cakeDescription = 'Valhalla';
     </div>
     <footer>
     </footer>
+
 </body>
 </html>
