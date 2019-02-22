@@ -174,6 +174,7 @@ var app = {
                 // Si le coup vaut zéro le personnage perd de la vie
                 if (j2Atq === 0) {
                     playerTwoLife = playerTwoLife - 3;
+                    $("#fail")[0].play();
                     $('#j2-hp').text(playerTwoLife);
                     $('#message').text(playerTwoName + ' se rate et perd 3 point de vie!');
                 }
@@ -200,23 +201,46 @@ var app = {
         // Attaque du joueur 1
         function playerOneAttack() {
         //$('#j1-attaque').on('click', function () {
+            $("#battle")[0].play();
             // Bloque le clic des boutons de joueur 1
             $(".attack-input").off();
 
             // Grise les boutons du joueurs
-            $(".attack-input").css("color", "grey");
+            $(".attack-input").css("background-color", "grey");
 
             // Calcul des degats
+            // TODO ajouter chance de fail
             // return Math.random() * (max - min) + min;
-            j1Atq = Math.round(Math.random() * (j1Power - 0) + 0);
+            j1Atq = Math.round(Math.random() * (j1Power - (j1Power - (j1Power / 2))) + (j1Power - (j1Power / 2)));
             playerTwoLife = playerTwoLife - j1Atq;
             console.log('joueur1: '+j1Atq);
 
+            if (j1Atq > 0) {
+                $("#sword2")[0].play();
+                // Affichage des dégats
+                $("#playerTwoLifeDegat").css("color", "red");
+                $("#playerTwoLifeDegat").text('-' + j1Atq);
+                // Supprime hp flottant
+                setTimeout(deleteHpMessage, 1000);
+            }
+
+            // Si le coup vaut zéro le personnage perd de la vie
+            if (j1Atq === 0) {
+                playerOneLife = playerOneLife - 3;
+                $("#fail")[0].play();
+                PlayerOneDegatAnimation();
+                $('#j1-hp').text(playerOneLife);
+                $('#message').text(playerOneName + ' se rate et perd 3 point de vie!');
+            } else {
+                // Lance les animations de degat sur le joueur 2
+                setTimeout(PlayerTwoDegatAnimation, 200);
+                // Affiche message de combat
+                $('#message').text(playerName + ' donne un coup d\'épée à ' + playerTwoName + ', ce qui lui fait perdre ' + j1Atq + ' point de vie');
+            }
+
             // Met à jour les pv du joueur 2
             $('#j2-hp').text(playerTwoLife);
-
-            // Lance les animations de degat sur le joueur 2
-            setTimeout(PlayerTwoDegatAnimation, 200);
+            console.log('Vie joueur 2: ' + playerTwoLife);
 
             // Point de vie restants du joueur2
             var playerTwodegat = playerTwoLifeActuelle - playerTwoLife;
@@ -226,9 +250,6 @@ var app = {
             var playerTwoPourcentage = ((100 * playerTwovieRestante) / playerTwoLifeActuelle);
             // 200 = 200px (la longueur de la barre de vie)
             var playerTwoHpBar = 100 * (playerTwoPourcentage / 100);
-
-            // Affiche message de combat
-            $('#message').text(playerName + ' donne un coup d\'épée à ' + playerTwoName + ', ce qui lui fait perdre ' + j1Atq + ' point de vie');
 
             // Ajuste la longueur de barre hp du joueur 2
             $('.player-two-hp-bar').css({ width: playerTwoHpBar + '%' });
@@ -254,17 +275,38 @@ var app = {
         // Attaque du joueur 2
         function playerTwoAttack() {
         //$('#j2-attaque').on('click', function () {
-
             // Calcul des degats
+            // TODO ajouter chance de fail
             // return Math.random() * (max - min) + min;
-            j2Atq = Math.round(Math.random() * (j2Power - 0) + 0);
+            j2Atq = Math.round(Math.random() * (j2Power - (j2Power - (j2Power / 2))) + (j2Power - (j2Power / 2)));
             playerOneLife = playerOneLife - j2Atq;
             console.log('joueur2: ' + j2Atq);
+
+            if (j2Atq > 0) {
+                $("#sword")[0].play();
+                // Affichage des dégats
+                $("#playerOneLifeDegat").css("color", "red");
+                $("#playerOneLifeDegat").text('-' + j2Atq);
+                // Supprime hp flottant
+                setTimeout(deleteHpMessage, 1000);
+            }
+            // Si le coup vaut zéro le personnage perd de la vie
+            if (j2Atq === 0) {
+                playerTwoLife = playerTwoLife - 3;
+                $("#fail")[0].play();
+                PlayerTwoDegatAnimation();
+                $('#j2-hp').text(playerTwoLife);
+                $('#message').text(playerTwoName + ' se rate et perd 3 point de vie!');
+            } else {
+                // Lance les animations de degat sur le joueur 1
+                setTimeout(PlayerOneDegatAnimation, 200);
+                // Affiche message de combat
+                $('#message').text(playerTwoName + ' frappe ' + playerName + ' et lui fait perdre ' + j2Atq + ' point de vie!');
+            }
+
             // Met à jour les pv du joueur 1
             $('#j1-hp').text(playerOneLife);
-
-            // Lance les animations de degat sur le joueur 1
-            setTimeout(PlayerOneDegatAnimation, 200);
+            console.log('Vie joueur 1: ' + playerOneLife);
 
             // Calcul des points de vie restants
             var playerOnedegat = playerOneLifeActuelle - playerOneLife;
@@ -274,9 +316,6 @@ var app = {
             var pourcentage = ((100 * playerOnevieRestante) / playerOneLifeActuelle);
             // 200 = 200px (la longueur de la barre de vie)
             var playerOneHpBar = 100*(pourcentage/100);
-
-            // Affiche message de combat
-            $('#message').text(playerTwoName + ' frappe ' + playerName + ' et lui fait perdre ' + j2Atq + ' point de vie!');
 
             // Ajuste la longueur de barre hp du joueur 1
             $('.player-one-hp-bar').css({ width: playerOneHpBar + '%' });
@@ -303,7 +342,7 @@ var app = {
             $('#playerOneAvatar').addClass('shake-constant');
             $('#playerOneAvatar').addClass('shake-opacity');
             // Colore la border en red
-            $('#playerOneAvatar').css("border","red 2px solid");
+            // $('#playerOneAvatar').css("border","red 2px solid");
             setTimeout(StopPlayerOneDegatAnimation, 1000);
         }
         // Stop l'animation des degats du joueur 1
@@ -312,7 +351,13 @@ var app = {
             $('#playerOneAvatar').removeClass('shake-constant');
             $('#playerOneAvatar').removeClass('shake-opacity');
             // Remet la border en black
-            $('#playerOneAvatar').css("border", "none");
+            // $('#playerOneAvatar').css("border", "none");
+        }
+
+        // Efface les hp flottants
+        function deleteHpMessage() {
+            $("#playerOneLifeDegat").text('');
+            $("#playerTwoLifeDegat").text('');
         }
 
         // Si le joueur 1 utilise une potion
@@ -323,7 +368,7 @@ var app = {
             // Bloque le clic des boutons de joueur 1
             $(".attack-input").off();
             // Grise les boutons du joueurs
-            $(".attack-input").css("color", "grey");
+            $(".attack-input").css("background-color", "grey");
 
 
             if (playerPotion > 0) {
@@ -337,6 +382,9 @@ var app = {
                 } else {
                     $('#j1-hp').text(playerOneLife);
                 }
+                // Affichage des dégats
+                $("#playerOneLifeDegat").css("color", "green");
+                $("#playerOneLifeDegat").text('+' + potionHp);
                 // Message de combat
                 $('#message').text(playerName + ' se soigne');
                 // Calcul des points de vie restants
@@ -349,6 +397,8 @@ var app = {
                 $('.player-one-hp-bar').css({
                     width: playerOneHpBar + '%'
                 });
+                // Supprime hp flottant
+                setTimeout(deleteHpMessage, 1000);
                 // Relance l'action du joueur 2
                 setTimeout(playerTwoAttack, 3000);
 
@@ -360,26 +410,28 @@ var app = {
             // Re autorise le clic sur les boutons d'attaque/potion
             $('#j1-attaque').on('click', playerOneAttack);
             $('#j1-use-potion').on('click', restoreLife);
-            // Remet en noir les boutons du joueur
-            $(".attack-input").css("color", "black");
+            // Recolore les boutons du joueur
+            $(".attack-input").css("background-color", "#450000");
         }
 
         // Si défaite
         function defeatPlayerOne() {
+            $('#playerOneAvatar').addClass('d-none');
             // Message de défaite
-            $('#message').text('Game Over');
+            $('#message-loose').removeClass('d-none');
             // Coupe les musiques et lance celle de game over
-            $("#player-battle")[0].pause();
+            $("#battle")[0].pause();
             $("#low-life")[0].pause();
             $("#game-over")[0].play();
         }
 
         // Si victoire
         function winPlayerOne() {
+            $('#playerTwoAvatar').addClass('d-none');
             // Message de victoire
-            $('#message').text('Victoire!');
+            $('#message-win').removeClass('d-none');
             // Coupe les musiques et lance celle de game over
-            $("#player-battle")[0].pause();
+            $("#battle")[0].pause();
             $("#low-life")[0].pause();
             $("#player-victory")[0].play();
         }
@@ -390,7 +442,7 @@ var app = {
             $('#playerTwoAvatar').addClass('shake-constant');
             $('#playerTwoAvatar').addClass('shake-opacity');
             // Colore la border en red
-            $('#playerTwoAvatar').css("border", "red 2px solid");
+            // $('#playerTwoAvatar').css("border", "red 2px solid");
 
             setTimeout(StopPlayerTwoDegatAnimation, 1000);
         }
@@ -400,7 +452,7 @@ var app = {
             $('#playerTwoAvatar').removeClass('shake-constant');
             $('#playerTwoAvatar').removeClass('shake-opacity');
             // Remet la border en black
-            $('#playerTwoAvatar').css("border", "none");
+            // $('#playerTwoAvatar').css("border", "none");
         }
     }
 }

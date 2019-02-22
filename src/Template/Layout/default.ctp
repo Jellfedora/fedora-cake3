@@ -25,10 +25,13 @@ $cakeDescription = 'Valhalla';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
+    <!-- default.ctp -->
+    <?= $this->Html->css('default.css') ?>
     <?= $this->Html->css('style.css') ?>
     <!-- Pour faire vibrer! -->
     <?= $this->Html->css('csshake.css') ?>
+    <!-- home.ctp -->
+    <?= $this->Html->css('home.css') ?>
     <?= $this->Html->css ('font-awesome-4.7.0/css/font-awesome.min.css'); ?>
 
     <?= $this->fetch('meta') ?>
@@ -45,7 +48,7 @@ $cakeDescription = 'Valhalla';
     <?= $this->Html->script('controller/BattleCtrl.js') ?>
 </head>
 <body ng-controller="appController">
-    <!-- <input type="button" value="Menu" ng-click="toggleShowMenu()"> -->
+
     <!-- Récupére l'utilisateur connecté -->
     <?php
     $connected = $this->request->getSession()->read('Auth.User');
@@ -71,61 +74,55 @@ $cakeDescription = 'Valhalla';
         ['controller' => 'Users', 'action' => 'edit', $user_id],
         array('class' => 'nav-link text-light')
     );
-
-
-
-
     ?>
-    <nav class="menu-xs navbar navbar-expand-lg navbar-light bg-dark" ng-if="showMenu">
-        <a class="navbar-brand" href="#">Valhalla</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <?= $this->Html->link(
-                    'Accueil',
-                    ['controller' => 'Pages', 'action' => 'display'],
-                    array('class' => 'nav-item nav-link text-light')
-                ); ?>
+
+    <button id="toggleShowMenu" ng-click="toggleShowMenu()">
+         <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+    </button>
+
+    <div class="site-title" ng-if="!showMenu">
+        <h1>Valhalla</h1>
+    </div>
+
+    <div class="menu" ng-if="showMenu">
+        <div class="menu__links">
+                    <?= $this->Html->link(
+                        'Accueil',
+                        ['controller' => 'Pages', 'action' => 'display'],
+                        array('class' => 'nav-link text-light')
+                    ); ?>
 
                     <?= $this->Html->link(
                         'Actualités',
                         ['controller' => 'Articles', 'action' => 'index'],
-                        array('class' => 'nav-item nav-link text-light')
-                    ); ?>
+                        array('class' => 'nav-link text-light')
+                        ); ?>
                 <?php
 
-                if ($connected) { ?>
+                 if ($connected) { ?>
                     <?= $this->Html->link(
                         'Bestiaire',
                         ['controller' => 'Soldiers', 'action' => 'index'],
-                        array('class' => 'nav-item nav-link text-light')
+                        array('class' => 'nav-link text-light')
                     );
-                }
-                if ($connected) {
                     //echo '<img class="avatar" src="' . $avatar . '" alt="">';
-                    $this->Html->link(
-                        'Mon profil',
-                        ['controller' => 'Users', 'action' => 'edit', $user_id],
-                        array('class' => 'nav-item nav-link  text-light')
-                    );
-                    echo $this->Html->link(
-                        'Deconnexion',
+                    echo $edit_user;
+                    echo $this->Html->link ('Deconnexion',
                         ['controller' => 'Users', 'action' => 'logout'],
-                        array('class' => 'nav-item nav-link text-light')
-                    );
-                } else {
+                        array ('class' => 'nav-link text-light'));
+                }else {
                     echo $this->Html->link(
                         'Connexion',
                         ['controller' => 'Users', 'action' => 'login'],
-                        array('class' => 'nav-item nav-link text-light')
+                        array('class' => 'nav-link text-light')
                     );
                 }
                 ?>
-            </div>
+
         </div>
-    </nav>
+    </div>
+
+
 
     <div class="menu-lg text-light" ng-if="showMenu">
         <div class="menu-lg__links">
@@ -178,8 +175,6 @@ $cakeDescription = 'Valhalla';
 
         </div>
     </div>
-
-
 
     <div class=" ">
         <?= $this->Flash->render() ?>

@@ -1,0 +1,63 @@
+.site-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2.5em;
+    background-color: #450000;
+    border-bottom: grey 2px solid;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0.4em;
+}
+
+.site-title h1 {
+    color: white;
+    font-size: 1.5em;
+}
+
+/* Bouton du menu principal du site */
+#toggleShowMenu {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    height: 2.5em;
+    width: 2.5em;
+    padding: 0.1em;
+    background-color: #450000;
+}
+
+#toggleShowMenu:focus {
+    outline: 0;
+}
+
+/* Menu du site */
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2.5em;
+    background-color: #450000;
+    border-bottom: grey 2px solid;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.menu__links {
+    display: flex;
+}
+
+.menu__user {
+    display: flex;
+}
+
+/* Media queries */
+
+@media (min-width: 1141px) {
+    .menu {
+        display: none;
+    }
+}
