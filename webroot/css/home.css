@@ -26,12 +26,12 @@
 }
 
 #devant {
-    z-index: 100;
+    z-index: 10;
     background-image: linear-gradient(white, green);
 }
 
 #derriere {
-    z-index: 50;
+    z-index: 9;
     background-image: linear-gradient(white, red);
     transform: rotateX(-180deg);
 }

@@ -240,7 +240,6 @@ var app = {
 
             // Met à jour les pv du joueur 2
             $('#j2-hp').text(playerTwoLife);
-            console.log('Vie joueur 2: ' + playerTwoLife);
 
             // Point de vie restants du joueur2
             var playerTwodegat = playerTwoLifeActuelle - playerTwoLife;
@@ -253,10 +252,13 @@ var app = {
 
             // Ajuste la longueur de barre hp du joueur 2
             $('.player-two-hp-bar').css({ width: playerTwoHpBar + '%' });
-
+            console.log('playerTwoHpBar' + playerTwoHpBar);
             // Si la vie est en dessous de 10%
             if (playerTwoHpBar <= 20) {
+                console.log('j2 hp --' + playerTwoHpBar);
+                // ne rentre pas dans la condition
                 $('.player-two-hp-bar').css("background", "red");
+                $(".sprites-player2").css("background-position", "-94px -357px");
             }
 
             // Si l'ennemi n'a plus de vie, victoire
@@ -324,6 +326,7 @@ var app = {
             if (playerOneHpBar <= 20) {
                 $('.player-one-hp-bar').css( "background", "red" );
                 $("#low-life")[0].play();
+                $(".sprites").css("background-position", "-104px -383px")
             }
 
             // Si plus de vie Game over
@@ -416,7 +419,7 @@ var app = {
 
         // Si défaite
         function defeatPlayerOne() {
-            $('#playerOneAvatar').addClass('d-none');
+            $(".sprites").css("background-position", "-107px -258px");
             // Message de défaite
             $('#message-loose').removeClass('d-none');
             // Coupe les musiques et lance celle de game over

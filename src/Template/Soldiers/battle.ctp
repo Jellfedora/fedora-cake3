@@ -178,11 +178,14 @@
     <div class="battle__map">
         <div class="battle__map__player-one-avatar">
             <span class="battle__map__player-one-avatar-degat" id="playerOneLifeDegat"><p></p></span>
-            <img id="playerOneAvatar" class="battle__map__player-one-avatar__avatar" src="<?= $soldierOne->avatar ?>" alt="">
+            <!-- <img id="playerOneAvatar" class="battle__map__player-one-avatar__avatar" src="<?= $soldierOne->avatar ?>" alt=""> -->
+
+            <div class="sprites" id="playerOneAvatar"></div>
         </div>
         <div class="battle__map__player-two-avatar">
             <span class="battle__map__player-two-avatar-degat" id="playerTwoLifeDegat"><p></p></span>
-            <img id="playerTwoAvatar" class="battle__map__player-two-avatar__avatar" src="<?= $soldierTwo->avatar ?>" alt="">
+            <!-- <img id="playerTwoAvatar" class="battle__map__player-two-avatar__avatar" src="<?= $soldierTwo->avatar ?>" alt=""> -->
+            <div class="sprites-player2" id="playerTwoAvatar"></div>
         </div>
     </div>
     <div class="battle__menu">
@@ -190,28 +193,57 @@
             <button class="battle__menu__tools-tools"><i class="fa fa-cog fa-2x" aria-hidden="true" ng-click="toggleShowBattleMenu()"></i></button>
         </div>
         <div class="battle__menu__skills">
-            <button class="battle__menu__skills-skills attack-input" id="j1-attaque">
+            <button class="battle__menu__skills-skills attack-input" id="j1-attaque" ng-click="playerOneAttack()" ng-hide="hide">
                 <?= $this->Html->image(
                     'icon-sword.png',
                     array('class' => ''),
                     array('alt' => "Attaque")
                 );?>
             </button>
-            <button class="battle__menu__skills-skills attack-input" id="j1-use-potion">
+            <button class="battle__menu__skills-skills attack-input" id="j1-use-potion" ng-hide="hide">
                 <?= $this->Html->image(
                     'icon-potion.png',
                     array('class' => ''),
                     array('alt' => "Soin")
                 );?>
             </button>
-            <button class="battle__menu__skills-skills attack-input" id="j1-scan">
+            <button class="battle__menu__skills-skills attack-input" id="j1-scan" ng-hide="hide">
                 <?= $this->Html->image(
                     'icon-scan.png',
                     array('class' => ''),
                     array('alt' => "Scan")
                 );?>
             </button>
-            <button class="battle__menu__skills-skills attack-input" id="j1-competences">
+            <button class="battle__menu__skills-skills attack-input" id="j1-ice" ng-hide="!hide">
+                <?= $this->Html->image(
+                    'icon-ice.png',
+                    array('class' => ''),
+                    array('alt' => "Ice")
+                );?>
+            </button>
+            <button class="battle__menu__skills-skills attack-input" id="j1-electric" ng-hide="!hide">
+                <?= $this->Html->image(
+                    'icon-electric.png',
+                    array('class' => ''),
+                    array('alt' => "Electric")
+                );?>
+            </button>
+            <button class="battle__menu__skills-skills attack-input" id="j1-fire" ng-hide="!hide">
+                <?= $this->Html->image(
+                    'icon-fire.png',
+                    array('class' => ''),
+                    array('alt' => "Fire")
+                );?>
+            </button>
+            <button class="battle__menu__skills-skills" id="j1-return" ng-hide="!hide" ng-click="toggleHideMagicMenu()">
+                <?= $this->Html->image(
+                    'icon-return.png',
+                    array('class' => ''),
+                    array('alt' => "Return")
+                );?>
+            </button>
+
+            <button class="battle__menu__skills-skills" id="j1-show-magic-menu" ng-click="toggleShowMagicMenu()" ng-hide="hide">
                 <?= $this->Html->image(
                     'icon-magic.png',
                     array('class' => ''),
@@ -223,7 +255,7 @@
 </div>
 
 <!-- Player audio -->
-<audio class="d-none audio-player" src="../../webroot/files/battle-wontolla-are-you-with-us.mp3" controls id="battle"></audio>
+<audio class="d-none audio-player" src="../../webroot/files/battle-Two-steps-from-hell-victory.mp3" controls id="battle"></audio>
 <audio class="d-none audio-player" src="../../webroot/files/victory.mp3" controls id="player-victory"></audio>
 <audio class="d-none audio-player" src="../../webroot/files/game-over.mp3" controls id="game-over"></audio>
 <audio class="d-none audio-player" src="../../webroot/files/low-life-pokemon.mp3" controls id="low-life"></audio>

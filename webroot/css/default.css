@@ -1,5 +1,6 @@
 .site-title {
-    position: absolute;
+    z-index: 14;
+    position: fixed;
     top: 0;
     left: 0;
     height: 2.5em;
@@ -18,8 +19,8 @@
 
 /* Bouton du menu principal du site */
 #toggleShowMenu {
-    position: absolute;
-    z-index: 10;
+    position: fixed;
+    z-index: 15;
     top: 0;
     right: 0;
     height: 2.5em;
@@ -35,7 +36,8 @@
 /* Menu du site */
 
 .menu {
-    position: absolute;
+    z-index: 14;
+    position: fixed;
     top: 0;
     left: 0;
     height: 2.5em;
