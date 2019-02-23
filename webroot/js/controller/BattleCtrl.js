@@ -3,33 +3,36 @@
 App.controller('battleController', function battleController($scope) {
     console.log('hello battleAngularJs!');
 
-
-
-
     // Fait apparaitre le menu des options
-    // $scope.showBattleMenu = false;
     $scope.toggleShowBattleMenu = toggleShowBattleMenu;
 
     function toggleShowBattleMenu() {
-        console.log('show menu');
         $scope.showBattleMenu = !$scope.showBattleMenu;
     }
 
     // Fait apparaitre le menu des compétences de magie
     $scope.toggleShowMagicMenu = toggleShowMagicMenu;
-    //$scope.showMagicMenu = false;
     function toggleShowMagicMenu() {
-        //$scope.showMagicMenu = !$scope.showMagicMenu;
-
-        $scope.hide = true;
+        $scope.hideMagicMenu = true;
     }
 
     // Fait disparaitre le menu des compétences de magie
     $scope.toggleHideMagicMenu = toggleHideMagicMenu;
-    $scope.hideMagicMenu = false;
     function toggleHideMagicMenu() {
-        //$scope.hideMagicMenu = !$scope.hideMagicMenu;
-        $scope.hide = false;
+        $scope.hideMagicMenu = false;
+    }
+
+    // Divise le prochain coup par 5
+    $scope.playerOneBlock = playerOneBlock;
+    function playerOneBlock() {
+        // Bloque le clic des boutons de joueur 1
+        $(".attack-input").off();
+
+        // Grise les boutons du joueurs
+        $(".attack-input").css("background-color", "grey");
+        console.log('bloque');
+        playerOneBlockStatut = true;
+        playerTwoAttack();
     }
 
 
@@ -47,7 +50,7 @@ App.controller('battleController', function battleController($scope) {
     var playerOneLifeActuelle = parseInt($('#j1initiaux-hp').text());
     var playerTwoLifeActuelle = parseInt($('#j2initiaux-hp').text());
 
-
+    var playerOneBlockStatut = false;
 
     var playerOneLife = parseInt($('#j1-hp').text());
     var playerTwoLife = parseInt($('#j2-hp').text());
@@ -187,9 +190,25 @@ App.controller('battleController', function battleController($scope) {
         // Calcul des degats
         // TODO ajouter chance de fail
         // return Math.random() * (max - min) + min;
+
+
         j2Atq = Math.round(Math.random() * (j2Power - (j2Power - (j2Power / 2))) + (j2Power - (j2Power / 2)));
+
+        // Si le joueur 1 se protége
+        if (playerOneBlockStatut === true) {
+            // TODO Ajouter animation pour rendre ca visuel
+            // Divise les degats par 5
+            j2Atq = (j2Atq / 5);
+            console.log('degat protege' + j2Atq);
+            playerOneBlockStatut = false;
+        }
+
+        console.log('joueur2: ' + j2Atq);
+
         playerOneLife = playerOneLife - j2Atq;
         console.log('joueur2: ' + j2Atq);
+
+
 
         if (j2Atq > 0) {
             $("#sword")[0].play();
@@ -199,6 +218,7 @@ App.controller('battleController', function battleController($scope) {
             // Supprime hp flottant
             setTimeout(deleteHpMessage, 1000);
         }
+
         // Si le coup vaut zéro le personnage perd de la vie
         if (j2Atq === 0) {
             playerTwoLife = playerTwoLife - 3;
@@ -322,6 +342,7 @@ App.controller('battleController', function battleController($scope) {
         // Re autorise le clic sur les boutons d'attaque/potion
          $('#j1-attaque').on('click', playerOneAttack);
          $('#j1-use-potion').on('click', restoreLife);
+         $('#j1-block').on('click', playerOneBlock);
         // Recolore les boutons du joueur
         $(".attack-input").css("background-color", "#450000");
     }

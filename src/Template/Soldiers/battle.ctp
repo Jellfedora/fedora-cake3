@@ -193,49 +193,49 @@
             <button class="battle__menu__tools-tools"><i class="fa fa-cog fa-2x" aria-hidden="true" ng-click="toggleShowBattleMenu()"></i></button>
         </div>
         <div class="battle__menu__skills">
-            <button class="battle__menu__skills-skills attack-input" id="j1-attaque" ng-click="playerOneAttack()" ng-hide="hide">
+            <button class="battle__menu__skills-skills attack-input" id="j1-attaque" ng-click="playerOneAttack()" ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
                     'icon-sword.png',
                     array('class' => ''),
                     array('alt' => "Attaque")
                 );?>
             </button>
-            <button class="battle__menu__skills-skills attack-input" id="j1-use-potion" ng-hide="hide">
+            <button class="battle__menu__skills-skills attack-input" id="j1-use-potion" ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
                     'icon-potion.png',
                     array('class' => ''),
                     array('alt' => "Soin")
                 );?>
             </button>
-            <button class="battle__menu__skills-skills attack-input" id="j1-scan" ng-hide="hide">
+            <button class="battle__menu__skills-skills attack-input" id="j1-block" ng-click="playerOneBlock()" ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
-                    'icon-scan.png',
+                    'icon-shield.png',
                     array('class' => ''),
-                    array('alt' => "Scan")
+                    array('alt' => "Shield")
                 );?>
             </button>
-            <button class="battle__menu__skills-skills attack-input" id="j1-ice" ng-hide="!hide">
+            <button class="battle__menu__skills-skills attack-input" id="j1-ice" ng-hide="!hideMagicMenu">
                 <?= $this->Html->image(
                     'icon-ice.png',
                     array('class' => ''),
                     array('alt' => "Ice")
                 );?>
             </button>
-            <button class="battle__menu__skills-skills attack-input" id="j1-electric" ng-hide="!hide">
+            <button class="battle__menu__skills-skills attack-input" id="j1-electric" ng-hide="!hideMagicMenu">
                 <?= $this->Html->image(
                     'icon-electric.png',
                     array('class' => ''),
                     array('alt' => "Electric")
                 );?>
             </button>
-            <button class="battle__menu__skills-skills attack-input" id="j1-fire" ng-hide="!hide">
+            <button class="battle__menu__skills-skills attack-input" id="j1-fire" ng-hide="!hideMagicMenu">
                 <?= $this->Html->image(
                     'icon-fire.png',
                     array('class' => ''),
                     array('alt' => "Fire")
                 );?>
             </button>
-            <button class="battle__menu__skills-skills" id="j1-return" ng-hide="!hide" ng-click="toggleHideMagicMenu()">
+            <button class="battle__menu__skills-skills" id="j1-return" ng-hide="!hideMagicMenu" ng-click="toggleHideMagicMenu()">
                 <?= $this->Html->image(
                     'icon-return.png',
                     array('class' => ''),
@@ -243,7 +243,7 @@
                 );?>
             </button>
 
-            <button class="battle__menu__skills-skills" id="j1-show-magic-menu" ng-click="toggleShowMagicMenu()" ng-hide="hide">
+            <button class="battle__menu__skills-skills" id="j1-show-magic-menu" ng-click="toggleShowMagicMenu()" ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
                     'icon-magic.png',
                     array('class' => ''),
