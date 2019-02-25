@@ -62,6 +62,10 @@ class AppController extends Controller
                 'controller' => 'Users',
                 'action' => 'login'
             ],
+            // 'addAction' => [
+            //     'controller' => 'Users',
+            //     'action' => 'add'
+            // ],
          // Si pas autorisé, on renvoit sur la page précédente
             'unauthorizedRedirect' => $this->referer()
         ]);
@@ -71,7 +75,7 @@ class AppController extends Controller
             $connected = $this->request->getSession()->read('Auth.User.email');
 
             // if (!$connected) {
-                $this->Auth->allow(['display', 'view', 'index']);
+                $this->Auth->allow(['display', 'view', 'index','add']);
             // }
     }
 

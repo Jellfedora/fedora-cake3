@@ -51,11 +51,11 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('Vous avez bien été inscrit'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'login']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('Une erreur est arrivée'));
         }
         $this->set(compact('user'));
     }
@@ -100,7 +100,7 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'logout']);
     }
 
     public function login()
@@ -119,7 +119,7 @@ class UsersController extends AppController
     {
         parent::initialize();
         //commentez ci dessous pour ajouter user
-         $this->Auth->allow(['logout']);
+         //$this->Auth->allow(['logout']);
     }
 
     public function logout()

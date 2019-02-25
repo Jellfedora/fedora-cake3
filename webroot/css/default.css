@@ -50,6 +50,14 @@
 
 .menu__links {
     display: flex;
+    padding: 0.2em;
+    justify-content: space-around;
+    width: 100%;
+    padding-right: 2.5em;
+}
+
+.menu__links-link img{
+    width: 2em;
 }
 
 .menu__user {

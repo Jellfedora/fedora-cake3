@@ -60,16 +60,8 @@ App.controller('battleController', function battleController($scope) {
     var playerOne10Hp = playerOneLifeActuelle / 10;
     var playerTwo10Hp = playerTwoLifeActuelle / 10;
 
-
-
-
     // Barre de vie
     var playerBarWidth = (100);
-
-
-
-
-
 
     // Attaque des joueurs
     var j1Power = parseInt($('#j1-power').text());
@@ -390,3 +382,4 @@ App.controller('battleController', function battleController($scope) {
 
 
 });
+

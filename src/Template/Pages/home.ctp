@@ -1,4 +1,4 @@
-<div class="home container-fluide text-light m-2 p-3 text-center m-auto">
+<div class="home container-fluide text-light text-center" style="padding-top:2.5em;">
     <h1>Bienvenue dans le jeu en ligne gratuit Valhalla!</h1>
     <p>Valhalla est un jeu de combat en ligne. Créez votre héros et partez en quête de puissance en affrontant des ennemis emblématiques des jeux vidéos.</p>
     <p>Ce jeu gratuit en ligne propose des combats tactiques au tour par tour.</p>
