@@ -124,6 +124,8 @@ class UsersController extends AppController
 
     public function logout()
     {
+        $session = $this->getRequest()->getSession();//rappel de la session
+        $session->destroy(); // Détruit la session
         $this->Flash->success('Vous avez été déconnecté.');
         return $this->redirect($this->Auth->logout());
     }

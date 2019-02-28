@@ -19,7 +19,7 @@ $cakeDescription = 'Valhalla';
 <html ng-app="App">
 <head>
     <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
@@ -47,8 +47,9 @@ $cakeDescription = 'Valhalla';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
-    <?= $this->Html->script('controller/app.js') ?>
-    <?= $this->Html->script('controller/BattleCtrl.js') ?>
+    <?= $this->Html->script('angularjs/app.js') ?>
+    <?= $this->Html->script('angularjs/controllers/MenuCtrl.js') ?>
+    <?= $this->Html->script('angularjs/controllers/BattleCtrl.js') ?>
 </head>
 <body ng-controller="appController">
 
@@ -79,81 +80,86 @@ $cakeDescription = 'Valhalla';
     );
     ?>
 
-    <button id="toggleShowMenu" ng-click="toggleShowMenu()">
-         <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
-    </button>
 
-    <div class="site-title" ng-if="!showMenu">
-        <h1>Valhalla</h1>
-    </div>
+    <div ng-controller="menuController">
+        <button id="toggleShowMenu" ng-click="toggleShowMenu()">
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </button>
 
-    <div class="menu" ng-if="showMenu">
-        <div class="menu__links">
-                    <?= $this->Html->link(
-                        $this->Html->image('icon-home.png', array('alt' => "Accueil")),
-                        array('controller' => 'Pages', 'action' => "display"),
-                        array(
-                            'class' => 'menu__links-link',
-                            'escape' => false
-                        ));
-                    ?>
-
-                    <?= $this->Html->link(
-                        $this->Html->image('icon-news.png', array('alt' => "Actualités")),
-                        array('controller' => 'Articles', 'action' => "index"),
-                        array(
-                            'class' => 'menu__links-link',
-                            'escape' => false
-                        ));
-                    ?>
-
-                <?php
-
-                 if ($connected) { ?>
-                    <?= $this->Html->link(
-                        $this->Html->image('icon-sword.png', array('alt' => "Jouer")),
-                        array('controller' => 'Soldiers', 'action' => "index"),
-                        array(
-                            'class' => 'menu__links-link',
-                            'escape' => false
-                        ));?>
-
-                    <?= $this->Html->link(
-                        'Jouer',
-                        ['controller' => 'Games', 'action' => 'play'],
-                        array('class' => 'nav-link text-light')
-                    );
-                    ?>
-
-                    <?= $this->Html->link(
-                        $this->Html->image('icon-user.png', array('alt' => "Profil")),
-                        array('controller' => 'Users', 'action' => 'edit', $user_id),
-                        array(
-                            'class' => 'menu__links-link',
-                            'escape' => false
-                        ));?>
-
-                    <?= $this->Html->link(
-                            $this->Html->image('icon-logout.png', array('alt' => "Deconnexion")),
-                            array('controller' => 'Users', 'action' => 'logout'),
+        <div class="site-title" ng-if="!showMenu">
+            <h1>Valhalla</h1>
+        </div>
+        <div class="menu" ng-if="showMenu">
+            <div class="menu__links">
+                        <?= $this->Html->link(
+                            $this->Html->image('icon-home.png', array('alt' => "Accueil")),
+                            array('controller' => 'Pages', 'action' => "display"),
                             array(
                                 'class' => 'menu__links-link',
                                 'escape' => false
                             ));
-                }else {
-                    echo $this->Html->link(
-                        'Connexion',
-                        ['controller' => 'Users', 'action' => 'login'],
-                        array('class' => 'nav-link text-light')
-                    );
-                    echo $this->Html->link(
-                        'Inscription',
-                        ['controller' => 'Users', 'action' => 'add'],
-                        array('class' => 'nav-link text-light')
-                    );
-                }
-                ?>
+                        ?>
 
+                        <?= $this->Html->link(
+                            $this->Html->image('icon-news.png', array('alt' => "Actualités")),
+                            array('controller' => 'Articles', 'action' => "index"),
+                            array(
+                                'class' => 'menu__links-link',
+                                'escape' => false
+                            ));
+                        ?>
+
+                    <?php
+
+                    if ($connected) { ?>
+                        <?= $this->Html->link(
+                            $this->Html->image('icon-monster.png', array('alt' => "Jouer")),
+                            array('controller' => 'Soldiers', 'action' => "index"),
+                            array(
+                                'class' => 'menu__links-link',
+                                'escape' => false
+                            ));
+                        ?>
+
+                        <?= $this->Html->link(
+                            $this->Html->image('icon-sword.png', array('alt' => "Jouer")),
+                            array('controller' => 'Games', 'action' => 'play'),
+                            array(
+                                'class' => 'menu__links-link',
+                                'escape' => false
+                            ));
+                        ?>
+
+                        <?= $this->Html->link(
+                            $this->Html->image('icon-user.png', array('alt' => "Profil")),
+                            array('controller' => 'Users', 'action' => 'edit', $user_id),
+                            array(
+                                'class' => 'menu__links-link',
+                                'escape' => false
+                            ));?>
+
+                        <?= $this->Html->link(
+                                $this->Html->image('icon-logout.png', array('alt' => "Deconnexion")),
+                                array('controller' => 'Users', 'action' => 'logout'),
+                                array(
+                                    'class' => 'menu__links-link',
+                                    'escape' => false
+                                ));
+                    }else {
+                        echo $this->Html->link(
+                            'Connexion',
+                            ['controller' => 'Users', 'action' => 'login'],
+                            array('class' => 'nav-link text-light')
+                        );
+                        echo $this->Html->link(
+                            'Inscription',
+                            ['controller' => 'Users', 'action' => 'add'],
+                            array('class' => 'nav-link text-light')
+                        );
+                    }
+                    ?>
+
+            </div>
         </div>
     </div>
 

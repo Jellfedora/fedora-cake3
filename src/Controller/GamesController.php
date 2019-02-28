@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Controller\AppController;
 use App\Controller\HeroesController;
 use Cake\ORM\Query;
+use Cake\Http\Middleware\CsrfProtectionMiddleware;
+use Cake\ORM\TableRegistry;
 
 class GamesController extends AppController
 {
@@ -13,6 +15,7 @@ class GamesController extends AppController
         parent::initialize();
         $this->loadComponent('Paginator');
         $this->loadComponent('Flash'); // Inclusion du FlashComponent
+        $this->loadComponent('RequestHandler');
     }
     public function play()
     {
@@ -31,6 +34,8 @@ class GamesController extends AppController
         foreach ($query as $hero) {
             $hero;
         }
+
+
         if (!empty ($hero->user_id) && ($hero->user_id)=== $user_id) {
             // Si le joueur a un perso
             // echo($heroes->name);die();
@@ -39,13 +44,97 @@ class GamesController extends AppController
             // Si le joueur n'a pas créé de perso il doit en créer un
             return $this->redirect(array('controller' => 'Heroes', 'action' => 'add'));
         }
+
+        // On pousse les infos du héros dans un array
+        $hero_info = [
+            'id' => $hero->id,
+            'name' => $hero->name,
+            'level' => $hero->level,
+            'hp' => $hero->hp,
+            'attaque' => $hero->attaque,
+            'potion' => $hero->potion
+        ];
+
+
+        // session en variable locale
+        $session = $this->getRequest()->getSession();//mise en place de la session
+        $session->write('hero_info',$hero_info); //Write
+        //debug($session->read('hero_info'));die();
+
+
     }
 
-    public function firstFight($hero) {
+    // Charge les infos du joueur pour la vue
+    public function heroInfo() {
+        $session = $this->getRequest()->getSession();//rappel de la session
+        $hero_id = $session->read('hero_info.id');
+        // Fait appel au model Heroes
+        $this->loadModel('Heroes');
 
-        // Ajout du heros du joueur
-        $this->set(compact('hero'));
-        //debug($hero->name);die();
+        $heroes= $this->Heroes;
+        $query = $heroes
+        ->find()
+        ->where(['id' => $hero_id]);
+
+        foreach ($query as $hero) {
+            $hero;
+        }
+        //Envoi les infos du joueur en ajax
+        $json = json_encode($hero);
+        echo $json;
+        exit;
+    }
+
+    public function firstFight() {
+        // Fait appel au model Soldiers
+        $this->loadModel('Soldiers');
+
+        $soldiers= $this->Soldiers;
+        $query = $soldiers
+            ->find()
+            ->where(['slug' => 'Queklain']);
+
+        foreach ($query as $soldier) {
+            $soldier;
+        }
+        // Ajout de l'ennemi sélectionné
+        $this->set(compact('soldier'));
+        ///debug($soldier);die();
+
+
+    }
+
+    public function victory() {
+        // Ajax get fonctionnel!
+        $message = 'Niveau 1 terminated!';
+        $json = json_encode($message);
+        echo $json;
+        exit;
+    }
+
+    // Met à jour le niveau du joueur aprés une victoire
+    public function updateHero() {
+        //Session
+        $session = $this->getRequest()->getSession();//rappel de la session
+        //debug($session->read('hero_info'));die();
+        $hero_id = $session->read('hero_info.id');
+        // Fait appel au model Heroes
+
+        $heroesTable = TableRegistry::get('Heroes');
+        $hero = $heroesTable->get($hero_id); // Retourne le heros avec l'id 7 (TODO à rendre dynamique)
+
+        $hero->level = $hero->level + 1;
+        $hero->attaque = $hero->attaque + 2;
+        $hero->hp = $hero->hp + 20;
+        $heroesTable->save($hero);
+
+        $message = ('Vous avez atteint le level ' . $hero->level);
+        $json = json_encode($message);
+        echo $json;
+        exit;
+    }
+
+    public function secondFight() {
 
         // Fait appel au model Soldiers
         $this->loadModel('Soldiers');
@@ -53,7 +142,7 @@ class GamesController extends AppController
         $soldiers= $this->Soldiers;
         $query = $soldiers
             ->find()
-            ->where(['slug' => 'Sephiroth']);
+            ->where(['slug' => 'Malboro']);
 
         foreach ($query as $soldier) {
             $soldier;
@@ -63,7 +152,23 @@ class GamesController extends AppController
         ///debug($soldier);die();
     }
 
+    public function thirdFight() {
 
+        // Fait appel au model Soldiers
+        $this->loadModel('Soldiers');
+
+        $soldiers= $this->Soldiers;
+        $query = $soldiers
+            ->find()
+            ->where(['slug' => 'Bomb']);
+
+        foreach ($query as $soldier) {
+            $soldier;
+        }
+        // Ajout de l'ennemi sélectionné
+        $this->set(compact('soldier'));
+        ///debug($soldier);die();
+    }
 
 
 

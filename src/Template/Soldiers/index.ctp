@@ -4,7 +4,7 @@
     <table class="table table-striped table-hover table-dark">
         <thead>
             <tr>
-                <th  scope="col" class="text-center">Affronter?</th>
+                <th  scope="col" class="text-center">Voir</th>
                 <th  scope="col" class="text-center">Nom</th>
                 <th  scope="col" class="text-center">PV</th>
                 <th  scope="col" class="text-center">Attaque</th>
@@ -16,7 +16,7 @@
             <?php foreach ($soldiers as $soldier) : ?>
                 <tr class="">
                     <td class="text-center">
-                        <?= $this->Html->link('Oui', ['action' => 'battle', $soldier->slug]) ?>
+                        <?= $this->Html->link('Go', ['action' => 'view', $soldier->slug]) ?>
                     </td>
                     <td class="text-center">
                         <?= $soldier->name ?>

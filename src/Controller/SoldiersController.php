@@ -23,24 +23,5 @@ class SoldiersController extends AppController
         $soldier = $this->Soldiers->findBySlug($slug)->firstOrFail();
         $this->set(compact('soldier'));
     }
-    public function battle($slug)
-    {
-        // Ajout du joueur
-        $soldierOne = $this->Soldiers->findBySlug('Jellfedora')->firstOrFail();
-        $this->set(compact('soldierOne'));
-
-
-
-        // Ajout de l'ennemi sélectionné par son slug
-        $soldierTwo = $this->Soldiers->findBySlug($slug)->firstOrFail();
-        $this->set(compact('soldierTwo'));
-
-
-
-
-    }
-
-
-
 
 }

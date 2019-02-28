@@ -230,7 +230,29 @@ a {
     background-position: -55px 1px;
 }
 
-/* sprite joueur 2 */
+/* Animation d'attaque */
+.sprites-attack {
+    background-image: url(../img/sprites/player-cloud2.png);
+    width: 1.5em;
+    position: relative;
+    background-position: -240px -149px;
+    height: 1.5em;
+    top: 1.5em;
+    right: 2.5em;
+}
+
+/* Armes */
+.weapons {
+    background-image: url(../img/sprites/weapons.png);
+    width: 2.3em;
+    position: relative;
+    background-position: -13px -121px;
+    height: 1.5em;
+    top: 2em;
+    right: 3em;
+}
+
+/* sprite boss 1 */
 .sprites-player2 {
     background-image: url('../img/sprites/boss-queklain.png');
     background-repeat: no-repeat;
@@ -241,6 +263,31 @@ a {
 .sprites-player2 {
     height: 87px;
     background-position: -97px -4px;
+}
+
+/* Sprites boss2 malboro */
+.sprites-boss-malboro {
+    background-image: url('../img/sprites/boss-malboro.png');
+    background-repeat: no-repeat;
+    width: 4.5em;
+}
+
+
+.sprites-boss-malboro {
+    height: 87px;
+    background-position: -64px 11px;
+}
+
+/* Sprites boss2 bomb */
+.sprites-boss-bomb {
+    background-image: url('../img/sprites/boss-bomb.png');
+    background-repeat: no-repeat;
+    width: 5.5em;
+}
+
+.sprites-boss-bomb {
+    height: 100px;
+    background-position: -25px -28px;
 }
 
 /* Affichage des degats */
@@ -321,7 +368,7 @@ a {
 
 .battle__menu__skills {
     /* border: 1px solid pink; */
-    width: 40%;
+    /* width: 40%; */
     display: flex;
     justify-content: space-around;
     align-items: center;

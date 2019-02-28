@@ -47,6 +47,9 @@ class AppController extends Controller
     {
 
         $this->loadComponent('Flash');
+        $this->loadComponent('RequestHandler', [
+            'enableBeforeRedirect' => false
+        ]);
         $this->loadComponent('Auth', [
         // La ligne suivante a été ajoutée
             'authorize' => 'Controller',
