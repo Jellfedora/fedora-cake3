@@ -4,8 +4,8 @@ App.controller('battleController', function battleController($scope, $http) {
     console.log('hello battleAngularJs!');
 
 
-    $scope.loadHero = function() {
     // Récupére les infos sur le joueur
+    $scope.loadHero = function() {
     return $http({
         method: 'GET',
         url: 'hero_info'
@@ -22,6 +22,7 @@ App.controller('battleController', function battleController($scope, $http) {
         // code to execute in case of error
     });
 }
+    // Variables
     // Définit que le joueur ne bloque pas par défaut
     var playerOneBlockStatut = false;
 
@@ -31,7 +32,6 @@ App.controller('battleController', function battleController($scope, $http) {
 
     // Fait apparaitre le menu des options
     $scope.toggleShowBattleMenu = toggleShowBattleMenu;
-
     function toggleShowBattleMenu() {
         console.log('menu');
         $scope.showBattleMenu = true;
@@ -39,7 +39,6 @@ App.controller('battleController', function battleController($scope, $http) {
 
     // Fait disparaitre le menu des options
     $scope.toggleHideBattleMenu = toggleHideBattleMenu;
-
     function toggleHideBattleMenu() {
         console.log('menuhide');
         $scope.showBattleMenu = false;
@@ -73,29 +72,9 @@ App.controller('battleController', function battleController($scope, $http) {
 
     // Coupe le son du jeu
     $scope.stopMusic = stopMusic;
-
     function stopMusic() {
         console.log('musique en pause');
         $(".audio-player")[0].pause();
-    }
-
-    // Lance un combat automatique
-    $('#auto').on('click', fightAuto);
-
-    function fightAuto() {
-        setTimeout(joueur1Attaque, 5000);
-        //$("#fight-logo").removeClass("d-none");
-        $("#player-battle")[0].play();
-    }
-
-    // Relance un combat (à débuguer!!)
-    $('#reload-fight').on('click', reloadFight);
-
-    function reloadFight() {
-        $('#j1-hp').text(100);
-        $('#j2-hp').text(150);
-        setTimeout(joueur1Attaque, 5000);
-        $("#player-battle")[0].play();
     }
 
     //Combat manuel
@@ -133,7 +112,7 @@ App.controller('battleController', function battleController($scope, $http) {
 
         var time;
         //$('#j1-attaque').on('click', function () {
-        $("#battle")[0].play();
+
         // Bloque le clic des boutons de joueur 1
         $(".attack-input").off();
 

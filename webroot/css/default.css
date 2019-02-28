@@ -64,10 +64,3 @@
     display: flex;
 }
 
-/* Media queries */
-
-@media (min-width: 1141px) {
-    .menu {
-        display: none;
-    }
-}

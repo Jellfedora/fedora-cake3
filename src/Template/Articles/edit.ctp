@@ -1,4 +1,5 @@
-<!-- Fichier : src/Template/Articles/edit.ctp -->
+
+
 
 <h1>Modifier un article</h1>
 

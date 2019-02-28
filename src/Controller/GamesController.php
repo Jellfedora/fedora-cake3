@@ -142,7 +142,7 @@ class GamesController extends AppController
         $soldiers= $this->Soldiers;
         $query = $soldiers
             ->find()
-            ->where(['slug' => 'Malboro']);
+            ->where(['slug' => 'Queklain2']);
 
         foreach ($query as $soldier) {
             $soldier;

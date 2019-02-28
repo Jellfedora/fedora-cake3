@@ -19,9 +19,15 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $users = $this->paginate($this->Users);
+        $user_id = $this->request->getSession()->read('Auth.User.id');
+        // Si l'utilisateur n'est pas l'admin
+        if ($user_id != 2) {
+            return $this->redirect(['controller'=> 'pages ']);
+        } else {
+            $users = $this->paginate($this->Users);
 
-        $this->set(compact('users'));
+            $this->set(compact('users'));
+        }
     }
 
     /**

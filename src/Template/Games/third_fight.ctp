@@ -1,39 +1,45 @@
-<div class="battle container-fluide text-light text-center" ng-controller="battleController" ng-init="loadHero()">
+<div class="battle container-fluide text-light text-center" style="background-image: url(../img/battle-background/arene-3.jpg);" ng-controller="battleController" ng-init="loadHero()">
 
     <!-- Menu partie -->
     <div class="battle__options text-center" ng-hide="!showBattleMenu">
         <span class="battle__options-options" id="close"><i class="fa fa-times fa-2x" aria-hidden="true" ng-click="toggleHideBattleMenu()"></i></span>
         <span class="battle__options-options"><i class="fa fa-refresh fa-2x" aria-hidden="true"></i>
-        <!-- TODO régler l'affichage du lien -->
-        <?= $this->Html->link(
-                        'ici',
-                        ['controller' => 'Games', 'action' => 'thirdFight']
-                    );
-                ?></span>
+            <!-- TODO régler l'affichage du lien -->
+            <?= $this->Html->link(
+                'ici',
+                ['controller' => 'Games', 'action' => 'thirdFight']
+            );
+            ?></span>
         <span class="battle__options-options" id="auto"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></i></span>
         <span class="battle__options-options" id="sound-player"><i class="fa fa-volume-off fa-2x" aria-hidden="true" ng-click="stopMusic()"></i></span>
     </div>
 
     <!-- Message Victoire / Defaite -->
     <div class="battle__win d-none" id="message-win">
-        <span class="battle__win-win" ><p>Victoire !</p></span>
+        <span class="battle__win-win">
+            <p>Victoire !</p>
+        </span>
         <p>{{ lvlmessage }}</p>
-        <button><?= $this->Html->link(
-                        'Prochain ennemi?',
-                        ['controller' => 'Games', 'action' => 'thirdFight'],
-                        array('class' => 'nav-link text-light')
-                    );
-                ?>
+        <button>
+            <?= $this->Html->link(
+                'Prochain ennemi?',
+                ['controller' => 'Games', 'action' => 'thirdFight'],
+                array('class' => 'nav-link text-light')
+            );
+            ?>
         </button>
     </div>
     <div class="battle__loose d-none" id="message-loose">
-        <span class="battle__loose-loose"><p>Defaite !</p></span>
-        <button><?= $this->Html->link(
-                        'Retourner affronter Malboro',
-                        ['controller' => 'Games', 'action' => 'secondFight'],
-                        array('class' => 'nav-link text-light')
-                    );
-                ?>
+        <span class="battle__loose-loose">
+            <p>Defaite !</p>
+        </span>
+        <button>
+            <?= $this->Html->link(
+                'Retourner affronter Malboro',
+                ['controller' => 'Games', 'action' => 'secondFight'],
+                array('class' => 'nav-link text-light')
+            );
+            ?>
         </button>
     </div>
 
@@ -94,7 +100,9 @@
     </div>
     <div class="battle__map">
         <div class="battle__map__player-one-avatar">
-            <span class="battle__map__player-one-avatar-degat" id="playerOneLifeDegat"><p></p></span>
+            <span class="battle__map__player-one-avatar-degat" id="playerOneLifeDegat">
+                <p></p>
+            </span>
             <!-- <img id="playerOneAvatar" class="battle__map__player-one-avatar__avatar" src="<?= $soldierOne->avatar ?>" alt=""> -->
 
             <div class="sprites" id="playerOneAvatar"></div>
@@ -102,7 +110,9 @@
             <div class="weapons d-none"></div>
         </div>
         <div class="battle__map__player-two-avatar">
-            <span class="battle__map__player-two-avatar-degat" id="playerTwoLifeDegat"><p></p></span>
+            <span class="battle__map__player-two-avatar-degat" id="playerTwoLifeDegat">
+                <p></p>
+            </span>
             <!-- <img id="playerTwoAvatar" class="battle__map__player-two-avatar__avatar" src="<?= $soldierTwo->avatar ?>" alt=""> -->
             <div class="sprites-boss-bomb" id="playerTwoAvatar"></div>
         </div>
@@ -117,49 +127,49 @@
                     'icon-sword.png',
                     array('class' => ''),
                     array('alt' => "Attaque")
-                );?>
+                ); ?>
             </button>
             <button class="battle__menu__skills-skills attack-input" id="j1-use-potion" ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
                     'icon-potion.png',
                     array('class' => ''),
                     array('alt' => "Soin")
-                );?>
+                ); ?>
             </button>
             <button class="battle__menu__skills-skills attack-input" id="j1-block" ng-click="playerOneBlock()" ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
                     'icon-shield.png',
                     array('class' => ''),
                     array('alt' => "Shield")
-                );?>
+                ); ?>
             </button>
             <button class="battle__menu__skills-skills attack-input" id="j1-ice" ng-hide="!hideMagicMenu">
                 <?= $this->Html->image(
                     'icon-ice.png',
                     array('class' => ''),
                     array('alt' => "Ice")
-                );?>
+                ); ?>
             </button>
             <button class="battle__menu__skills-skills attack-input" id="j1-electric" ng-hide="!hideMagicMenu">
                 <?= $this->Html->image(
                     'icon-electric.png',
                     array('class' => ''),
                     array('alt' => "Electric")
-                );?>
+                ); ?>
             </button>
             <button class="battle__menu__skills-skills attack-input" id="j1-fire" ng-hide="!hideMagicMenu">
                 <?= $this->Html->image(
                     'icon-fire.png',
                     array('class' => ''),
                     array('alt' => "Fire")
-                );?>
+                ); ?>
             </button>
             <button class="battle__menu__skills-skills" id="j1-return" ng-hide="!hideMagicMenu" ng-click="toggleHideMagicMenu()">
                 <?= $this->Html->image(
                     'icon-return.png',
                     array('class' => ''),
                     array('alt' => "Return")
-                );?>
+                ); ?>
             </button>
 
             <button class="battle__menu__skills-skills" id="j1-show-magic-menu" ng-click="toggleShowMagicMenu()" ng-hide="hideMagicMenu">
@@ -167,7 +177,7 @@
                     'icon-magic.png',
                     array('class' => ''),
                     array('alt' => "Compétences")
-                );?>
+                ); ?>
             </button>
         </div>
     </div>
