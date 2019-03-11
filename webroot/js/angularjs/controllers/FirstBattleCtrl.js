@@ -1,7 +1,7 @@
 App.controller('firstBattleController', function firstBattleController($scope, $http) {
     console.log('hello firstbattleAngularJs!');
 
-    $scope.introduction = 'Psss hé petit, reveilles toi...';
+    $scope.introduction = 'Jeune femme : ' + ' Pssst hé toi, reveilles toi...';
 
     $scope.buttonIntroduction = buttonIntroduction;
 
@@ -9,12 +9,12 @@ App.controller('firstBattleController', function firstBattleController($scope, $
 
     function buttonIntroduction () {
         i++;
-        $scope.introduction = 'Réveilles toi il arrive!';
+        $scope.introduction = 'Jeune femme : ' + ' Ah enfin tu ouvres les yeux! Je commencais à me sentir bien seule içi.';
         if (i === 2) {
-            $scope.introduction = '...';
+            $scope.introduction = 'Jeune femme : ' + ' Oh non ils m\'ont retrouvée, j\'entends leurs grognements ils arrivent!';
         }
         if (i === 3) {
-            $scope.introduction = 'Trop tard je t \'avais prévenu! Ramasse cette épée et bats toi!';
+            $scope.introduction = 'Jeune femme : ' + ' Tu sais te battre? Prends mon épée, je suis blessée';
         }
         if (i === 4) {
             $scope.hideIntroduction = !$scope.hideIntroduction;

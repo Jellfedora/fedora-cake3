@@ -119,13 +119,15 @@ App.controller('battleController', function battleController($scope, $http) {
         // Grise les boutons du joueurs
         $(".attack-input").css("background-color", "grey");
 
-        //Animations
-        $(".battle__map").css("justify-content", "flex-end");
-        $(".battle__map__player-one-avatar").css("justify-content", "flex-end");
-        $(".battle__map__player-two-avatar").css("justify-content", "flex-start");
+
+
+
+        // Animation attaque joueur 1
+        $(".sprites").css("position", "relative");
+        $(".sprites").css("left", "20em");
+
 
         $('.weapons').removeClass("d-none");
-        $('.sprites-attack').removeClass("d-none");
 
 
 
@@ -203,8 +205,13 @@ App.controller('battleController', function battleController($scope, $http) {
 
     // Attaque du joueur 2
     function playerTwoAttack() {
-        $('.weapons').addClass("d-none");
-        $('.sprites-attack').addClass("d-none");
+
+
+
+
+        // Animation attaque joueur 2
+        $(".sprites-player2").css("position", "relative");
+        $(".sprites-player2").css("right", "20em");
 
 
 
@@ -327,9 +334,11 @@ App.controller('battleController', function battleController($scope, $http) {
 
     // Remet les joueurs à leur position d'origine
     function replacePlayers() {
-        $(".battle__map").css("justify-content", "space-between");
-        $(".battle__map__player-one-avatar").css("justify-content", "center");
-        $(".battle__map__player-two-avatar").css("justify-content", "center");
+        // Remet le joueur 1 à sa place
+        $(".sprites").css("left", "0em");
+        $('.weapons').addClass("d-none");
+        // Replace le joueur 2
+        $(".sprites-player2").css("right", "0em");
     }
 
     // Efface les hp flottants
@@ -450,6 +459,7 @@ App.controller('battleController', function battleController($scope, $http) {
     // Lorsque le joueur 2 prend des degats
     function PlayerTwoDegatAnimation() {
         // Fait vibrer l'avatar
+        console.log('testsssssssssssss');
         $('#playerTwoAvatar').addClass('shake-constant');
         $('#playerTwoAvatar').addClass('shake-opacity');
         // Colore la border en red

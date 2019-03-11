@@ -1,7 +1,12 @@
+<?php $this->assign('title', 'Dans la pénombre'); ?>
+
 <div ng-controller="battleController">
     <div class="battle container-fluide text-light text-center" style="background-image: url(../img/battle-background/arene-1.png);" ng-init="loadHero()" ng-controller="firstBattleController">
         <!-- Intro -->
         <div class="battle__introduction" ng-show="!hideIntroduction">
+            <div class="battle__introduction-avatar">
+
+            </div>
             <div class="battle__introduction-message">
                 <p id="message">{{introduction}}</p>
             </div>
@@ -111,9 +116,11 @@
                 </span>
                 <!-- <img id="playerOneAvatar" class="battle__map__player-one-avatar__avatar" src="<?= $soldierOne->avatar ?>" alt=""> -->
 
-                <div class="sprites" id="playerOneAvatar"></div>
-                <div class="sprites-attack d-none"></div>
-                <div class="weapons d-none"></div>
+                <div class="sprites" id="playerOneAvatar">
+                    <div class="sprites-attack"></div>
+                    <div class="weapons d-none"></div>
+                </div>
+
             </div>
             <div class="battle__map__player-two-avatar">
                 <span class="battle__map__player-two-avatar-degat" id="playerTwoLifeDegat">

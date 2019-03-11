@@ -19,7 +19,7 @@
     background-position: -240px -149px;
     height: 1.5em;
     top: 1.5em;
-    right: 2.5em;
+    left: 1em;
 }
 
 /* Armes */
@@ -29,8 +29,8 @@
     position: relative;
     background-position: -13px -121px;
     height: 1.5em;
-    top: 2em;
-    right: 3em;
+    top: 0.6em;
+    left: 2em;
 }
 
 /* sprite boss 1 */

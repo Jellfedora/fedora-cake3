@@ -1,3 +1,5 @@
+<?php $this->assign('title', 'Papa est là!'); ?>
+
 <div class="battle container-fluide text-light text-center" style="background-image: url(../img/battle-background/arene-3.jpg);" ng-controller="battleController" ng-init="loadHero()">
 
     <!-- Menu partie -->
