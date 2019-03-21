@@ -26,13 +26,6 @@ $cakeDescription = 'Valhalla';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-    <!-- default.ctp -->
-    <?= $this->Html->css('default.css') ?>
-    <?= $this->Html->css('style.css') ?>
-    <!-- Pour faire vibrer! -->
-    <?= $this->Html->css('csshake.css') ?>
-    <!-- home.ctp -->
-    <?= $this->Html->css('home.css') ?>
     <?= $this->Html->css('font-awesome-4.7.0/css/font-awesome.min.css'); ?>
 
     <?= $this->fetch('meta') ?>
@@ -43,15 +36,12 @@ $cakeDescription = 'Valhalla';
     <?php $this->Html->script('app') ?>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <?= $this->Html->css('fedora.css') ?>
-    <?= $this->Html->css('battle-map.css') ?>
-    <?= $this->Html->css('sprites.css') ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    <?= $this->Html->css('sass.css') ?>
     <!-- Animation lettre -->
-    <?= $this->Html->css('animate.css') ?>
     <?= $this->Html->script('textillatejs/jquery.lettering.js') ?>
     <?= $this->Html->script('textillatejs/jquery.textillate.js') ?>
 
@@ -67,18 +57,11 @@ $cakeDescription = 'Valhalla';
     <!-- Loader -->
     <div ng-hide="showContent" class="text-center" style="height:100%;overflow:hidden;position:absolute;top:0;right:0;left:0;bottom:0;background-color:#450000;z-index:900;padding-top:3em;">
         <div class="loader loader--style2" title="1">
-        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-        <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
-            <animateTransform attributeType="xml"
-            attributeName="transform"
-            type="rotate"
-            from="0 25 25"
-            to="360 25 25"
-            dur="0.6s"
-            repeatCount="indefinite"/>
-            </path>
-        </svg>
+            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                    <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                </path>
+            </svg>
         </div>
     </div>
 
@@ -206,16 +189,13 @@ $cakeDescription = 'Valhalla';
             </div>
         </div>
     </div>
-
-    <div class="" style="height:100vh;">
-
-
-        <?php  ?>
+    <div style="min-height:100vh;">
         <?= $this->fetch('content') ?>
-    </div>
-    <footer>
-    </footer>
 
+    </div>
+    <footer class="home__footer text-light text-center">
+        <small>Jellfedora Company - &copy; COPYRIGHT 2019 - Tout droits réservés</small>
+    </footer>
 </body>
 
 </html>

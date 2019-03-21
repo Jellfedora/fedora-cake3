@@ -22,6 +22,7 @@
         ?>
     </p>
     <?php
+
 } ?>
     <table class="bg-dark text-light">
         <tr>
@@ -31,6 +32,7 @@
             <?php if ($user_id === 2) { ?>
             <th class="text-center">Action</th>
             <?php
+
         } ?>
         </tr>
 
