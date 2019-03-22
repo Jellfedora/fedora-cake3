@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
+
+body {
+    background-image: url(../img/art-nebula.png);
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Roboto Slab', serif;
+    /* TODO regler decalage car pete en battle */
+    /* padding-top: 2.5em; */
+    position: relative;
+    height: 100%;
+}
+
+h1 {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+a {
+    color: rgb(72, 126, 241);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(114, 156, 248);
+    text-decoration: none;
+}
+
+hr {
+    background-color: white;
+    margin: 2em 0;
+}

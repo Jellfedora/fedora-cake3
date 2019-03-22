@@ -126,49 +126,49 @@
         <div class="battle__menu__skills">
             <button class="battle__menu__skills-skills attack-input" id="j1-attaque" ng-click="playerOneAttack()" ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
-                    'icon-sword.png',
+                    'icons/icon-sword.png',
                     array('class' => ''),
                     array('alt' => "Attaque")
                 ); ?>
             </button>
             <button class="battle__menu__skills-skills attack-input" id="j1-use-potion" ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
-                    'icon-potion.png',
+                    'icons/icon-potion.png',
                     array('class' => ''),
                     array('alt' => "Soin")
                 ); ?>
             </button>
             <button class="battle__menu__skills-skills attack-input" id="j1-block" ng-click="playerOneBlock()" ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
-                    'icon-shield.png',
+                    'icons/icon-shield.png',
                     array('class' => ''),
                     array('alt' => "Shield")
                 ); ?>
             </button>
             <button class="battle__menu__skills-skills attack-input" id="j1-ice" ng-hide="!hideMagicMenu">
                 <?= $this->Html->image(
-                    'icon-ice.png',
+                    'icons/icon-ice.png',
                     array('class' => ''),
                     array('alt' => "Ice")
                 ); ?>
             </button>
             <button class="battle__menu__skills-skills attack-input" id="j1-electric" ng-hide="!hideMagicMenu">
                 <?= $this->Html->image(
-                    'icon-electric.png',
+                    'icons/icon-electric.png',
                     array('class' => ''),
                     array('alt' => "Electric")
                 ); ?>
             </button>
             <button class="battle__menu__skills-skills attack-input" id="j1-fire" ng-hide="!hideMagicMenu">
                 <?= $this->Html->image(
-                    'icon-fire.png',
+                    'icons/icon-fire.png',
                     array('class' => ''),
                     array('alt' => "Fire")
                 ); ?>
             </button>
             <button class="battle__menu__skills-skills" id="j1-return" ng-hide="!hideMagicMenu" ng-click="toggleHideMagicMenu()">
                 <?= $this->Html->image(
-                    'icon-return.png',
+                    'icons/icon-return.png',
                     array('class' => ''),
                     array('alt' => "Return")
                 ); ?>
@@ -176,7 +176,7 @@
 
             <button class="battle__menu__skills-skills" id="j1-show-magic-menu" ng-click="toggleShowMagicMenu()" ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
-                    'icon-magic.png',
+                    'icons/icon-magic.png',
                     array('class' => ''),
                     array('alt' => "Compétences")
                 ); ?>

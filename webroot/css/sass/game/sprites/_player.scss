@@ -1,0 +1,23 @@
+/* sprite joueur 1 */
+.sprites {
+    background-image: url('../img/sprites/player-cloud2.png');
+    background-repeat: no-repeat;
+    width: 3.5em;
+}
+
+
+.sprites {
+    height: 73px;
+    background-position: -55px 1px;
+}
+
+/* Animation d'attaque */
+.sprites-attack {
+    background-image: url(../img/sprites/player-cloud2.png);
+    width: 1.5em;
+    position: relative;
+    background-position: -240px -149px;
+    height: 1.5em;
+    top: 1.5em;
+    left: 1em;
+}
