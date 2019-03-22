@@ -8,7 +8,7 @@ body {
   background-position: center;
   font-family: "Roboto Slab", serif;
   /* TODO regler decalage car pete en battle */
-  /* padding-top: 2.5em; */
+  padding-top: 2.5em;
   position: relative;
   height: 100%;
 }
@@ -18,6 +18,10 @@ h1 {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 1em;
+}
+
+h2 {
+  color: white;
 }
 
 a {
@@ -252,6 +256,42 @@ svg rect {
   fill: white;
 }
 
+.article {
+  padding: 1em;
+}
+.article__block-title {
+  text-align: center;
+}
+.article__block-title__title {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+.article__block-content {
+  width: 100%;
+  background-color: #450000;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.article__block-content__content__block-image__image {
+  width: 100%;
+}
+.article__block-content__content__block-text {
+  padding: 1em 1em 0 1em;
+  text-align: center;
+  margin: auto;
+}
+@media (min-width: 576px) {
+  .article__block-content {
+    width: 65%;
+  }
+  .article__block-content__content__block-image {
+    margin-top: 1em;
+  }
+  .article__block-content__content__block-image__image {
+    width: 60%;
+  }
+}
 .articles-index {
   width: 100%;
   display: flex;

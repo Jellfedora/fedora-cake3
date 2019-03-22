@@ -1,12 +1,21 @@
 <?php $this->assign('title', $article->title); ?>
 
-<div class="container-fluide bg-dark text-light text-center pt-5">
-    <h1>
-        <?= h($article->title) ?>
-    </h1>
-    <p>
-        <?= h($article->body) ?>
-    </p>
-    <p><small>Créé le :
-            <?= $article->created->format(DATE_RFC850) ?></small></p>
+<div class="article container-fluide text-light">
+    <div class="article__block-title">
+        <h2 class="article__block-title__title">NEWS</h2>
+    </div>
+    <div class="article__block-content">
+        <div class="article__block-content__content__block-image text-center">
+            <img class="article__block-content__content__block-image__image" src="<?= $article->image ?>" alt="" srcset="">
+        </div>
+        <div class="article__block-content__content__block-text">
+            <h3 class="article__block-content__content__block-text__title">
+                <?= $article->title ?>
+            </h3>
+            <p class="article__block-content__content__block-text__text"><?= $article->body ?></p>
+            <small class="article__block-content__content__block-text__date">
+                Ajouté le <?= $article->created->format(DATE_RFC850) ?>
+            </small>
+        </div>
+    </div>
 </div>
