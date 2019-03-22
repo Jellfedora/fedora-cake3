@@ -10,8 +10,10 @@
     <p>Actuellement à l'état de protoype il n'aura de cesse de s'étoffer en contenu, avec au programme l'ajout d'ennemis toujours plus puissants, d'équipements
         rares et précieux et même un mode multijoueur sortit de dérriére les fagots!</p>
 
+    <!-- Ajouter les articles ici -->
+    <?php echo $this->element('articles'); ?>
 
-<!--
+    <!--
     <section class="l-accordion">
         <div class="l-accordion__slide" data-accordion-slide="1">
             <div class="l-accordion__inside text-dark">
@@ -42,3 +44,5 @@
 
 
 </div>
+
+<?php echo $this->element('footer'); ?>

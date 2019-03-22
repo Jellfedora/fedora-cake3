@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Core\Configure;
+use App\Controller\ArticlesController;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
@@ -38,6 +39,12 @@ class PagesController extends AppController
      * @throws \Cake\Http\Exception\NotFoundException When the view file could not
      *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
      */
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Paginator');
+    }
+
     public function display(...$path)
     {
         $count = count($path);
@@ -55,6 +62,18 @@ class PagesController extends AppController
         if (!empty($path[1])) {
             $subpage = $path[1];
         }
+
+        // Renvoie les 3 derniers articles
+        $this->loadModel('Articles');
+
+        $articles= $this->Articles;
+
+        $articles = $articles
+            ->find('all')
+            ->limit(3)
+            ->order( array('created' => 'desc'));
+        $this->set(compact('articles'));
+
         $this->set(compact('page', 'subpage'));
 
         try {

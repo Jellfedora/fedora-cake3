@@ -14,6 +14,10 @@
         'required' => true,
         'rows' => '3'
     ]);
+    echo $this->Form->control('image', [
+        'label' => 'Image',
+        'required' => true,
+    ]);
     echo $this->Form->button(__('Sauvegarder l\'article'));
     echo $this->Form->end();
     ?>

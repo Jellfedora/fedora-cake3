@@ -1,34 +1,38 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700");
-.site-title {
-  z-index: 14;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2.5em;
-  background-color: #450000;
-  border-bottom: grey 2px solid;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  padding: 0.4em;
+body {
+  background-image: url(../img/art-nebula.png);
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: "Roboto Slab", serif;
+  /* TODO regler decalage car pete en battle */
+  /* padding-top: 2.5em; */
+  position: relative;
+  height: 100%;
 }
 
-/* Bouton du menu principal du site */
-#toggleShowMenu {
-  position: fixed;
-  z-index: 15;
-  top: 0;
-  right: 0;
-  height: 2.5em;
-  width: 2.5em;
-  padding: 0.1em;
-  background-color: #450000;
+h1 {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1em;
 }
 
-#toggleShowMenu:focus {
-  outline: 0;
+a {
+  color: #487ef1;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #729cf8;
+  text-decoration: none;
+}
+
+hr {
+  background-color: white;
+  margin: 2em 0;
 }
 
 /* Menu du site */
@@ -59,6 +63,36 @@
 
 .menu__user {
   display: flex;
+}
+
+.site-title {
+  z-index: 14;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2.5em;
+  background-color: #450000;
+  border-bottom: grey 2px solid;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0.4em;
+}
+
+/* Bouton du menu principal du site */
+#toggleShowMenu {
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  right: 0;
+  height: 2.5em;
+  width: 2.5em;
+  padding: 0.1em;
+  background-color: #450000;
+}
+
+#toggleShowMenu:focus {
+  outline: 0;
 }
 
 /* Fiche de style de home.ctp */
@@ -177,33 +211,6 @@
     background-image: url("http://cdn.wccftech.com/wp-content/uploads/2015/08/No-Mans-Sky-Gamescom-17.jpg");
     background-position: 100% 50%;
 } */
-body {
-  background-image: url(../img/art-nebula.png);
-  /* background-size: cover; */
-  background-repeat: no-repeat;
-  background-position: center;
-  font-family: "Roboto Slab", serif;
-  /* TODO regler decalage car pete en battle */
-  /* padding-top: 2.5em; */
-  position: relative;
-}
-
-h1 {
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 1em;
-}
-
-h2 {
-  font-size: 0.9em;
-}
-
-a {
-  color: black;
-  /* font-size: em; */
-}
-
 /* Page d'accueil */
 .home {
   margin: auto;
@@ -231,14 +238,10 @@ a {
 
 /* loader */
 .loader {
-  margin: 0 0 2em;
-  height: 100px;
   width: 20%;
-  text-align: center;
-  padding: 1em;
-  margin: 0 auto 1em;
-  display: inline-block;
-  vertical-align: top;
+  position: absolute;
+  top: 42%;
+  left: 40%;
 }
 
 /*
@@ -247,6 +250,83 @@ a {
 svg path,
 svg rect {
   fill: white;
+}
+
+.articles-index {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0;
+}
+.articles-index__block-title {
+  text-align: left;
+  display: inline-block;
+  margin-bottom: 1.5em;
+}
+.articles-index__block-content__content {
+  width: 100%;
+  height: 15em;
+  display: flex;
+  flex-direction: column;
+  background-color: #450000;
+  margin-bottom: 1em;
+}
+.articles-index__block-content__content__block-image {
+  width: 100%;
+  height: 50%;
+}
+.articles-index__block-content__content__block-image__image {
+  width: 100%;
+  height: 100%;
+}
+.articles-index__block-content__content__block-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 7em;
+  padding: 1em 1em 0 1em;
+}
+.articles-index__block-content__content__block-text__title {
+  font-size: 1em;
+  text-transform: uppercase;
+  color: white;
+}
+.articles-index__block-content__content__block-text__date {
+  color: white;
+}
+
+.articles-index__block-content__content:hover {
+  background-color: #720101;
+}
+
+@media (min-width: 576px) {
+  .articles-index__block-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  .articles-index__block-content__content {
+    width: 30%;
+  }
+}
+/* Armes */
+.weapons {
+  background-image: url(../img/sprites/weapons.png);
+  width: 2.3em;
+  position: relative;
+  background-position: -13px -121px;
+  height: 1.5em;
+  top: 0.6em;
+  left: 2em;
+}
+
+/* Avatar de celia */
+.battle__introduction-avatar {
+  background-image: url("../img/sprites/player-celia.png");
+  background-repeat: no-repeat;
+  width: 5.5em;
+  height: 64px;
+  background-position: -192px -300px;
 }
 
 /* sprite joueur 1 */
@@ -270,17 +350,6 @@ svg rect {
   height: 1.5em;
   top: 1.5em;
   left: 1em;
-}
-
-/* Armes */
-.weapons {
-  background-image: url(../img/sprites/weapons.png);
-  width: 2.3em;
-  position: relative;
-  background-position: -13px -121px;
-  height: 1.5em;
-  top: 0.6em;
-  left: 2em;
 }
 
 /* sprite boss 1 */
@@ -317,15 +386,6 @@ svg rect {
 .sprites-boss-bomb {
   height: 100px;
   background-position: -25px -28px;
-}
-
-/* Avatar de celia */
-.battle__introduction-avatar {
-  background-image: url("../img/sprites/player-celia.png");
-  background-repeat: no-repeat;
-  width: 5.5em;
-  height: 64px;
-  background-position: -192px -300px;
 }
 
 /* Battle */

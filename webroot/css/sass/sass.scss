@@ -1,10 +1,17 @@
 @import
+"base/base";
+
+@import
+"partials/menu",
 "partials/default",
 "partials/home",
-"partials/fedora";
+"partials/fedora",
+"partials/articles/articles-index";
 
 @import
 "game/sprites.scss",
+"game/sprites/player.scss",
+"game/sprites/mobs.scss",
 "game/battle-map";
 
 @import
