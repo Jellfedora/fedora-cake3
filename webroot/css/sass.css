@@ -310,6 +310,15 @@ svg rect {
   flex-direction: column;
   background-color: #450000;
   margin-bottom: 1em;
+  -webkit-transition: all 1s ease;
+  /* Safari et Chrome */
+  -moz-transition: all 1s ease;
+  /* Firefox */
+  -ms-transition: all 1s ease;
+  /* Internet Explorer 9 */
+  -o-transition: all 1s ease;
+  /* Opera */
+  transition: all 1s ease;
 }
 .articles-index__block-content__content__block-image {
   width: 100%;
@@ -338,6 +347,16 @@ svg rect {
 
 .articles-index__block-content__content:hover {
   background-color: #720101;
+  /* L'image est grossie de 8% */
+  -webkit-transform: scale(1.08);
+  /* Safari et Chrome */
+  -moz-transform: scale(1.08);
+  /* Firefox */
+  -ms-transform: scale(1.08);
+  /* Internet Explorer 9 */
+  -o-transform: scale(1.08);
+  /* Opera */
+  transform: scale(1.08);
 }
 
 @media (min-width: 576px) {

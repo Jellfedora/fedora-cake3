@@ -1,8 +1,6 @@
 <!-- Affiche les articles du site -->
 <?php $this->assign('title', 'Actualités'); ?>
 
-<hr>
-
 <div class="articles-index container-fluide text-center p-3">
     <div class="articles-index__block-title">
         <h2 class="articles-index__block-title__title">NEWS</h2>
@@ -26,11 +24,9 @@
     </div>
 </div>
 
-<hr>
 
-<div class="container text-center" style="">
+<!-- <div class="container text-center" style="">
     <h1>Actualités</h1>
-    <!-- Récupére l'utilisateur connecté -->
     <?php $user_id = $this->request->getSession()->read('Auth.User.id');
 
 
@@ -56,7 +52,6 @@
         <tr>
             <th class="text-center">Titre</th>
             <th class="text-center">Ajouté le</th>
-            <!-- Si administrateur -->
             <?php if ($user_id === 2) { ?>
             <th class="text-center">Action</th>
             <?php
@@ -64,7 +59,6 @@
         } ?>
         </tr>
 
-        <!-- C'est ici que nous bouclons sur notre objet Query $articles pour afficher les informations de chaque article -->
 
         <?php foreach ($articles as $article) : ?>
         <tr>
@@ -75,7 +69,6 @@
                 <?= $article->created->format('d-m-Y ') ?>
             </td>
 
-            <!-- Si administrateur -->
             <?php if ($user_id === 2) { ?>
             <td class="text-center">
                 <?= $this->Html->link(
@@ -108,4 +101,4 @@
         <?php endforeach; ?>
 
     </table>
-</div>
+</div> -->
