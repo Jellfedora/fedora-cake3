@@ -1,4 +1,32 @@
+<!-- Affiche les articles du site -->
 <?php $this->assign('title', 'Actualités'); ?>
+
+<hr>
+
+<div class="articles-index container-fluide text-center p-3">
+    <div class="articles-index__block-title">
+        <h2 class="articles-index__block-title__title">NEWS</h2>
+    </div>
+    <div class="articles-index__block-content" style="flex-wrap:wrap;">
+        <?php foreach ($articles as $article) : ?>
+        <a class="articles-index__block-content__content" href="<?= $this->Url->build(['controller' => 'articles', 'action' => 'view', $article->slug]); ?>">
+            <div class="articles-index__block-content__content__block-image">
+                <img class="articles-index__block-content__content__block-image__image" src="<?= $article->image ?>" alt="" srcset="">
+            </div>
+            <div class="articles-index__block-content__content__block-text">
+                <h3 class="articles-index__block-content__content__block-text__title">
+                    <?= $article->title ?>
+                </h3>
+                <small class="articles-index__block-content__content__block-text__date">
+                    Ajouté le <?= $article->created->format('d-m-Y ') ?>
+                </small>
+            </div>
+        </a>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+<hr>
 
 <div class="container text-center" style="">
     <h1>Actualités</h1>

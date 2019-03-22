@@ -1,4 +1,5 @@
 @import
+"base/variables",
 "base/base";
 
 @import
@@ -6,6 +7,7 @@
 "partials/default",
 "partials/home",
 "partials/fedora",
+"partials/articles/article",
 "partials/articles/articles-index";
 
 @import
