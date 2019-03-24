@@ -25,6 +25,7 @@
 </div>
 
 
+
 <!-- <div class="container text-center" style="">
     <h1>Actualités</h1>
     <?php $user_id = $this->request->getSession()->read('Auth.User.id');
@@ -56,7 +57,7 @@
             <th class="text-center">Action</th>
             <?php
 
-        } ?>
+} ?>
         </tr>
 
 
@@ -102,3 +103,4 @@
 
     </table>
 </div> -->
+<?php echo $this->element('footer'); ?>

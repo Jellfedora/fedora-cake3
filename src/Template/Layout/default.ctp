@@ -53,18 +53,6 @@ $cakeDescription = 'Valhalla';
 </head>
 
 <body ng-controller="appController">
-
-    <!-- Loader -->
-    <div ng-hide="showContent" class="text-center" style="height:100%;overflow:hidden;position:absolute;top:0;right:0;left:0;bottom:0;background-color:#450000;z-index:900;padding-top:3em;">
-        <div class="loader loader--style2" title="1">
-            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-                <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
-                    <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite" />
-                </path>
-            </svg>
-        </div>
-    </div>
-
     <!-- Récupére l'utilisateur connecté -->
     <?php
     $connected = $this->request->getSession()->read('Auth.User');
@@ -98,7 +86,7 @@ $cakeDescription = 'Valhalla';
             <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
         </button>
 
-        <div class="site-title tlt" ng-if="!showMenu" style="color:white; font-weight:bold; text-transform:uppercase;font-size:1em;">
+        <div class="site-title" ng-if="!showMenu" style="color:white; font-weight:bold; text-transform:uppercase;font-size:1em;">
             <h1>Valhalla</h1>
         </div>
         <div class="menu" ng-if="showMenu">
