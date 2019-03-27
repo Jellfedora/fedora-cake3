@@ -1,7 +1,7 @@
 <!-- Affiche les articles du site -->
 <?php $this->assign('title', 'Actualités'); ?>
 
-<div class="articles-index container-fluide text-center p-3">
+<div class="articles-index container-fluide text-center">
     <div class="articles-index__block-title">
         <h2 class="articles-index__block-title__title">NEWS</h2>
     </div>
@@ -57,7 +57,7 @@
             <th class="text-center">Action</th>
             <?php
 
-} ?>
+        } ?>
         </tr>
 
 

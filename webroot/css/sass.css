@@ -1,12 +1,11 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
-@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700");
+@import url("https://use.typekit.net/kiq4xrd.css");
 body {
-  background-image: url(../img/mystery.jpg);
+  background-image: url("https://c.wallhere.com/photos/31/85/1920x1080_px_abstract_blue_clouds_Dark_Blue_Green_Halftone_Pattern_stripes-781625.jpg!d");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  font-family: "Roboto Slab", serif;
+  font-family: adobe-garamond-pro, serif;
   /* TODO regler decalage car pete en battle */
   position: relative;
   height: 100%;
@@ -16,7 +15,8 @@ h1 {
   color: white;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 1em;
+  font-size: 1.5em;
+  margin-top: 0.3em;
 }
 
 h2 {
@@ -25,7 +25,7 @@ h2 {
 
 a {
   line-height: 2em;
-  color: #450000;
+  color: white;
   text-decoration: none;
   -webkit-transition: all 2s ease;
   /* Safari et Chrome */
@@ -39,7 +39,7 @@ a {
 }
 
 a:hover {
-  color: #720101;
+  color: #1aa5b4;
   text-decoration: none;
 }
 
@@ -50,67 +50,141 @@ hr {
 
 /* Menu du site */
 .menu {
-  z-index: 14;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+}
+.menu__block-title {
   position: fixed;
+  width: 100%;
+  height: 3.2em;
+}
+.menu__block-title__title {
+  z-index: 15;
+  position: relative;
+  text-align: center;
+  line-height: 1.7em;
+}
+.menu__block-title__opacity {
+  position: fixed;
+  z-index: 14;
   top: 0;
   left: 0;
-  height: 2.5em;
-  background-color: #450000;
-  border-bottom: grey 2px solid;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
-
-.menu__links {
-  display: flex;
-  padding: 0.2em;
-  justify-content: space-around;
-  width: 100%;
-  padding-right: 2.5em;
-}
-
-.menu__links-link img {
-  width: 2em;
-}
-
-.menu__user {
-  display: flex;
-}
-
-.site-title {
-  z-index: 14;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2.5em;
-  background-color: #450000;
-  border-bottom: grey 2px solid;
+  height: 3.4em;
   display: flex;
   justify-content: space-around;
   width: 100%;
   padding: 0.4em;
+  background-color: black;
+  opacity: 0.7;
 }
 
-/* Bouton du menu principal du site */
-#toggleShowMenu {
+.menu__background {
+  opacity: 0.95;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.menu__links {
+  display: flex;
+  height: 100vh;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.4em;
   position: fixed;
-  z-index: 15;
-  top: 0;
-  right: 0;
-  height: 2.5em;
-  width: 2.5em;
-  padding: 0.1em;
-  background-color: #450000;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+}
+.menu__links__link {
+  width: 100%;
 }
 
-#toggleShowMenu:focus {
-  outline: 0;
+.menu-icon {
+  z-index: 30;
+  position: fixed;
+  width: 54px;
+  height: 54px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: transform 0.5s;
+}
+
+.menu-icon .icon_span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  transition: background 0.5s, transform 0.5s;
+  transition: background 0.5s steps(1, end);
+}
+
+.icon_span::before,
+.icon_span::after {
+  transform-origin: 100% 50%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 22px;
+  height: 2px;
+  transform: translateY(-8px);
+  background-color: #fff;
+  transition: transform 0.5s;
+}
+
+.icon_span::after {
+  transform: translateY(8px);
+}
+
+.menu-icon:hover .icon_span::before {
+  transform: translateY(-10px);
+}
+
+.menu-icon:hover .icon_span::after {
+  transform: translateY(10px);
+}
+
+svg {
+  opacity: 0;
+  fill: transparent;
+  stroke: #1aa5b4;
+  stroke-width: 2px;
+  stroke-dasharray: 22 230;
+  transition: stroke-dasharray 0.5s, stroke-dashoffset 0.5s, opacity 0.5s steps(1, end);
+}
+
+.menu-icon.is-opened .icon_span {
+  transition: background 0.5s steps(1, start);
+  background-color: transparent;
+}
+
+.menu-icon.is-opened svg {
+  opacity: 1;
+  stroke-dasharray: 160;
+  stroke-dashoffset: -65;
+  transition: stroke-dasharray 0.5s, stroke-dashoffset 0.5s, opacity 0.5s steps(1, start);
+}
+
+.menu-icon.is-opened .icon_span::before {
+  transform: translateX(-3px) translateY(-8px) rotate(-45deg);
+}
+
+.menu-icon.is-opened .icon_span::after {
+  transform: translateX(-3px) translateY(8px) rotate(45deg);
 }
 
 /* Fiche de style de home.ctp */
 .home {
-  padding-top: 3.5em;
   padding-right: 1em;
   padding-left: 1em;
 }
@@ -140,22 +214,6 @@ hr {
   margin: 1em auto;
 }
 
-/* loader */
-.loader {
-  width: 20%;
-  position: absolute;
-  top: 42%;
-  left: 40%;
-}
-
-/*
-  Set the color of the icon
-*/
-svg path,
-svg rect {
-  fill: white;
-}
-
 .article {
   padding: 1em;
 }
@@ -168,7 +226,7 @@ svg rect {
 }
 .article__block-content {
   width: 100%;
-  background-color: #450000;
+  background-color: #1aa5b4;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -196,7 +254,7 @@ svg rect {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 2em 0;
+  padding: 3.2em 0;
 }
 .articles-index__block-title {
   text-align: left;
@@ -208,7 +266,7 @@ svg rect {
   height: 20em;
   display: flex;
   flex-direction: column;
-  background-color: #450000;
+  background-color: #1aa5b4;
   margin-bottom: 1em;
   -webkit-transition: all 1s ease;
   /* Safari et Chrome */
@@ -246,7 +304,7 @@ svg rect {
 }
 
 .articles-index__block-content__content:hover {
-  background-color: #720101;
+  background-color: #48dff0;
   /* L'image est grossie de 8% */
   -webkit-transform: scale(1.08);
   /* Safari et Chrome */
@@ -275,7 +333,7 @@ svg rect {
   margin-top: 2em;
 }
 .login-form__block {
-  background-color: #450000;
+  background-color: #1aa5b4;
   margin: 2em 1em;
   padding: 0.5em;
 }

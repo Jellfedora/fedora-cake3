@@ -1,9 +1,8 @@
 <?php $this->assign('title', 'Le jeu en ligne gratuit!'); ?>
 
 <div class="home container-fluide text-light text-center" style="">
-    <h1>Valhalla le jeu en ligne gratuit!</h1>
     <?= $this->Html->image('logo-valhalla.png', array('alt' => "Valhalla")); ?>
-    <div class="pb-2 text-center" style="text-transform:uppercase;color:#450000;font-weight:bold;margin:auto;">
+    <div class="pb-2 text-center" style="text-transform:uppercase;color:#1AE8FF;font-weight:bold;margin:auto;">
         <p>Créez votre héros et partez en quête de puissance!</p>
     </div>
     <p>Valhalla est un jeu gratuit en ligne proposant des combats tactiques au tour par tour.</p>
