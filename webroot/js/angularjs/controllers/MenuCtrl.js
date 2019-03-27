@@ -1,10 +1,7 @@
-App.controller('menuController', function menuController($scope,$timeout) {
+App.controller('menuController', function menuController($scope, $timeout) {
 
     $timeout(function () {
         console.log('hey menu');
-        $(function test() {
-            $('.tlt').textillate();
-        })
         // Fait apparaitre le menu des options
         $scope.showMenu = false;
         $scope.toggleShowMenu = function () {

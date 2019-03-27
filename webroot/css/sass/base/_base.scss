@@ -2,10 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
 
 body {
-    background-image: url(../img/art-nebula.png);
-    /* background-size: cover; */
+    background-image: url(../img/mystery.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    // background-color: rgb(17, 16, 16);
     font-family: 'Roboto Slab', serif;
     /* TODO regler decalage car pete en battle */
     // padding-top: 2.5em;
@@ -25,12 +26,22 @@ h2 {
 }
 
 a {
-    color: rgb(72, 126, 241);
+    line-height: 2em;
+    color: $color-red;
     text-decoration: none;
+    -webkit-transition: all 2s ease;
+    /* Safari et Chrome */
+    -moz-transition: all 2s ease;
+    /* Firefox */
+    -ms-transition: all 2s ease;
+    /* Internet Explorer 9 */
+    -o-transition: all 2s ease;
+    /* Opera */
+    transition: all 2s ease;
 }
 
 a:hover {
-    color: rgb(114, 156, 248);
+    color: #720101;
     text-decoration: none;
 }
 

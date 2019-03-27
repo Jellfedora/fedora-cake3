@@ -19,7 +19,7 @@
             height: 20em;
             display: flex;
             flex-direction: column;
-            background-color: #450000;
+            background-color: $color-red;
             margin-bottom: 1em;
             -webkit-transition: all 1s ease;
             /* Safari et Chrome */
@@ -32,7 +32,7 @@
             transition: all 1s ease;
             &__block-image {
                 width: 100%;
-                height: 50%;
+                height: 63%;
                 &__image {
                     width: 100%;
                     height: 100%;
@@ -80,7 +80,7 @@
             display: flex;
             justify-content: space-between;
             &__content {
-                width: 30%;
+                width: 32%;
             }
         }
     }

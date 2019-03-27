@@ -1,4 +1,6 @@
 <?php $this->assign('title', 'Dans la pénombre'); ?>
+<?= $this->Html->script('angularjs/controllers/BattleCtrl.js') ?>
+<?= $this->Html->script('angularjs/controllers/FirstBattleCtrl.js') ?>
 
 <div ng-controller="battleController">
     <div class="battle container-fluide text-light text-center" style="background-image: url(../img/battle-background/arene-1.png);" ng-init="loadHero()" ng-controller="firstBattleController">

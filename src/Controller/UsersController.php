@@ -58,12 +58,16 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('Vous avez bien été inscrit'));
-
-                return $this->redirect(['action' => 'login']);
+                // Connecte automatiquement
+                $user = $this->Auth->identify();
+                if ($user) {
+                    $this->Auth->setUser($user);
+                    return $this->redirect($this->Auth->redirectUrl(array('controller'=>'Pages', 'action' => 'home')));
+             }
             }
             $this->Flash->error(__('Une erreur est arrivée'));
         }
-        $this->set(compact('user'));
+        $this->Flash->error(__('Oups Une erreur est arrivée, veuillez réessayer plus tard.'));
     }
 
     /**
@@ -111,6 +115,7 @@ class UsersController extends AppController
 
     public function login()
     {
+        $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
@@ -119,6 +124,8 @@ class UsersController extends AppController
             }
             $this->Flash->error('Votre adresse mail ou votre mot de passe est incorrect.');
         }
+        // Pour le formulaire d'ajout
+        $this->set(compact('user'));
     }
 
     public function initialize()

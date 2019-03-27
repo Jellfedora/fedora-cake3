@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700");
 body {
-  background-image: url(../img/art-nebula.png);
-  /* background-size: cover; */
+  background-image: url(../img/mystery.jpg);
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   font-family: "Roboto Slab", serif;
@@ -24,12 +24,22 @@ h2 {
 }
 
 a {
-  color: #487ef1;
+  line-height: 2em;
+  color: #450000;
   text-decoration: none;
+  -webkit-transition: all 2s ease;
+  /* Safari et Chrome */
+  -moz-transition: all 2s ease;
+  /* Firefox */
+  -ms-transition: all 2s ease;
+  /* Internet Explorer 9 */
+  -o-transition: all 2s ease;
+  /* Opera */
+  transition: all 2s ease;
 }
 
 a:hover {
-  color: #729cf8;
+  color: #720101;
   text-decoration: none;
 }
 
@@ -105,115 +115,6 @@ hr {
   padding-left: 1em;
 }
 
-.test {
-  perspective: 800px;
-  width: 80%;
-}
-
-.div img {
-  width: 100%;
-}
-
-.div {
-  width: 100%;
-  position: absolute;
-  left: 13%;
-  border: 2px solid #444;
-  transition: 2s;
-  backface-visibility: hidden;
-}
-
-#devant {
-  z-index: 10;
-  background-image: linear-gradient(white, green);
-}
-
-#derriere {
-  z-index: 9;
-  background-image: linear-gradient(white, red);
-  transform: rotateX(-180deg);
-}
-
-#devant:hover {
-  transform: rotateX(180deg);
-}
-
-#devant:hover + #derriere {
-  transform: rotateX(0deg);
-}
-
-/* .l-accordion {
-    margin: auto;
-    width: 80%;
-    height: 50vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: stretch;
-}
-
-.l-accordion__slide {
-    flex: 1;
-    transition: 0.4s ease-in-out;
-    -webkit-transform: skewX(-5deg);
-    transform: skewX(-5deg);
-    overflow: hidden;
-    display: flex;
-    border-left: 4px solid #fff;
-}
-
-[data-accordion-slide].l-accordion__slide:hover,
-[data-accordion-slide].l-accordion__slide:focus {
-    flex: 5;
-}
-
-.l-accordion__slide:first-child {
-    border-left: 0;
-    flex: 1.25;
-    margin-left: -3em;
-}
-
-.l-accordion__slide:last-child {
-    flex: 1.25;
-    margin-right: -3em;
-}
-
-.l-accordion__inside {
-    -webkit-transform: skewX(5deg);
-    transform: skewX(5deg);
-    padding: 4em;
-    background-cover: cover;
-    background-position: 50% 50%;
-    margin: 0 -3em;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-[data-accordion-slide="1"] .l-accordion__inside {
-    background-image: url("https://image.noelshack.com/fichiers/2017/26/5/1498778614-no-mans-sky.jpg");
-    background-position: 0 50%;
-}
-
-[data-accordion-slide="2"] .l-accordion__inside {
-    background-image: url("http://cooldown.fr/wp-content/uploads/2016/05/no-mans-sky-min%C3%A9raux.jpg");
-    background-position: 27.85% 50%;
-}
-
-[data-accordion-slide="3"] .l-accordion__inside {
-    background-image: url("https://image.noelshack.com/fichiers/2017/10/1488969676-no-mans-sky.jpg");
-    background-position: 50% 50%;
-}
-
-[data-accordion-slide="4"] .l-accordion__inside {
-    background-image: url("http://cooldown.fr/wp-content/uploads/2016/05/no-mans-sky-montagnes.jpg");
-    background-position: 72.25% 50%;
-}
-
-[data-accordion-slide="5"] .l-accordion__inside {
-    background-image: url("http://cdn.wccftech.com/wp-content/uploads/2015/08/No-Mans-Sky-Gamescom-17.jpg");
-    background-position: 100% 50%;
-} */
 /* Page d'accueil */
 .home {
   margin: auto;
@@ -321,7 +222,7 @@ svg rect {
 }
 .articles-index__block-content__content__block-image {
   width: 100%;
-  height: 50%;
+  height: 63%;
 }
 .articles-index__block-content__content__block-image__image {
   width: 100%;
@@ -364,7 +265,37 @@ svg rect {
     justify-content: space-between;
   }
   .articles-index__block-content__content {
-    width: 30%;
+    width: 32%;
+  }
+}
+.login-form {
+  margin: 3em auto;
+}
+.login-form__buttons {
+  margin-top: 2em;
+}
+.login-form__block {
+  background-color: #450000;
+  margin: 2em 1em;
+  padding: 0.5em;
+}
+.login-form__block__title {
+  margin-bottom: 5em;
+}
+.login-form__block__fields {
+  width: 100%;
+}
+.login-form__block__labels {
+  color: white;
+  font-size: 0.8em;
+}
+.login-form__block__submit {
+  margin: 0.5em 0;
+}
+
+@media (min-width: 576px) {
+  .login-form {
+    max-width: 50%;
   }
 }
 /* Armes */
