@@ -1,10 +1,8 @@
-App.controller('menuController', function menuController($scope, $timeout) {
-    console.log('hey menu');
+App.controller('menuController', function menuController($scope) {
     // Fait apparaitre le menu des options
     $scope.showMenu = false;
     $scope.toggleShowMenu = function () {
         $scope.showMenu = !$scope.showMenu;
-        console.log($scope.showMenu);
         if ($scope.showMenu) {
             // Enleve la scrollbar
             $('body').css('overflow', 'hidden');

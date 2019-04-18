@@ -21,9 +21,12 @@ h1 {
 
 h2 {
   color: white;
+  text-transform: uppercase;
+  font-size: 1.4em;
 }
 
 a {
+  font-size: 1.2em;
   line-height: 2em;
   color: white;
   text-decoration: none;
@@ -46,6 +49,10 @@ a:hover {
 hr {
   background-color: white;
   margin: 2em 0;
+}
+
+p {
+  font-size: 1.2em;
 }
 
 /* Menu du site */
@@ -215,18 +222,18 @@ svg {
 }
 
 .article {
-  padding: 1em;
+  margin: 0 1.5em;
 }
 .article__block-title {
   text-align: center;
 }
 .article__block-title__title {
-  margin-top: 0.5em;
+  padding-top: 0.5em;
   margin-bottom: 1em;
 }
 .article__block-content {
   width: 100%;
-  background-color: #1aa5b4;
+  background-color: #1F1E1F;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -251,10 +258,9 @@ svg {
   }
 }
 .articles-index {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 3.2em 0;
+  padding: 4em 0;
 }
 .articles-index__block-title {
   text-align: left;
@@ -263,10 +269,9 @@ svg {
 }
 .articles-index__block-content__content {
   width: 100%;
-  height: 20em;
   display: flex;
   flex-direction: column;
-  background-color: #1aa5b4;
+  background-color: #1F1E1F;
   margin-bottom: 1em;
   -webkit-transition: all 1s ease;
   /* Safari et Chrome */
@@ -280,7 +285,7 @@ svg {
 }
 .articles-index__block-content__content__block-image {
   width: 100%;
-  height: 63%;
+  height: 55%;
 }
 .articles-index__block-content__content__block-image__image {
   width: 100%;
@@ -291,7 +296,7 @@ svg {
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  height: 7em;
+  height: 100%;
   padding: 1em 1em 0 1em;
 }
 .articles-index__block-content__content__block-text__title {
@@ -304,7 +309,7 @@ svg {
 }
 
 .articles-index__block-content__content:hover {
-  background-color: #48dff0;
+  background-color: #2b292b;
   /* L'image est grossie de 8% */
   -webkit-transform: scale(1.08);
   /* Safari et Chrome */
@@ -327,33 +332,58 @@ svg {
   }
 }
 .login-form {
-  margin: 3em auto;
+  padding-top: 4em;
+  margin: 0 1.5em;
 }
 .login-form__buttons {
   margin-top: 2em;
 }
-.login-form__block {
-  background-color: #1aa5b4;
-  margin: 2em 1em;
-  padding: 0.5em;
-}
 .login-form__block__title {
-  margin-bottom: 5em;
+  margin-bottom: 1em;
 }
-.login-form__block__fields {
+.login-form__block__login {
+  background-color: #1F1E1F;
+  padding: 3em 1.5em 0em 1.5em;
+  border-radius: 5px;
+}
+.login-form__block__login__fields {
   width: 100%;
+  padding: 10px;
+  font-size: 1.3rem;
 }
-.login-form__block__labels {
+.login-form__block__login__labels {
   color: white;
-  font-size: 0.8em;
+  text-transform: uppercase;
+  font-size: 0.7em;
 }
-.login-form__block__submit {
-  margin: 0.5em 0;
+.login-form__block__login__submit {
+  margin: 1.5em 0;
+  background-color: #1aa5b4;
+  color: white;
+  border: none;
+}
+.login-form__switch {
+  background-color: #1F1E1F;
+  margin: 2em 0;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+.login-form__switch__button {
+  background: none;
+  color: #1aa5b4;
+  border: none;
+}
+
+.login-form__switch__button:hover {
+  background: none;
+  color: white;
+  border: none;
 }
 
 @media (min-width: 576px) {
   .login-form {
     max-width: 50%;
+    margin: auto;
   }
 }
 /* Armes */

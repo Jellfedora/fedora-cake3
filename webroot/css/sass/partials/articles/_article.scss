@@ -1,18 +1,18 @@
 .article {
-    padding: 1em;
+    margin: 0 1.5em;
 
     &__block-title {
         text-align: center;
 
         &__title {
-            margin-top: 0.5em;
+            padding-top: 0.5em;
             margin-bottom: 1em;
         }
     }
 
     &__block-content {
         width: 100%;
-        background-color: $color-blue;
+        background-color: $color-grey;
         display: flex;
         flex-direction: column;
         margin: auto;

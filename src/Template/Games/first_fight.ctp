@@ -139,10 +139,10 @@
             <div class="battle__menu__skills">
                 <button class="battle__menu__skills-skills attack-input" id="j1-attaque" ng-click="playerOneAttack()" ng-hide="hideMagicMenu">
                     <?= $this->Html->image(
-                        'icons/icon-sword.png',
-                        array('class' => ''),
-                        array('alt' => "Attaque")
-                    ); ?>
+                                                                                                        'icons/icon-sword.png',
+                                                                                                        array('class' => ''),
+                                                                                                        array('alt' => "Attaque")
+                                                                                                    ); ?>
                 </button>
             </div>
         </div>

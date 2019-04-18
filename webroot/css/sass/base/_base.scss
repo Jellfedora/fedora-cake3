@@ -23,9 +23,12 @@ h1 {
 
 h2 {
     color: white;
+    text-transform: uppercase;
+    font-size: 1.4em;
 }
 
 a {
+    font-size: 1.2em;
     line-height: 2em;
     color: white;
     text-decoration: none;
@@ -48,4 +51,8 @@ a:hover {
 hr {
     background-color: white;
     margin: 2em 0;
+}
+
+p {
+    font-size: 1.2em;
 }

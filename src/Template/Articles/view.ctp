@@ -6,7 +6,8 @@
     </div>
     <div class="article__block-content">
         <div class="article__block-content__content__block-image text-center">
-            <img class="article__block-content__content__block-image__image" src="<?= $article->image ?>" alt="" srcset="">
+            <img class="article__block-content__content__block-image__image" src="<?= $article->image ?>" alt=""
+                srcset="">
         </div>
         <div class="article__block-content__content__block-text">
             <h3 class="article__block-content__content__block-text__title">
@@ -19,5 +20,3 @@
         </div>
     </div>
 </div>
-
-<?php echo $this->element('footer'); ?>
