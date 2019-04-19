@@ -2,4 +2,37 @@
 .home {
     padding-right: 1em;
     padding-left: 1em;
+
+    &__subtitle {
+        text-transform: uppercase;
+        color: $color-blue;
+        font-weight: bold;
+        margin: auto;
+    }
+
+    &__play-now {
+        background-color: $color-blue;
+        padding: 0.5em;
+        margin: 2em auto;
+        border-radius: 5px;
+        display: block;
+        width: 15em;
+        text-transform: uppercase;
+        -webkit-transition: all 0.2s ease;
+        /* Safari et Chrome */
+        -moz-transition: all 0.2s ease;
+        /* Firefox */
+        -ms-transition: all 0.2s ease;
+        /* Internet Explorer 9 */
+        -o-transition: all 0.2s ease;
+        /* Opera */
+        transition: all 0.2s ease;
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+}
+
+.home__play-now:hover {
+    color: black;
+    // width: 17em;
 }

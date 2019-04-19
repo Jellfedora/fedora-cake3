@@ -195,6 +195,36 @@ svg {
   padding-right: 1em;
   padding-left: 1em;
 }
+.home__subtitle {
+  text-transform: uppercase;
+  color: #1aa5b4;
+  font-weight: bold;
+  margin: auto;
+}
+.home__play-now {
+  background-color: #1aa5b4;
+  padding: 0.5em;
+  margin: 2em auto;
+  border-radius: 5px;
+  display: block;
+  width: 15em;
+  text-transform: uppercase;
+  -webkit-transition: all 0.2s ease;
+  /* Safari et Chrome */
+  -moz-transition: all 0.2s ease;
+  /* Firefox */
+  -ms-transition: all 0.2s ease;
+  /* Internet Explorer 9 */
+  -o-transition: all 0.2s ease;
+  /* Opera */
+  transition: all 0.2s ease;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.home__play-now:hover {
+  color: black;
+}
 
 /* Page d'accueil */
 .home {
@@ -386,6 +416,65 @@ svg {
     margin: auto;
   }
 }
+.form-user-edit {
+  padding-top: 4em;
+  margin: 0 1.5em;
+}
+.form-user-edit__title {
+  margin-bottom: 1em;
+}
+.form-user-edit__block {
+  background-color: #1F1E1F;
+  padding: 3em 1.5em 0em 1.5em;
+  border-radius: 5px;
+}
+
+@media (min-width: 576px) {
+  .form-user-edit {
+    max-width: 50%;
+    margin: auto;
+  }
+}
+.teddy {
+  padding-top: 5em;
+  background-image: url("https://media1.tenor.com/images/a970086e5f872de9e6ba68a7926a1fc5/tenor.gif?itemid=13107775");
+  background-size: 4em;
+  min-height: 100vh;
+}
+.teddy__title {
+  color: #ee3453;
+  text-align: center;
+  margin-bottom: 2em;
+  background-color: purple;
+  padding: 1em;
+}
+.teddy__image {
+  width: 10em;
+  margin: auto;
+  border: 3px solid #ee3453;
+  margin-bottom: 2em;
+}
+.teddy__gif {
+  width: 20em;
+  margin: auto;
+  display: block;
+  margin-bottom: 1em;
+}
+.teddy__text {
+  color: #ee3453;
+  text-align: center;
+  padding: 0.5em;
+  background-color: purple;
+}
+.teddy__text__gland {
+  font-style: italic;
+  color: #0dee0d;
+  font-size: 1.3em;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
 /* Armes */
 .weapons {
   background-image: url(../img/sprites/weapons.png);

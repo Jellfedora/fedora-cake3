@@ -1,0 +1,22 @@
+.form-user-edit {
+    padding-top: 4em;
+    margin: 0 1.5em;
+
+    &__title {
+        margin-bottom: 1em;
+    }
+
+    &__block {
+        background-color: $color-grey;
+        padding: 3em 1.5em 0em 1.5em;
+        border-radius: 5px;
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .form-user-edit {
+        max-width: 50%;
+        margin: auto;
+    }
+}
