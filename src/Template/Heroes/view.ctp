@@ -1,4 +1,4 @@
-<div class="text-center text-light bg-drak">
+<div class="heroes-view text-center text-light bg-drak">
     <h1>
         <?= ($hero->name) ?>
     </h1>

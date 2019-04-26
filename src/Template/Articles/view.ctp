@@ -6,8 +6,11 @@
     </div>
     <div class="article__block-content">
         <div class="article__block-content__content__block-image text-center">
-            <img class="article__block-content__content__block-image__image" src="<?= $article->image ?>" alt=""
-                srcset="">
+            <?= $this->Html->image(
+                        'articles/'.$article->image,
+                        array('class' => 'article__block-content__content__block-image__image'),
+                        array('alt' => "Image-article")
+                    ); ?>
         </div>
         <div class="article__block-content__content__block-text">
             <h3 class="article__block-content__content__block-text__title">

@@ -10,8 +10,11 @@
         <a class="articles-index__block-content__content"
             href="<?= $this->Url->build(['controller' => 'articles', 'action' => 'view', $article->slug]); ?>">
             <div class="articles-index__block-content__content__block-image">
-                <img class="articles-index__block-content__content__block-image__image" src="<?= $article->image ?>"
-                    alt="" srcset="">
+                <?= $this->Html->image(
+                        'articles/'.$article->image,
+                        array('class' => 'articles-index__block-content__content__block-image__image'),
+                        array('alt' => "Image-article")
+                    ); ?>
             </div>
             <div class="articles-index__block-content__content__block-text">
                 <h3 class="articles-index__block-content__content__block-text__title">

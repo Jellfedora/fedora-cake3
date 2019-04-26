@@ -361,6 +361,44 @@ svg {
     width: 32%;
   }
 }
+.heroes-add {
+  padding: 4em 0;
+}
+.heroes-add__block-title {
+  color: #1aa5b4;
+}
+.heroes-add__form__form-content__submit {
+  background-color: #1aa5b4;
+  margin: 1em auto;
+  display: block;
+  width: 5em;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  text-transform: uppercase;
+}
+.heroes-add__form .input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+.heroes-add__form__input-name {
+  width: 65%;
+  height: 2em;
+  margin: 1em auto;
+  font-weight: bold;
+  color: #1aa5b4;
+  text-align: center;
+  background-color: #1F1E1F;
+  border: none;
+}
+
+@media (min-width: 576px) {
+  .heroes-add__form__input-name {
+    width: 20em;
+    height: 3em;
+  }
+}
 .login-form {
   padding-top: 4em;
   margin: 0 1.5em;
@@ -437,42 +475,66 @@ svg {
 }
 .teddy {
   padding-top: 5em;
-  background-image: url("https://media1.tenor.com/images/a970086e5f872de9e6ba68a7926a1fc5/tenor.gif?itemid=13107775");
   background-size: 4em;
   min-height: 100vh;
 }
-.teddy__title {
+.teddy__play-button {
+  background-color: #1F1E1F;
+  width: 5em;
+  height: 5em;
+  padding: 0.4em;
+  margin: auto;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  color: #1aa5b4;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.teddy__small {
+  margin: 2em auto;
+  display: block;
+  color: #1aa5b4;
+  text-align: center;
+}
+.teddy__content__title {
   color: #ee3453;
   text-align: center;
   margin-bottom: 2em;
   background-color: purple;
   padding: 1em;
 }
-.teddy__image {
+.teddy__content__image {
   width: 10em;
   margin: auto;
   border: 3px solid #ee3453;
   margin-bottom: 2em;
 }
-.teddy__gif {
+.teddy__content__gif {
   width: 20em;
-  margin: auto;
+  margin: 2em auto 0 auto;
+  padding-bottom: 2em;
   display: block;
   margin-bottom: 1em;
 }
-.teddy__text {
+.teddy__content__text {
   color: #ee3453;
   text-align: center;
   padding: 0.5em;
   background-color: purple;
 }
-.teddy__text__gland {
+.teddy__content__text__gland {
   font-style: italic;
   color: #0dee0d;
   font-size: 1.3em;
   display: block;
   font-weight: bold;
   margin-bottom: 1em;
+}
+
+.view-counter {
+  color: #1aa5b4;
+  text-align: center;
 }
 
 /* Armes */

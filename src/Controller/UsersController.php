@@ -62,7 +62,7 @@ class UsersController extends AppController
                 $user = $this->Auth->identify();
                 if ($user) {
                     $this->Auth->setUser($user);
-                    return $this->redirect($this->Auth->redirectUrl(array('controller'=>'Pages', 'action' => 'home')));
+                    return $this->redirect($this->Auth->redirectUrl(array('controller'=>'Games', 'action' => 'play')));
              }
             }
             $this->Flash->error(__('Une erreur est arrivée'));

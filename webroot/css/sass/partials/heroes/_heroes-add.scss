@@ -1,0 +1,51 @@
+.heroes-add {
+    padding: 4em 0;
+
+    &__block-title {
+        color: $color-blue;
+    }
+
+    &__form {
+        &__form-content {
+            &__submit {
+                background-color: #1aa5b4;
+                margin: 1em auto;
+                display: block;
+                width: 5em;
+                font-size: 1.2em;
+                font-weight: bold;
+                border: none;
+                text-transform: uppercase;
+            }
+        }
+
+        & .input {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2em;
+        }
+
+        &__input-name {
+            width: 65%;
+            height: 2em;
+            margin: 1em auto;
+            font-weight: bold;
+            color: $color-blue;
+            text-align: center;
+            background-color: $color-grey;
+            border: none;
+        }
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .heroes-add {
+        &__form {
+            &__input-name {
+                width: 20em;
+                height: 3em;
+            }
+        }
+    }
+}
