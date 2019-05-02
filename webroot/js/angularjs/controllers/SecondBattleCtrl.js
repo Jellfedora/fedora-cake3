@@ -1,6 +1,7 @@
 App.controller('secondBattleController', function secondBattleController($scope, $http) {
     console.log('hello secondbattleAngularJs!');
 
+    $scope.pseudo = 'Jeune femme';
     $scope.introduction = 'Hé bien il était coriace ce lascard!';
 
     $scope.buttonIntroduction = buttonIntroduction;
@@ -17,7 +18,7 @@ App.controller('secondBattleController', function secondBattleController($scope,
             $scope.introduction = 'J\'ai trouvé cette épée sur un cadavre, il y avait aussi ces 3 fioles, tiens je te les donnes ça peut sûrement te servir.';
         }
         if (i === 4) {
-            $scope.introduction = 'Oh non voiçi encore un de ces monstres et il est encore plus gros que le premier!';
+            $scope.introduction = 'Oh non voiçi encore un de ces monstres et il est plus gros que le premier!';
         }
         if (i === 5) {
             $scope.hideIntroduction = !$scope.hideIntroduction;

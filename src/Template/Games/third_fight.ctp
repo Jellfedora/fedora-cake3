@@ -1,10 +1,13 @@
 <?php $this->assign('title', 'Papa est là!'); ?>
 
-<div class="battle container-fluide text-light text-center" style="background-image: url(../img/battle-background/arene-3.jpg);" ng-controller="battleController" ng-init="loadHero()">
+<div class="battle container-fluide text-light text-center"
+    style="background-image: url(../img/battle-background/arene-3.jpg);" ng-controller="battleController"
+    ng-init="loadHero()">
 
     <!-- Menu partie -->
     <div class="battle__options text-center" ng-hide="!showBattleMenu">
-        <span class="battle__options-options" id="close"><i class="fa fa-times fa-2x" aria-hidden="true" ng-click="toggleHideBattleMenu()"></i></span>
+        <span class="battle__options-options" id="close"><i class="fa fa-times fa-2x" aria-hidden="true"
+                ng-click="toggleHideBattleMenu()"></i></span>
         <span class="battle__options-options"><i class="fa fa-refresh fa-2x" aria-hidden="true"></i>
             <!-- TODO régler l'affichage du lien -->
             <?= $this->Html->link(
@@ -13,7 +16,8 @@
             );
             ?></span>
         <span class="battle__options-options" id="auto"><i class="fa fa-bed fa-2x" aria-hidden="true"></i></i></span>
-        <span class="battle__options-options" id="sound-player"><i class="fa fa-volume-off fa-2x" aria-hidden="true" ng-click="stopMusic()"></i></span>
+        <span class="battle__options-options" id="sound-player"><i class="fa fa-volume-off fa-2x" aria-hidden="true"
+                ng-click="stopMusic()"></i></span>
     </div>
 
     <!-- Message Victoire / Defaite -->
@@ -121,10 +125,12 @@
     </div>
     <div class="battle__menu">
         <div class="battle__menu__tools">
-            <button class="battle__menu__tools-tools"><i class="fa fa-cog fa-2x" aria-hidden="true" ng-click="toggleShowBattleMenu()"></i></button>
+            <button class="battle__menu__tools-tools"><i class="fa fa-cog fa-2x" aria-hidden="true"
+                    ng-click="toggleShowBattleMenu()"></i></button>
         </div>
         <div class="battle__menu__skills">
-            <button class="battle__menu__skills-skills attack-input" id="j1-attaque" ng-click="playerOneAttack()" ng-hide="hideMagicMenu">
+            <button class="battle__menu__skills-skills attack-input" id="j1-attaque" ng-click="playerOneAttack()"
+                ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
                     'icons/icon-sword.png',
                     array('class' => ''),
@@ -138,7 +144,8 @@
                     array('alt' => "Soin")
                 ); ?>
             </button>
-            <button class="battle__menu__skills-skills attack-input" id="j1-block" ng-click="playerOneBlock()" ng-hide="hideMagicMenu">
+            <button class="battle__menu__skills-skills attack-input" id="j1-block" ng-click="playerOneBlock()"
+                ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
                     'icons/icon-shield.png',
                     array('class' => ''),
@@ -166,7 +173,8 @@
                     array('alt' => "Fire")
                 ); ?>
             </button>
-            <button class="battle__menu__skills-skills" id="j1-return" ng-hide="!hideMagicMenu" ng-click="toggleHideMagicMenu()">
+            <button class="battle__menu__skills-skills" id="j1-return" ng-hide="!hideMagicMenu"
+                ng-click="toggleHideMagicMenu()">
                 <?= $this->Html->image(
                     'icons/icon-return.png',
                     array('class' => ''),
@@ -174,7 +182,8 @@
                 ); ?>
             </button>
 
-            <button class="battle__menu__skills-skills" id="j1-show-magic-menu" ng-click="toggleShowMagicMenu()" ng-hide="hideMagicMenu">
+            <button class="battle__menu__skills-skills" id="j1-show-magic-menu" ng-click="toggleShowMagicMenu()"
+                ng-hide="hideMagicMenu">
                 <?= $this->Html->image(
                     'icons/icon-magic.png',
                     array('class' => ''),

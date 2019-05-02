@@ -56,6 +56,7 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
+            // debug($user);die();
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('Vous avez bien été inscrit'));
                 // Connecte automatiquement
@@ -66,6 +67,7 @@ class UsersController extends AppController
              }
             }
             $this->Flash->error(__('Une erreur est arrivée'));
+            return $this->redirect($this->Auth->redirectUrl(array('controller'=>'Users', 'action' => 'login')));
         }
         $this->Flash->error(__('Oups Une erreur est arrivée, veuillez réessayer plus tard.'));
     }

@@ -3,20 +3,30 @@
 <?= $this->Html->script('angularjs/controllers/FirstBattleCtrl.js') ?>
 
 <div ng-controller="battleController">
-    <div class="battle container-fluide text-light text-center" style="background-image: url(../img/battle-background/arene-1.png);" ng-init="loadHero()" ng-controller="firstBattleController">
+    <div class="battle container-fluide text-light text-center"
+        style="background-image: url(../img/battle-background/arene-1.png);" ng-init="loadHero()"
+        ng-controller="firstBattleController">
         <!-- Intro -->
         <div class="battle__introduction" ng-show="!hideIntroduction">
-            <div class="battle__introduction-avatar">
+            <div class="battle__introduction__content">
+                <div class="battle__introduction__content__avatar">
 
+                </div>
+                <div class="battle__introduction__content__text">
+                    <div class="battle__introduction__content__text__pseudo">
+                        <span id="pseudo">{{pseudo}}</span>
+                    </div>
+                    <div class="battle__introduction__content__text__message">
+                        <p id="message">{{introduction}}</p>
+                    </div>
+                </div>
             </div>
-            <div class="battle__introduction-message">
-                <p id="message">{{introduction}}</p>
-            </div>
-            <span class="battle__introduction-next" id="close"><i class="fa fa-arrow-right fa-2x" aria-hidden="true" ng-click="buttonIntroduction()"></i></span>
+            <span class="battle__introduction__next" ng-click="buttonIntroduction()" id="close">OK</span>
         </div>
         <!-- Menu partie -->
         <div class="battle__options text-center" ng-hide="!showBattleMenu">
-            <span class="battle__options-options" id="close"><i class="fa fa-times fa-2x" aria-hidden="true" ng-click="toggleHideBattleMenu()"></i></span>
+            <span class="battle__options-options" id="close"><i class="fa fa-times fa-2x" aria-hidden="true"
+                    ng-click="toggleHideBattleMenu()"></i></span>
             <span class="battle__options-options"><i class="fa fa-refresh fa-2x" aria-hidden="true"></i>
                 <!-- TODO régler l'affichage du lien -->
                 <?= $this->Html->link(
@@ -24,7 +34,8 @@
                     ['controller' => 'Games', 'action' => 'firstFight']
                 );
                 ?></span>
-            <span class="battle__options-options" id="sound-player"><i class="fa fa-volume-off fa-2x" aria-hidden="true" ng-click="stopMusic()"></i></span>
+            <span class="battle__options-options" id="sound-player"><i class="fa fa-volume-off fa-2x" aria-hidden="true"
+                    ng-click="stopMusic()"></i></span>
         </div>
 
         <!-- Message Victoire / Defaite -->
@@ -134,10 +145,12 @@
         </div>
         <div class="battle__menu">
             <div class="battle__menu__tools">
-                <button class="battle__menu__tools-tools"><i class="fa fa-cog fa-2x" aria-hidden="true" ng-click="toggleShowBattleMenu()"></i></button>
+                <button class="battle__menu__tools-tools"><i class="fa fa-cog fa-2x" aria-hidden="true"
+                        ng-click="toggleShowBattleMenu()"></i></button>
             </div>
             <div class="battle__menu__skills">
-                <button class="battle__menu__skills-skills attack-input" id="j1-attaque" ng-click="playerOneAttack()" ng-hide="hideMagicMenu">
+                <button class="battle__menu__skills-skills attack-input" id="j1-attaque" ng-click="playerOneAttack()"
+                    ng-hide="hideMagicMenu">
                     <?= $this->Html->image(
                                                                                                         'icons/icon-sword.png',
                                                                                                         array('class' => ''),
@@ -149,7 +162,8 @@
     </div>
 
     <!-- Player audio -->
-    <audio class="d-none audio-player" src="../webroot/files/battle-Two-steps-from-hell-victory.mp3" controls id="battle"></audio>
+    <audio class="d-none audio-player" src="../webroot/files/battle-Two-steps-from-hell-victory.mp3" controls
+        id="battle"></audio>
     <audio class="d-none audio-player" src="../webroot/files/victory.mp3" controls id="player-victory"></audio>
     <audio class="d-none audio-player" src="../webroot/files/game-over.mp3" controls id="game-over"></audio>
     <audio class="d-none audio-player" src="../webroot/files/low-life-pokemon.mp3" controls id="low-life"></audio>

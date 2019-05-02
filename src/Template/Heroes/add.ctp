@@ -16,7 +16,7 @@
     ]);
 
     echo $this->Form->button(__('Valider'),[
-        'class'=>'heroes-add__form__form-content__submit'
+        'class' => 'heroes-add__form__form-content__submit'
     ]);
     echo $this->Form->end();
     ?>

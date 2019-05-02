@@ -10,7 +10,6 @@
         toujours plus puissants, d'équipements
         rares et précieux et même un mode multijoueur sortit de dérriére les fagots!</p>
     <a href="games/play" class="home__play-now">Jouer maintenant!</a>
-    <!-- Ajouter les articles ici -->
     <?php echo $this->element('articles'); ?>
 </div>
 

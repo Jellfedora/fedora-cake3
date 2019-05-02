@@ -1,0 +1,90 @@
+/* Introduction */
+
+.battle__introduction {
+    position: absolute;
+    z-index: 200;
+    // margin-top: 2.5em;
+    background-image: url('https://c.wallhere.com/photos/31/85/1920x1080_px_abstract_blue_clouds_Dark_Blue_Green_Halftone_Pattern_stripes-781625.jpg!d');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // padding: 2em;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+
+    &__content {
+        border: 10px solid $color-blue;
+        padding: 1em;
+
+
+        background-color: $color-grey;
+        width: 100%;
+        height: 85%;
+
+        &__avatar {
+            border: 2px solid rgb(131, 240, 42);
+            margin: auto;
+        }
+
+        &__text {
+            &__pseudo {}
+
+            &__message {
+                margin-top: 1em;
+                width: 100%;
+            }
+        }
+    }
+
+    &__next {
+        display: block;
+        color: $color-blue;
+        margin: auto;
+        background-color: $color-grey;
+        border-bottom: 10px solid $color-blue;
+        border-left: 10px solid $color-blue;
+        border-right: 10px solid $color-blue;
+        width: 100%;
+        padding: 0.5em;
+        height: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1.3em;
+        cursor: pointer;
+    }
+}
+
+// Hover
+.battle__introduction__next:hover {
+    background-color: $color-grey-hover;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .battle__introduction {
+
+        &__content {
+            // width: 40em;
+            // height: 20em;
+
+            &__avatar {}
+
+            &__text {
+                &__pseudo {}
+
+                &__message {}
+            }
+        }
+
+        &__next {
+            // width: 40em;
+        }
+    }
+}
