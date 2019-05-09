@@ -1,159 +1,164 @@
-/* Battle */
+// .battle__players {
+//     margin-top: 2em;
+//     display: flex;
+//     justify-content: space-between;
+//     height: 15%;
+//     /* border: 1px solid black; */
+// }
 
-.battle {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-size: cover;
-}
+// .battle__players-bar__player-one {
+//     width: 45%;
+//     /* border: 1px solid red; */
+//     padding-left: 1em;
+//     padding-top: 0.5em;
+// }
 
-.battle__players {
-    margin-top: 2em;
-    display: flex;
-    justify-content: space-between;
-    height: 15%;
-    /* border: 1px solid black; */
-}
+// .battle__players-bar__player-one__name {}
 
-.battle__players-bar__player-one {
-    width: 45%;
-    /* border: 1px solid red; */
-    padding-left: 1em;
-    padding-top: 0.5em;
-}
+// .battle__players-bar__player-one__life {
+//     font-size: 0.6em;
+//     position: relative;
+//     bottom: 2em;
+// }
 
-.battle__players-bar__player-one__name {}
+// .battle__players-bar__player-one__life p {
+//     position: relative;
+//     top: 3.2em;
+//     left: 45%;
+//     z-index: 10;
+// }
 
-.battle__players-bar__player-one__life {
-    font-size: 0.6em;
-    position: relative;
-    bottom: 2em;
-}
+// .battle__players-bar__player-one__stats {
+//     display: flex;
+//     justify-content: flex-start;
+//     position: relative;
+//     bottom: 0.7em;
+// }
 
-.battle__players-bar__player-one__life p {
-    position: relative;
-    top: 3.2em;
-    left: 45%;
-    z-index: 10;
-}
+// .battle__players-bar__player-one__stats-stats {
+//     margin-right: 1em;
+// }
 
-.battle__players-bar__player-one__stats {
-    display: flex;
-    justify-content: flex-start;
-    position: relative;
-    bottom: 0.7em;
-}
+// .battle__players-bar__icon img {
+//     height: 3em;
+//     width: 3em;
+// }
 
-.battle__players-bar__player-one__stats-stats {
-    margin-right: 1em;
-}
+// .battle__players-bar__player-two {
+//     width: 45%;
+//     /* border: 1px solid red; */
+//     padding-right: 1em;
+//     padding-top: 0.5em;
+// }
 
-.battle__players-bar__icon img {
-    height: 3em;
-    width: 3em;
-}
+// .battle__players-bar__player-two__name {}
 
-.battle__players-bar__player-two {
-    width: 45%;
-    /* border: 1px solid red; */
-    padding-right: 1em;
-    padding-top: 0.5em;
-}
+// .battle__players-bar__player-two__life {
+//     font-size: 0.6em;
+//     position: relative;
+//     bottom: 2em;
+// }
 
-.battle__players-bar__player-two__name {}
+// .battle__players-bar__player-two__life p {
+//     position: relative;
+//     top: 3.2em;
+//     right: 45%;
+//     z-index: 10;
+// }
 
-.battle__players-bar__player-two__life {
-    font-size: 0.6em;
-    position: relative;
-    bottom: 2em;
-}
+// .battle__players-bar__player-two__stats {
+//     display: flex;
+//     justify-content: flex-end;
+//     position: relative;
+//     bottom: 0.7em;
+// }
 
-.battle__players-bar__player-two__life p {
-    position: relative;
-    top: 3.2em;
-    right: 45%;
-    z-index: 10;
-}
-
-.battle__players-bar__player-two__stats {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    bottom: 0.7em;
-}
-
-.battle__players-bar__player-two__stats-stats {
-    margin-left: 1em;
-}
+// .battle__players-bar__player-two__stats-stats {
+//     margin-left: 1em;
+// }
 
 .battle__map {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    height: 65%;
+    justify-content: flex-end;
+    height: 80%;
     /* border: 1px solid yellow; */
-    align-items: flex-end;
+    align-items: center;
 }
 
-.battle__map__player-one-avatar {
-    /* border: 1px solid green; */
-    width: 40%;
-    display: flex;
-    justify-content: center;
-}
+// .battle__map__player-one-avatar {
+//     /* border: 1px solid green; */
+//     width: 40%;
+//     display: flex;
+//     justify-content: center;
+// }
 
-/* Trick pour retourner l'image dans le bon sens */
+// /* Trick pour retourner l'image dans le bon sens */
 
-.battle__map__player-one-avatar img {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
-    position: relative;
-    top: 1.2em;
-}
+// .battle__map__player-one-avatar img {
+//     -moz-transform: scaleX(-1);
+//     -o-transform: scaleX(-1);
+//     -webkit-transform: scaleX(-1);
+//     transform: scaleX(-1);
+//     filter: FlipH;
+//     -ms-filter: "FlipH";
+//     position: relative;
+//     top: 1.2em;
+// }
 
-.battle__map__player-one-avatar__avatar {
-    height: 10em;
-    margin-left: 10%;
-}
+// .battle__map__player-one-avatar__avatar {
+//     height: 10em;
+//     margin-left: 10%;
+// }
 
-/* Affichage des degats */
+// /* Affichage des degats */
 
-.battle__map__player-one-avatar-degat {
-    position: relative;
-    left: 7.5em;
-    bottom: -2em;
-    z-index: 10;
-    font-weight: bold;
-}
+// .battle__map__player-one-avatar-degat {
+//     position: relative;
+//     left: 7.5em;
+//     bottom: -2em;
+//     z-index: 10;
+//     font-weight: bold;
+// }
 
 .battle__map__player-two-avatar {
     /* border: 1px solid green; */
     width: 40%;
     display: flex;
     justify-content: center;
+
+    /* Trick pour retourner l'image dans le bon sens */
+    & img {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+        position: relative;
+        top: 1.2em;
+    }
+
+    &__bar {
+        width: 10em;
+        position: relative;
+        top: 5.5em;
+        right: 7em;
+    }
+
+    &__life {
+        position: relative;
+        bottom: 1.4em;
+    }
 }
 
-/* Trick pour retourner l'image dans le bon sens */
 
-.battle__map__player-two-avatar img {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
-    position: relative;
-    top: 1.2em;
-}
 
-.battle__map__player-two-avatar__avatar {
-    height: 10em;
-    margin-right: 10%;
-}
+
+// .battle__map__player-two-avatar__avatar {
+//     height: 10em;
+//     margin-right: 10%;
+// }
 
 /* Affichage des degats */
 
@@ -165,63 +170,7 @@
     font-weight: bold;
 }
 
-.battle__menu {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid dark;
-}
 
-.battle__menu__tools {
-    /* border: 1px solid pink; */
-    /* width: 40%; */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    /* background-color: black;
-    border-top: #450000 4px solid;
-    border-right: #450000 4px solid; */
-}
-
-.battle__menu__tools-tools {
-    height: 3em;
-    width: 3em;
-    border-radius: 50%;
-    background-color: #450000;
-    margin: 0 0.5em;
-}
-
-.battle__menu__tools-tools:focus {
-    outline: 0;
-}
-
-.battle__menu__skills {
-    /* border: 1px solid pink; */
-    /* width: 40%; */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    /* background-color: black;
-    border-top: #450000 4px solid;
-    border-left: #450000 4px solid; */
-}
-
-.battle__menu__skills-skills {
-    height: 3em;
-    width: 3em;
-    border-radius: 50%;
-    background-color: #450000;
-    margin: 0 0.5em;
-}
-
-.battle__menu__skills-skills:focus {
-    outline: 0;
-}
-
-.battle__menu__skills-skills img {
-    height: 2em;
-}
 
 /* Menu des options */
 
@@ -271,47 +220,4 @@
     font-size: 4em;
     font-weight: bold;
     color: #450000;
-}
-
-/* Barre de vie */
-
-.progress-bar {
-    border-radius: 8px;
-    border-top: 2px solid rgb(202, 200, 200);
-    border-left: 2px solid rgb(202, 200, 200);
-    border-bottom: 2px solid rgb(145, 143, 143);
-    border-right: 2px solid rgb(145, 143, 143);
-    width: 100%;
-    height: 1.5em;
-    background-color: #191919;
-    box-shadow: inset 0 1px 2px #000, 0 1px 0 #2b2b2b;
-    -webkit-box-shadow: inset 0 1px 2px #000, 0 1px 0 #2b2b2b;
-    -moz-box-shadow: inset 0 1px 2px #000, 0 1px 0 #2b2b2b;
-}
-
-.player-hp-bar {
-    content: '';
-    display: block;
-    position: relative;
-    height: 1em;
-    background: #999;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 3px rgba(0, 0, 0, 0.4), 0 1px 1px #000;
-    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 3px rgba(0, 0, 0, 0.4), 0 1px 1px #000;
-    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 3px rgba(0, 0, 0, 0.4), 0 1px 1px #000;
-}
-
-.player-one-hp-bar {
-    border-radius: 8px;
-    width: 100%;
-    background: #450000;
-    /* background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(0, 153, 8)), to(rgb(21, 107, 0))); */
-    /* background: -moz-linear-gradient(top, rgb(0, 153, 8), rgb(21, 107, 0)); */
-}
-
-.player-two-hp-bar {
-    border-radius: 8px;
-    width: 100%;
-    background: #c9ad10;
-    /* background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(0, 153, 8)), to(rgb(21, 107, 0))); */
-    /* background: -moz-linear-gradient(top, rgb(0, 153, 8), rgb(21, 107, 0)); */
 }

@@ -1,0 +1,133 @@
+.battle__menu {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid dark;
+    // font-size: 0.6em;
+
+    &__player {
+        // background-color: $color-blue;
+        width: 70%;
+        height: 100%;
+
+        &__content {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+            background-color: $color-grey;
+            border-radius: 0 79px 442px 0;
+
+            &__stats {
+                width: 100%;
+                padding: 0.5em;
+
+                &__bar {
+                    & p {
+                        position: relative;
+                        z-index: 10;
+                        // left: 41%;
+                        bottom: 1.4em;
+                        text-align: center;
+                        margin: 0;
+
+                    }
+
+                    &__life {
+                        width: 0.8em;
+                    }
+                }
+
+
+
+                &__infos {
+                    position: relative;
+                    bottom: 1em;
+                    display: flex;
+                    justify-content: space-around;
+
+                    &__attq {
+                        width: 1em;
+                    }
+
+                    &__level {
+                        width: 1.4em;
+                    }
+
+                    &__potions {
+                        width: 1em;
+                        // position: relative;
+                        // bottom: 1em;
+                    }
+                }
+            }
+
+
+            &__avatar {
+                color: $color-white;
+                text-transform: uppercase;
+                font-weight: bold;
+                width: 30%;
+                border: 1px solid grey;
+                background-image: url('https://avatarfiles.alphacoders.com/860/86025.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                // border-radius: 64px;
+                border: 3px solid black;
+            }
+
+
+        }
+    }
+}
+
+.battle__menu__tools {
+    /* border: 1px solid pink; */
+    /* width: 40%; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: black;
+    border-top: #450000 4px solid;
+    border-right: #450000 4px solid; */
+}
+
+.battle__menu__tools-tools {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    background-color: $color-blue;
+    margin: 0 0.5em;
+}
+
+.battle__menu__tools-tools:focus {
+    outline: 0;
+}
+
+.battle__menu__skills {
+    /* border: 1px solid pink; */
+    /* width: 40%; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: black;
+    border-top: #450000 4px solid;
+    border-left: #450000 4px solid; */
+}
+
+.battle__menu__skills-skills {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    background-color: $color-blue;
+    margin: 0 0.5em;
+}
+
+.battle__menu__skills-skills:focus {
+    outline: 0;
+}
+
+.battle__menu__skills-skills img {
+    height: 2em;
+}

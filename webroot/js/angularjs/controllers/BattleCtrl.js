@@ -1,27 +1,26 @@
-
-
 App.controller('battleController', function battleController($scope, $http) {
     console.log('hello battleAngularJs!');
 
 
     // Récupére les infos sur le joueur
-    $scope.loadHero = function() {
-    return $http({
-        method: 'GET',
-        url: 'hero_info'
-    }).then(function (response) {
-        console.log(response.data);
-        $scope.hero_name = response.data.name;
-        $scope.hero_attaque = parseInt(response.data.attaque);
-        $scope.hero_hp = parseInt(response.data.hp);
-        $scope.hero_hp_init = parseInt(response.data.hp);
-        $scope.hero_potion = parseInt(response.data.potion);
-        $scope.hero_level = parseInt(response.data.level);
+    $scope.loadHero = function () {
+        return $http({
+            method: 'GET',
+            url: 'hero_info'
+        }).then(function (response) {
+            console.log(response.data);
+            $scope.hero_name = response.data.name;
+            $scope.hero_attaque = parseInt(response.data.attaque);
+            $scope.hero_hp = parseInt(response.data.hp);
+            $scope.hero_hp_init = parseInt(response.data.hp);
+            $scope.hero_potion = parseInt(response.data.potion);
+            $scope.hero_level = parseInt(response.data.level);
 
-    }, function (response) {
-        // code to execute in case of error
-    });
-}
+        }, function (response) {
+            // code to execute in case of error
+            console.log(response);
+        });
+    }
     // Variables
     // Définit que le joueur ne bloque pas par défaut
     var playerOneBlockStatut = false;
@@ -32,6 +31,7 @@ App.controller('battleController', function battleController($scope, $http) {
 
     // Fait apparaitre le menu des options
     $scope.toggleShowBattleMenu = toggleShowBattleMenu;
+
     function toggleShowBattleMenu() {
         console.log('menu');
         $scope.showBattleMenu = true;
@@ -39,6 +39,7 @@ App.controller('battleController', function battleController($scope, $http) {
 
     // Fait disparaitre le menu des options
     $scope.toggleHideBattleMenu = toggleHideBattleMenu;
+
     function toggleHideBattleMenu() {
         console.log('menuhide');
         $scope.showBattleMenu = false;
@@ -46,21 +47,25 @@ App.controller('battleController', function battleController($scope, $http) {
 
     // Fait apparaitre le menu des compétences de magie
     $scope.toggleShowMagicMenu = toggleShowMagicMenu;
+
     function toggleShowMagicMenu() {
         $scope.hideMagicMenu = true;
     }
 
     // Fait disparaitre le menu des compétences de magie
     $scope.toggleHideMagicMenu = toggleHideMagicMenu;
+
     function toggleHideMagicMenu() {
         $scope.hideMagicMenu = false;
     }
 
     // Divise le prochain coup par 5
     $scope.playerOneBlock = playerOneBlock;
+
     function playerOneBlock() {
         // Bloque le clic des boutons de joueur 1
-        $(".attack-input").off();
+        // BUG
+        // $(".attack-input").off();
 
         // Grise les boutons du joueurs
         $(".attack-input").css("background-color", "grey");
@@ -72,16 +77,18 @@ App.controller('battleController', function battleController($scope, $http) {
 
     // Coupe le son du jeu
     $scope.stopMusic = stopMusic;
+
     function stopMusic() {
-        console.log('musique en pause');
         $(".audio-player")[0].pause();
+        console.log('musique en pause');
     }
 
     //Combat manuel
     $scope.playerOneAttack = playerOneAttack;
 
     // Attaque du joueur 1
-     function playerOneAttack() {
+    function playerOneAttack() {
+        console.log('ok');
         // Nom des joueurs
         var playerName = $scope.hero_name;
         var playerTwoName = $("#playerTwoName").text();
@@ -114,7 +121,8 @@ App.controller('battleController', function battleController($scope, $http) {
         //$('#j1-attaque').on('click', function () {
 
         // Bloque le clic des boutons de joueur 1
-        $(".attack-input").off();
+        // bug ici
+        // $(".attack-input").off();
 
         // Grise les boutons du joueurs
         $(".attack-input").css("background-color", "grey");
@@ -123,11 +131,11 @@ App.controller('battleController', function battleController($scope, $http) {
 
 
         // Animation attaque joueur 1
-        $(".sprites").css("position", "relative");
-        $(".sprites").css("left", "20em");
+        // $(".sprites").css("position", "relative");
+        // $(".sprites").css("left", "20em");
 
 
-        $('.weapons').removeClass("d-none");
+        // $('.weapons').removeClass("d-none");
 
 
 
@@ -158,7 +166,7 @@ App.controller('battleController', function battleController($scope, $http) {
             // Lance les animations de degat sur le joueur 2
             setTimeout(PlayerTwoDegatAnimation, 200);
             // Affiche message de combat
-            $('#message').text($scope.hero_name + ' donne un coup d\'épée à ' + playerTwoName + ', ce qui lui fait perdre ' + j1Atq + ' point de vie');
+            // $('#message').text($scope.hero_name + ' donne un coup d\'épée à ' + playerTwoName + ', ce qui lui fait perdre ' + j1Atq + ' point de vie');
         }
 
         // Met à jour les pv du joueur 2
@@ -177,7 +185,7 @@ App.controller('battleController', function battleController($scope, $http) {
         $('.player-two-hp-bar').css({
             width: playerTwoHpBar + '%'
         });
-        console.log('playerTwoHpBar' + playerTwoHpBar);
+        // console.log('playerTwoHpBar' + playerTwoHpBar);
         // Si la vie est en dessous de 10%
         if (playerTwoHpBar <= 20) {
             console.log('j2 hp --' + playerTwoHpBar);
@@ -194,7 +202,7 @@ App.controller('battleController', function battleController($scope, $http) {
             setTimeout(winPlayerOne, 2000);
         } else {
             // Replace les joueurs
-            setTimeout(replacePlayers,1000);
+            setTimeout(replacePlayers, 1000);
             // Sinon il attaque
             setTimeout(playerTwoAttack, 3000);
         }
@@ -210,8 +218,8 @@ App.controller('battleController', function battleController($scope, $http) {
 
 
         // Animation attaque joueur 2
-        $(".sprites-player2").css("position", "relative");
-        $(".sprites-player2").css("right", "20em");
+        // $(".sprites-player2").css("position", "relative");
+        // $(".sprites-player2").css("right", "20em");
 
 
 
@@ -222,6 +230,7 @@ App.controller('battleController', function battleController($scope, $http) {
         // TODO ajouter chance de fail
         // return Math.random() * (max - min) + min;
         var j2Power = parseInt($('#j2-power').text());
+        console.log(j2Power);
         var playerHpInitial = parseInt($('#j1initiaux-hp').text());
         var playerOneLife = parseInt($('#j1-hp').text());
 
@@ -230,7 +239,7 @@ App.controller('battleController', function battleController($scope, $http) {
         // Si le joueur 1 se protége
         if (playerOneBlockStatut === true) {
             // TODO Ajouter animation pour rendre ca visuel A REGLER
-            playerOneBlockAnnimation();
+            // playerOneBlockAnnimation();
             // Divise les degats par 5
             j2Atq = (j2Atq / 5);
             playerOneBlockStatut = false;
@@ -257,7 +266,7 @@ App.controller('battleController', function battleController($scope, $http) {
             //$('#message').text(playerTwoName + ' se rate et perd 3 point de vie!');
         } else {
             // Lance les animations de degat sur le joueur 1
-            setTimeout(PlayerOneDegatAnimation, 200);
+            // setTimeout(PlayerOneDegatAnimation, 200);
             // Affiche message de combat
             //$('#message').text(playerTwoName + ' frappe ' + $scope.hero_name + ' et lui fait perdre ' + j2Atq + ' point de vie!');
         }
@@ -294,7 +303,8 @@ App.controller('battleController', function battleController($scope, $http) {
         }
 
         // Replace les joueurs
-        setTimeout(replacePlayers, 1000);
+
+        // setTimeout(replacePlayers, 1000);
         // Débloque le joueur 1
         setTimeout(unblockPlayerOne, 1500);
 
@@ -302,41 +312,41 @@ App.controller('battleController', function battleController($scope, $http) {
     //);
 
     // Lorsque le joueur 1 prend des degats
-    function PlayerOneDegatAnimation() {
-        // Fait vibrer l'avatar
-        $('#playerOneAvatar').addClass('shake-constant');
-        $('#playerOneAvatar').addClass('shake-opacity');
-        // Colore la border en red
-        // $('#playerOneAvatar').css("border","red 2px solid");
-        //$(".battle__map__player-two-avatar").css("justify-content", "flex-start");
-        //$(".battle__map").css("width", "45%");
-        //$(".battle__map").css("justify-content", "flex-end");
-        setTimeout(StopPlayerOneDegatAnimation, 1000);
-    }
+    // function PlayerOneDegatAnimation() {
+    //     // Fait vibrer l'avatar
+    //     $('#playerOneAvatar').addClass('shake-constant');
+    //     $('#playerOneAvatar').addClass('shake-opacity');
+    //     // Colore la border en red
+    //     // $('#playerOneAvatar').css("border","red 2px solid");
+    //     //$(".battle__map__player-two-avatar").css("justify-content", "flex-start");
+    //     //$(".battle__map").css("width", "45%");
+    //     //$(".battle__map").css("justify-content", "flex-end");
+    //     setTimeout(StopPlayerOneDegatAnimation, 1000);
+    // }
 
     // Lorsque le joueur bloque une attaque
-    function playerOneBlockAnnimation () {
-        $('.weapons').removeClass("d-none");
-        $(".weapons").css("right", "31px");
-        $(".weapons").css("background-position", "-225px -243px");
-        $(".weapons").css("height", "27px");
-        setTimeout(StopPlayerOneDegatAnimation, 1000);
-    }
+    // function playerOneBlockAnnimation() {
+    //     $('.weapons').removeClass("d-none");
+    //     $(".weapons").css("right", "31px");
+    //     $(".weapons").css("background-position", "-225px -243px");
+    //     $(".weapons").css("height", "27px");
+    //     setTimeout(StopPlayerOneDegatAnimation, 1000);
+    // }
 
-    // Stop l'animation des degats du joueur 1
-    function StopPlayerOneDegatAnimation() {
-        // Arrete la vibration de l'avatar
-        $('#playerOneAvatar').removeClass('shake-constant');
-        $('#playerOneAvatar').removeClass('shake-opacity');
-        // Remet la border en black
-        // $('#playerOneAvatar').css("border", "none");
-    }
+    // // Stop l'animation des degats du joueur 1
+    // function StopPlayerOneDegatAnimation() {
+    //     // Arrete la vibration de l'avatar
+    //     $('#playerOneAvatar').removeClass('shake-constant');
+    //     $('#playerOneAvatar').removeClass('shake-opacity');
+    //     // Remet la border en black
+    //     // $('#playerOneAvatar').css("border", "none");
+    // }
 
     // Remet les joueurs à leur position d'origine
     function replacePlayers() {
         // Remet le joueur 1 à sa place
-        $(".sprites").css("left", "0em");
-        $('.weapons').addClass("d-none");
+        // $(".sprites").css("left", "0em");
+        // $('.weapons').addClass("d-none");
         // Replace le joueur 2
         $(".sprites-player2").css("right", "0em");
     }
@@ -402,11 +412,13 @@ App.controller('battleController', function battleController($scope, $http) {
     // Re donne la main au joueur
     function unblockPlayerOne() {
         // Re autorise le clic sur les boutons d'attaque/potion
-         $('#j1-attaque').on('click', playerOneAttack);
-         $('#j1-use-potion').on('click', restoreLife);
-         $('#j1-block').on('click', playerOneBlock);
+        // bug ici
+        $('#j1-attaque').on('click', playerOneAttack);
+        $('#j1-use-potion').on('click', restoreLife);
+        $('#j1-block').on('click', playerOneBlock);
+
         // Recolore les boutons du joueur
-        $(".attack-input").css("background-color", "#450000");
+        $(".attack-input").css("background-color", "#1aa5b4");
         $(".battle__map").css("width", "100%");
     }
 
@@ -477,4 +489,3 @@ App.controller('battleController', function battleController($scope, $http) {
     }
 
 });
-

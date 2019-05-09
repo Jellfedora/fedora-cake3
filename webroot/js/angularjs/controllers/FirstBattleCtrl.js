@@ -13,12 +13,16 @@ App.controller('firstBattleController', function firstBattleController($scope, $
 
         $scope.introduction = 'Ah enfin tu ouvres les yeux! Je commencais à me sentir bien seule içi.';
         if (i === 2) {
-            $scope.introduction = 'Oh non ils m\'ont retrouvée, j\'entends leurs grognements ils arrivent!';
+            $("#monster-roars")[0].play();
+            $scope.introduction = '...';
         }
         if (i === 3) {
-            $scope.introduction = 'Tu sais te battre? Prends mon épée, je suis blessée';
+            $scope.introduction = 'Oh non ils m\'ont retrouvée, ils arrivent!';
         }
         if (i === 4) {
+            $scope.introduction = 'Tu sais te battre? Prends mon épée, je suis blessée';
+        }
+        if (i === 5) {
             $scope.hideIntroduction = !$scope.hideIntroduction;
             $("#battle")[0].play();
         }

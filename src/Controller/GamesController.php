@@ -26,7 +26,7 @@ class GamesController extends AppController
         $this->loadModel('Heroes');
 
         //Cherche si un héros a déjà été créé pour ce joueur
-        $heroes= $this->Heroes;
+        $heroes = $this->Heroes;
         $query = $heroes
             ->find()
             ->where(['user_id' => $user_id]);
@@ -36,7 +36,7 @@ class GamesController extends AppController
         }
 
 
-        if (!empty ($hero->user_id) && ($hero->user_id)=== $user_id) {
+        if (!empty($hero->user_id) && ($hero->user_id) === $user_id) {
             // Si le joueur a un perso
             // echo($heroes->name);die();
             $this->setAction('firstFight', $hero);
@@ -57,24 +57,25 @@ class GamesController extends AppController
 
 
         // session en variable locale
-        $session = $this->getRequest()->getSession();//mise en place de la session
-        $session->write('hero_info',$hero_info); //Write
+        $session = $this->getRequest()->getSession(); //mise en place de la session
+        $session->write('hero_info', $hero_info); //Write
         //debug($session->read('hero_info'));die();
 
 
     }
 
     // Charge les infos du joueur pour la vue
-    public function heroInfo() {
-        $session = $this->getRequest()->getSession();//rappel de la session
+    public function heroInfo()
+    {
+        $session = $this->getRequest()->getSession(); //rappel de la session
         $hero_id = $session->read('hero_info.id');
         // Fait appel au model Heroes
         $this->loadModel('Heroes');
 
-        $heroes= $this->Heroes;
+        $heroes = $this->Heroes;
         $query = $heroes
-        ->find()
-        ->where(['id' => $hero_id]);
+            ->find()
+            ->where(['id' => $hero_id]);
 
         foreach ($query as $hero) {
             $hero;
@@ -85,11 +86,12 @@ class GamesController extends AppController
         exit;
     }
 
-    public function firstFight() {
+    public function firstFight()
+    {
         // Fait appel au model Soldiers
         $this->loadModel('Soldiers');
 
-        $soldiers= $this->Soldiers;
+        $soldiers = $this->Soldiers;
         $query = $soldiers
             ->find()
             ->where(['slug' => 'Queklain']);
@@ -104,7 +106,8 @@ class GamesController extends AppController
 
     }
 
-    public function victory() {
+    public function victory()
+    {
         // Ajax get fonctionnel!
         $message = 'Niveau 1 terminated!';
         $json = json_encode($message);
@@ -113,9 +116,10 @@ class GamesController extends AppController
     }
 
     // Met à jour le niveau du joueur aprés une victoire
-    public function updateHero() {
+    public function updateHero()
+    {
         //Session
-        $session = $this->getRequest()->getSession();//rappel de la session
+        $session = $this->getRequest()->getSession(); //rappel de la session
         //debug($session->read('hero_info'));die();
         $hero_id = $session->read('hero_info.id');
         // Fait appel au model Heroes
@@ -134,12 +138,13 @@ class GamesController extends AppController
         exit;
     }
 
-    public function secondFight() {
+    public function secondFight()
+    {
 
         // Fait appel au model Soldiers
         $this->loadModel('Soldiers');
 
-        $soldiers= $this->Soldiers;
+        $soldiers = $this->Soldiers;
         $query = $soldiers
             ->find()
             ->where(['slug' => 'Queklain2']);
@@ -152,12 +157,13 @@ class GamesController extends AppController
         ///debug($soldier);die();
     }
 
-    public function thirdFight() {
+    public function thirdFight()
+    {
 
         // Fait appel au model Soldiers
         $this->loadModel('Soldiers');
 
-        $soldiers= $this->Soldiers;
+        $soldiers = $this->Soldiers;
         $query = $soldiers
             ->find()
             ->where(['slug' => 'Bomb']);
@@ -169,8 +175,4 @@ class GamesController extends AppController
         $this->set(compact('soldier'));
         ///debug($soldier);die();
     }
-
-
-
-
 }

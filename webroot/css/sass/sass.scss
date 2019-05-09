@@ -17,8 +17,11 @@
 @import "game/sprites.scss",
 "game/sprites/player.scss",
 "game/sprites/mobs.scss",
+"game/battle",
 "game/battle-map",
-"game/battle_introduction";
+"game/battle_introduction",
+"game/battle-progress-hp-bar",
+"game/battle-menu";
 
 @import "libs/animate",
 "libs/csshake";
